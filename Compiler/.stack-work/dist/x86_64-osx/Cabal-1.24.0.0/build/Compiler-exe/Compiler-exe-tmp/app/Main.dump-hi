@@ -1,0 +1,60 @@
+
+==================== FINAL INTERFACE ====================
+2017-01-10 03:11:28.90737 UTC
+
+interface main@main:Main 8001
+  interface hash: e9bfe60a213792a13752a5b5a8054d11
+  ABI hash: d63bc316b8266fd4346c828654be220d
+  export-list hash: 18d00e61a86802bfa596fbbf5dcd92ea
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: bf5df54f0c9a330a77dfc39de45e7209
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+module dependencies:
+package dependencies: Compiler-0.1.0.0@Compiler-0.1.0.0-5zpykiNfomWL9fkJ0glyLp
+                      base-4.9.0.0* ghc-prim-0.5.0.0 integer-gmp-1.0.0.1
+orphans: base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+family instance modules: base-4.9.0.0:Control.Applicative
+                         base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Const
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Type.Equality
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+import  -/  Compiler-0.1.0.0@Compiler-0.1.0.0-5zpykiNfomWL9fkJ0glyLp:Lib 88eca752844467bca5a7f2aa12f062bc
+import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+d6831ef04cb9301b090dfae6f7bb7ec7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule2 Main.$trModule1) -}
+847d9fc3b8e6f0b424199f36b4999bb2
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Main"#) -}
+24ef6042833e75ffd7aa98b83ecca98d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+cf80cb832ebd5c38366102a01476b8e7
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Lib.someFunc1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+8e1b322d0eb8dbd35caa98f1b504dec5
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Lib.someFunc1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

@@ -1,0 +1,16 @@
+Configuring terminal-size-0.3.2.1...
+Building terminal-size-0.3.2.1...
+Preprocessing library terminal-size-0.3.2.1...
+Posix.hsc:24:9: warning: 'hsc_alignment' macro redefined [-Wmacro-redefined]
+#define hsc_alignment(t ) hsc_printf ( "%lu", (unsigned long)offsetof(struct {char x__; t (y__); }, y__));
+        ^
+/Library/Frameworks/GHC.framework/Versions/8.0.1-x86_64/usr/lib/ghc-8.0.1/template-hsc.h:88:9: note: previous definition is here
+#define hsc_alignment(t...) \
+        ^
+1 warning generated.
+[1 of 3] Compiling System.Console.Terminal.Common ( src/System/Console/Terminal/Common.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/System/Console/Terminal/Common.o )
+[2 of 3] Compiling System.Console.Terminal.Posix ( .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/System/Console/Terminal/Posix.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/System/Console/Terminal/Posix.o )
+[3 of 3] Compiling System.Console.Terminal.Size ( src/System/Console/Terminal/Size.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/System/Console/Terminal/Size.o )
+Installing library in
+/Users/szp/.stack/snapshots/x86_64-osx/nightly-2017-01-10/8.0.1/lib/x86_64-osx-ghc-8.0.1/terminal-size-0.3.2.1-LpkVHWZKZXdLX20uKh4q0i
+Registering terminal-size-0.3.2.1...

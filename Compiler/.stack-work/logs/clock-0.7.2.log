@@ -1,0 +1,14 @@
+Configuring clock-0.7.2...
+Building clock-0.7.2...
+Preprocessing library clock-0.7.2...
+Clock.hsc:44:9: warning: 'hsc_alignment' macro redefined [-Wmacro-redefined]
+#define hsc_alignment(t ) hsc_printf ( "%lu", (unsigned long)offsetof(struct {char x__; t (y__); }, y__));
+        ^
+/Library/Frameworks/GHC.framework/Versions/8.0.1-x86_64/usr/lib/ghc-8.0.1/template-hsc.h:88:9: note: previous definition is here
+#define hsc_alignment(t...) \
+        ^
+1 warning generated.
+[1 of 1] Compiling System.Clock     ( .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/System/Clock.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/System/Clock.o )
+Installing library in
+/Users/szp/.stack/snapshots/x86_64-osx/nightly-2017-01-10/8.0.1/lib/x86_64-osx-ghc-8.0.1/clock-0.7.2-1F3tpzhSilhF4wqwyRWqgE
+Registering clock-0.7.2...

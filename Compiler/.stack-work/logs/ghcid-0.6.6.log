@@ -1,0 +1,25 @@
+Configuring ghcid-0.6.6...
+Building ghcid-0.6.6...
+Preprocessing library ghcid-0.6.6...
+[1 of 6] Compiling Language.Haskell.Ghcid.Terminal ( src/Language/Haskell/Ghcid/Terminal.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/Language/Haskell/Ghcid/Terminal.o )
+[2 of 6] Compiling Paths_ghcid      ( .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/autogen/Paths_ghcid.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/Paths_ghcid.o )
+[3 of 6] Compiling Language.Haskell.Ghcid.Util ( src/Language/Haskell/Ghcid/Util.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/Language/Haskell/Ghcid/Util.o )
+[4 of 6] Compiling Language.Haskell.Ghcid.Types ( src/Language/Haskell/Ghcid/Types.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/Language/Haskell/Ghcid/Types.o )
+[5 of 6] Compiling Language.Haskell.Ghcid.Parser ( src/Language/Haskell/Ghcid/Parser.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/Language/Haskell/Ghcid/Parser.o )
+[6 of 6] Compiling Language.Haskell.Ghcid ( src/Language/Haskell/Ghcid.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/Language/Haskell/Ghcid.o )
+Preprocessing executable 'ghcid' for ghcid-0.6.6...
+[1 of 9] Compiling Language.Haskell.Ghcid.Util ( src/Language/Haskell/Ghcid/Util.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/ghcid/ghcid-tmp/Language/Haskell/Ghcid/Util.o )
+[2 of 9] Compiling Wait             ( src/Wait.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/ghcid/ghcid-tmp/Wait.o )
+[3 of 9] Compiling Language.Haskell.Ghcid.Terminal ( src/Language/Haskell/Ghcid/Terminal.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/ghcid/ghcid-tmp/Language/Haskell/Ghcid/Terminal.o )
+[4 of 9] Compiling Language.Haskell.Ghcid.Types ( src/Language/Haskell/Ghcid/Types.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/ghcid/ghcid-tmp/Language/Haskell/Ghcid/Types.o )
+[5 of 9] Compiling Language.Haskell.Ghcid.Parser ( src/Language/Haskell/Ghcid/Parser.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/ghcid/ghcid-tmp/Language/Haskell/Ghcid/Parser.o )
+[6 of 9] Compiling Paths_ghcid      ( .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/autogen/Paths_ghcid.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/ghcid/ghcid-tmp/Paths_ghcid.o )
+[7 of 9] Compiling Language.Haskell.Ghcid ( src/Language/Haskell/Ghcid.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/ghcid/ghcid-tmp/Language/Haskell/Ghcid.o )
+[8 of 9] Compiling Session          ( src/Session.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/ghcid/ghcid-tmp/Session.o )
+[9 of 9] Compiling Ghcid            ( src/Ghcid.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/ghcid/ghcid-tmp/Ghcid.o )
+Linking .stack-work/dist/x86_64-osx/Cabal-1.24.0.0/build/ghcid/ghcid ...
+Installing library in
+/Users/szp/.stack/snapshots/x86_64-osx/nightly-2017-01-10/8.0.1/lib/x86_64-osx-ghc-8.0.1/ghcid-0.6.6-HoNEfPDv3ajLm6T2iI46q0
+Installing executable(s) in
+/Users/szp/.stack/snapshots/x86_64-osx/nightly-2017-01-10/8.0.1/bin
+Registering ghcid-0.6.6...

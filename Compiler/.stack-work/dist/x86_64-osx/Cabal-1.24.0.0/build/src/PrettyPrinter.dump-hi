@@ -1,0 +1,884 @@
+
+==================== FINAL INTERFACE ====================
+2017-01-14 08:22:28.376908 UTC
+
+interface Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:PrettyPrinter [orphan module] 8001
+  interface hash: 6808a650da4f4af8157d47be37720b58
+  ABI hash: 9030de5a3e53e441b504c21b37511bd0
+  export-list hash: 2586213fda3e403076fbdca4d2948fbb
+  orphan hash: 2bca36b0bbe667368fb5784d57e42ebf
+  flag hash: f5b889281a3ec7e36516336dd527c22b
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  PrettyPrinter.debuger
+  PrettyPrinter.prettyPrinter
+  PrettyPrinter.printBool
+  PrettyPrinter.printExpr
+  PrettyPrinter.printList
+  PrettyPrinter.printNum
+  PrettyPrinter.printSL
+  PrettyPrinter.printStmt
+module dependencies: Grammer
+package dependencies: GenericPretty-1.2.1@GenericPretty-1.2.1-FqlYg3LhEVa3kMV6nPdaDK
+                      array-0.5.1.1@array-0.5.1.1
+                      attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43
+                      base-4.9.0.0 binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      hashable-1.2.4.0@hashable-1.2.4.0-Ctl752zbguF6QanxurLOm2
+                      integer-gmp-1.0.0.1
+                      integer-logarithms-1@integer-logarithms-1-E6LvTbkhTkGIa6wPB3rtJw
+                      pretty-1.1.3.3@pretty-1.1.3.3
+                      primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa
+                      scientific-0.3.4.10@scientific-0.3.4.10-2Y658Wts4fDGgAkWhKOJwC
+                      text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs
+                      transformers-0.5.2.0@transformers-0.5.2.0
+                      vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3
+orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Text.Internal
+         base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         hashable-1.2.4.0@hashable-1.2.4.0-Ctl752zbguF6QanxurLOm2:Data.Hashable.Generic
+         text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
+         text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
+         text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Show
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+         vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector.Fusion.Bundle
+family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Internal.Types
+                         base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
+                         base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Const
+                         base-4.9.0.0:Data.Functor.Identity base-4.9.0.0:Data.List.NonEmpty
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Semigroup
+                         base-4.9.0.0:Data.Type.Equality base-4.9.0.0:Data.Version
+                         base-4.9.0.0:Data.Void base-4.9.0.0:GHC.Exts
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa:Control.Monad.Primitive
+                         text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
+                         text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
+                         vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector
+import  -/  Grammer 09bcd3be53d8e5456d336e8011cb1b38
+  exports: 8573809e4ae35293632b6931db7d4032
+  Add 56755a2bec6ad1efb4571bb492106689
+  And 4068059c045fb90e250d4e503898045b
+  Assign b0392ba67c26d67a44d4d15d3826fc73
+  BExp 47bf3c676cbfd7e0bce0c9c342a097c3
+  BVar b45d24567709d145865c4268e8c55e2c
+  BoolExpr f69ee7cb0913d8d165c1a2aacd5f9a7b
+  Car d6b8ac040d48480689cf531221750fce
+  Cdr eda9b85e34f21bcd50c57d89cd236b9d
+  CharLit 733ec747ca23dcb3e28f8bb4406ed4ea
+  Cons 698477e3a274952de2bdd9b10e9bbcfd
+  Cycle eb879ef25a4f6f2723e24bc5c2247ace
+  Div 3192e1b4fee4895cad4b1a6c5a520065
+  E a9c6107f63a04ceeb550faebbfd243b4
+  EVar 5fec007a2a36a05468353bedc74ea68d
+  Exp e8dddf4321c21049b48cba53b50aaafd
+  Expr f69ee7cb0913d8d165c1a2aacd5f9a7b
+  FalseLit 45c4f41d378d06120840a2e3f8b89fb6
+  G 4b1675f790c26bae2b879fecaa1947d8
+  GE 85e535fed3938b3023f32653d71763f4
+  If 6c4935db25c4ccd6ed9decee0d2b9d0f
+  L 09be7b05617790856d7b11f8bfdafa57
+  LE 5acaf0e3ee27b8aa7a95745ba8af374c
+  LExp 82686c5a2c8918d593153e8274cf4e09
+  LVar 64ec80a91b26fb5c7f1c9306399eab37
+  ListExpr f69ee7cb0913d8d165c1a2aacd5f9a7b
+  Mul dcb5b16de1d49f701b59ce1fcae2c9e2
+  NExp 3c04b51de401b8e93f97dd5636f18ffc
+  NVar c88c299a371f23436f0e76dd518de7c7
+  New_vec eb7b9f40aef2601f4bd6e52086fda724
+  Nil bd9dfc786c56c2169c4337bba1acf6bb
+  Not d7c3709c63235fb235d4813dc102ee24
+  NumExpr f69ee7cb0913d8d165c1a2aacd5f9a7b
+  Number acea581fa8bfd9f9abb8cd96c63b0461
+  One 0116d3aaa4e98859392309bd77821932
+  Or e737638c192013c8f10ceca2629624f9
+  Set_vec 1e03bab518d229dce51ff779e61581c8
+  Skip ed71165731557df6868b8cc7b20cda98
+  Stmt 5d9dc54ce2ca21ce0ae1d85edb99bd46
+  Stmt_cycle f02ef01afaa418849c749f349b991cd9
+  Stmt_list 5d9dc54ce2ca21ce0ae1d85edb99bd46
+  StringLit e7f53fa0eba9b4c250b7f7961b5f432c
+  Sub 3779065bda4f35affd5ddc6dc4b23afa
+  TrueLit 90a95f4b60caf69cb6864bc0bbd5e83e
+  While 1de00f9a476884c71b15b2673deea56d
+  parseAST 65aae7447e030e67db193c3220f6a9da
+import  -/  GenericPretty-1.2.1@GenericPretty-1.2.1-FqlYg3LhEVa3kMV6nPdaDK:Text.PrettyPrint.GenericPretty 3b264e393d0551a18b0cec434e731346
+import  -/  attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Text d3cff0ad187398020adcebc8a0709b72
+import  -/  base-4.9.0.0:Control.Applicative 7728b33d6969dce59e89474349eb1397
+import  -/  base-4.9.0.0:Data.Either bd9f099b82d4ed2d98c56d7144ac6957
+import  -/  base-4.9.0.0:Data.Functor 6fc476505db88d678632a4a838125f13
+import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
+import  -/  base-4.9.0.0:GHC.Num 48f506a8f4ecf06285d0a0706594dcc0
+import  -/  base-4.9.0.0:GHC.Show 952347a6ab730bcb25c0854d8bc6ca51
+import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Set 3ed2324fd1e757464a8ac2b636a64e5a
+import  -/  pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint abe8aeb00d775221281f89090d9fbe2a
+import  -/  pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ 605911b9dce2ae2537926ad94c7cbb11
+import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text 1e73069de2859bae8530c14767b0c6af
+import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Internal bfb0ec5fde448272375be97e2314e47b
+da55667f46786a9466607de7b3a1dd10
+  $fShowBoolExpr :: GHC.Show.Show Grammer.BoolExpr
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Grammer.BoolExpr
+                  PrettyPrinter.$fShowBoolExpr_$cshowsPrec
+                  PrettyPrinter.$fShowBoolExpr_$cshow
+                  PrettyPrinter.$fShowBoolExpr_$cshowList -}
+88b0f9f9cfc5ad8ae9003939983daadd
+  $fShowBoolExpr1 ::
+    Grammer.BoolExpr -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2,
+     Unfolding: (\ (x :: Grammer.BoolExpr)
+                   (s30 :: GHC.Base.String)[OneShot] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (PrettyPrinter.$fShowBoolExpr_$cshow x)
+                   s30) -}
+da9cd38929d3bfeab63df0fa8dc75614
+  $fShowBoolExpr2 ::
+    Text.PrettyPrint.Annotated.HughesPJ.AnnotDetails ()
+    -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, HasNoCafRefs,
+     Unfolding: (\ (ds :: Text.PrettyPrint.Annotated.HughesPJ.AnnotDetails
+                            ())
+                   (eta :: GHC.Base.String)[OneShot] ->
+                 case ds of wild {
+                   DEFAULT -> eta
+                   Text.PrettyPrint.Annotated.HughesPJ.NoAnnot s30 dt1
+                   -> case s30 of wild1 {
+                        Text.PrettyPrint.Annotated.HughesPJ.Chr dt
+                        -> GHC.Types.: @ GHC.Types.Char (GHC.Types.C# dt) eta
+                        Text.PrettyPrint.Annotated.HughesPJ.Str s31
+                        -> GHC.Base.++ @ GHC.Types.Char s31 eta
+                        Text.PrettyPrint.Annotated.HughesPJ.PStr s31
+                        -> GHC.Base.++ @ GHC.Types.Char s31 eta } }) -}
+d09c67294aec5df8e36a568a5510bfdc
+  $fShowBoolExpr_$cshow :: Grammer.BoolExpr -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ (x :: Grammer.BoolExpr) ->
+                 Text.PrettyPrint.Annotated.HughesPJ.fullRenderAnn
+                   @ ()
+                   @ GHC.Base.String
+                   Text.PrettyPrint.Annotated.HughesPJ.PageMode
+                   Text.PrettyPrint.Annotated.HughesPJ.render3
+                   Text.PrettyPrint.Annotated.HughesPJ.render2
+                   PrettyPrinter.$fShowBoolExpr2
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   (PrettyPrinter.$wprintBool x 0#)
+                     `cast`
+                   (Text.PrettyPrint.HughesPJ.N:Doc[0])) -}
+27a004fcf4eb3b4398503d312b0d5232
+  $fShowBoolExpr_$cshowList :: [Grammer.BoolExpr] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ (ls :: [Grammer.BoolExpr])
+                   (s30 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ Grammer.BoolExpr
+                   PrettyPrinter.$fShowBoolExpr1
+                   ls
+                   s30) -}
+5317e1ad67ee973a955540031f917350
+  $fShowBoolExpr_$cshowsPrec ::
+    GHC.Types.Int -> Grammer.BoolExpr -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: GHC.Types.Int)
+                   (x :: Grammer.BoolExpr)
+                   (s30 :: GHC.Base.String) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n
+                      (PrettyPrinter.$fShowBoolExpr_$cshow x))
+                   s30) -}
+b8d09ab1f6601353f3ee3a0da0f38f2d
+  $fShowExpr :: GHC.Show.Show Grammer.Expr
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Grammer.Expr
+                  PrettyPrinter.$fShowExpr_$cshowsPrec
+                  PrettyPrinter.$fShowExpr_$cshow
+                  PrettyPrinter.$fShowExpr_$cshowList -}
+8bad5b005c2a3549e05f2c0cc7e79c4b
+  $fShowExpr1 :: Grammer.Expr -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2,
+     Unfolding: (\ (x :: Grammer.Expr)
+                   (s30 :: GHC.Base.String)[OneShot] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (PrettyPrinter.$fShowExpr_$cshow x)
+                   s30) -}
+db46fb63c8fdfef204247a5d268d0112
+  $fShowExpr10 :: Text.PrettyPrint.Annotated.HughesPJ.TextDetails
+  {- Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.Str
+                   PrettyPrinter.$fShowExpr_s2) -}
+361fbe1c82b564c961b55144490f7968
+  $fShowExpr11 :: Text.PrettyPrint.Annotated.HughesPJ.RDoc ()
+  {- Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.reduceDoc
+                   @ ()
+                   PrettyPrinter.$fShowExpr12
+                     `cast`
+                   (Text.PrettyPrint.HughesPJ.N:Doc[0])) -}
+50c0bcc2b3d8c3d3f38a2e8854475f39
+  $fShowExpr12 :: Text.PrettyPrint.HughesPJ.Doc
+  {- Unfolding: (case GHC.List.$wlenAcc
+                        @ GHC.Types.Char
+                        PrettyPrinter.$fShowExpr_s3
+                        0# of ww2 { DEFAULT ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                    @ ()
+                    (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                       @ ()
+                       PrettyPrinter.$fShowExpr13
+                       ww2)
+                    (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+4ec995c77bf6e5c22e46d3ab86dfb02b
+  $fShowExpr13 :: Text.PrettyPrint.Annotated.HughesPJ.TextDetails
+  {- Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.Str
+                   PrettyPrinter.$fShowExpr_s3) -}
+848ae53671df9a1f725fca75042f23d7
+  $fShowExpr2 :: Text.PrettyPrint.Annotated.HughesPJ.RDoc ()
+  {- Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.reduceDoc
+                   @ ()
+                   PrettyPrinter.$fShowExpr3
+                     `cast`
+                   (Text.PrettyPrint.HughesPJ.N:Doc[0])) -}
+b01f8ba634e4b649773b307a88e4bf15
+  $fShowExpr3 :: Text.PrettyPrint.HughesPJ.Doc
+  {- Unfolding: (case GHC.List.$wlenAcc
+                        @ GHC.Types.Char
+                        PrettyPrinter.$fShowExpr_s
+                        0# of ww2 { DEFAULT ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                    @ ()
+                    (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                       @ ()
+                       PrettyPrinter.$fShowExpr4
+                       ww2)
+                    (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+e297c2af7b34cca39433f9bcf2cc72b8
+  $fShowExpr4 :: Text.PrettyPrint.Annotated.HughesPJ.TextDetails
+  {- Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.Str
+                   PrettyPrinter.$fShowExpr_s) -}
+fa9760206cef7ee611b884e4ac836399
+  $fShowExpr5 :: Text.PrettyPrint.Annotated.HughesPJ.RDoc ()
+  {- Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.reduceDoc
+                   @ ()
+                   PrettyPrinter.$fShowExpr6
+                     `cast`
+                   (Text.PrettyPrint.HughesPJ.N:Doc[0])) -}
+bb25134ff05ad3f65e9878ab84c6e751
+  $fShowExpr6 :: Text.PrettyPrint.HughesPJ.Doc
+  {- Unfolding: (case GHC.List.$wlenAcc
+                        @ GHC.Types.Char
+                        PrettyPrinter.$fShowExpr_s1
+                        0# of ww2 { DEFAULT ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                    @ ()
+                    (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                       @ ()
+                       PrettyPrinter.$fShowExpr7
+                       ww2)
+                    (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+411f86fef9459cca3c4e1feb2cd9e4ed
+  $fShowExpr7 :: Text.PrettyPrint.Annotated.HughesPJ.TextDetails
+  {- Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.Str
+                   PrettyPrinter.$fShowExpr_s1) -}
+cf8d87602516e2a7178ff2e7e2a6e166
+  $fShowExpr8 :: Text.PrettyPrint.Annotated.HughesPJ.RDoc ()
+  {- Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.reduceDoc
+                   @ ()
+                   PrettyPrinter.$fShowExpr9
+                     `cast`
+                   (Text.PrettyPrint.HughesPJ.N:Doc[0])) -}
+0a0195d5c24d7482ee30b1a488d81433
+  $fShowExpr9 :: Text.PrettyPrint.HughesPJ.Doc
+  {- Unfolding: (case GHC.List.$wlenAcc
+                        @ GHC.Types.Char
+                        PrettyPrinter.$fShowExpr_s2
+                        0# of ww2 { DEFAULT ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                    @ ()
+                    (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                       @ ()
+                       PrettyPrinter.$fShowExpr10
+                       ww2)
+                    (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+949a842807001063063e02674f3c88cf
+  $fShowExpr_$cshow :: Grammer.Expr -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ (x :: Grammer.Expr) ->
+                 Text.PrettyPrint.Annotated.HughesPJ.fullRenderAnn
+                   @ ()
+                   @ GHC.Base.String
+                   Text.PrettyPrint.Annotated.HughesPJ.PageMode
+                   Text.PrettyPrint.Annotated.HughesPJ.render3
+                   Text.PrettyPrint.Annotated.HughesPJ.render2
+                   PrettyPrinter.$fShowBoolExpr2
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   (PrettyPrinter.$wprintExpr x 0#)
+                     `cast`
+                   (Text.PrettyPrint.HughesPJ.N:Doc[0])) -}
+034db75b0fb6a7f7d3f252dbb3dba194
+  $fShowExpr_$cshowList :: [Grammer.Expr] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ (ls :: [Grammer.Expr]) (s30 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ Grammer.Expr
+                   PrettyPrinter.$fShowExpr1
+                   ls
+                   s30) -}
+e67d5dffbea89ed9d1f36d1ec6e61ec8
+  $fShowExpr_$cshowsPrec ::
+    GHC.Types.Int -> Grammer.Expr -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: GHC.Types.Int)
+                   (x :: Grammer.Expr)
+                   (s30 :: GHC.Base.String) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n
+                      (PrettyPrinter.$fShowExpr_$cshow x))
+                   s30) -}
+fc9f8d79cf61d81f93131cf398929618
+  $fShowExpr_s :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# "list"#) -}
+8cd127157764c768af211581add1360c
+  $fShowExpr_s1 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# "num"#) -}
+3703e4181b7166205222d50d4802b6f4
+  $fShowExpr_s2 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# "bool"#) -}
+66ef841daee6e161f476b4e43ac26fea
+  $fShowExpr_s3 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# "var"#) -}
+fdba9b6a77d0f4ec9dfd85254fe44818
+  $fShowListExpr :: GHC.Show.Show Grammer.ListExpr
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Grammer.ListExpr
+                  PrettyPrinter.$fShowListExpr_$cshowsPrec
+                  PrettyPrinter.$fShowListExpr_$cshow
+                  PrettyPrinter.$fShowListExpr_$cshowList -}
+8a35bd917d7f9e56f56faf06849547b8
+  $fShowListExpr1 ::
+    Grammer.ListExpr -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2,
+     Unfolding: (\ (x :: Grammer.ListExpr)
+                   (s30 :: GHC.Base.String)[OneShot] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (PrettyPrinter.$fShowListExpr_$cshow x)
+                   s30) -}
+43ebd30b8d024184a98a82fa5ce841ce
+  $fShowListExpr_$cshow :: Grammer.ListExpr -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ (x :: Grammer.ListExpr) ->
+                 Text.PrettyPrint.Annotated.HughesPJ.fullRenderAnn
+                   @ ()
+                   @ GHC.Base.String
+                   Text.PrettyPrint.Annotated.HughesPJ.PageMode
+                   Text.PrettyPrint.Annotated.HughesPJ.render3
+                   Text.PrettyPrint.Annotated.HughesPJ.render2
+                   PrettyPrinter.$fShowBoolExpr2
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   (PrettyPrinter.$wprintList x 0#)
+                     `cast`
+                   (Text.PrettyPrint.HughesPJ.N:Doc[0])) -}
+de0473eb926e7d784cf61a0a40c705f3
+  $fShowListExpr_$cshowList :: [Grammer.ListExpr] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ (ls :: [Grammer.ListExpr])
+                   (s30 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ Grammer.ListExpr
+                   PrettyPrinter.$fShowListExpr1
+                   ls
+                   s30) -}
+cb2dcf010f66b699ed364afcf2b07d55
+  $fShowListExpr_$cshowsPrec ::
+    GHC.Types.Int -> Grammer.ListExpr -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: GHC.Types.Int)
+                   (x :: Grammer.ListExpr)
+                   (s30 :: GHC.Base.String) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n
+                      (PrettyPrinter.$fShowListExpr_$cshow x))
+                   s30) -}
+0874fbe48f158cddc645ffcbb2560a42
+  $fShowNumExpr :: GHC.Show.Show Grammer.NumExpr
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Grammer.NumExpr
+                  PrettyPrinter.$fShowNumExpr_$cshowsPrec
+                  PrettyPrinter.$fShowNumExpr_$cshow
+                  PrettyPrinter.$fShowNumExpr_$cshowList -}
+481972575c798ae64bb91ac00f789f24
+  $fShowNumExpr1 ::
+    Grammer.NumExpr -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2,
+     Unfolding: (\ (x :: Grammer.NumExpr)
+                   (s30 :: GHC.Base.String)[OneShot] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (PrettyPrinter.$fShowNumExpr_$cshow x)
+                   s30) -}
+8dfe680849a428f328af7a3ea536dcf4
+  $fShowNumExpr_$cshow :: Grammer.NumExpr -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ (x :: Grammer.NumExpr) ->
+                 Text.PrettyPrint.Annotated.HughesPJ.fullRenderAnn
+                   @ ()
+                   @ GHC.Base.String
+                   Text.PrettyPrint.Annotated.HughesPJ.PageMode
+                   Text.PrettyPrint.Annotated.HughesPJ.render3
+                   Text.PrettyPrint.Annotated.HughesPJ.render2
+                   PrettyPrinter.$fShowBoolExpr2
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   (PrettyPrinter.$wprintNum x 0#)
+                     `cast`
+                   (Text.PrettyPrint.HughesPJ.N:Doc[0])) -}
+803565c7433d441a1e8c9b2d07170dc2
+  $fShowNumExpr_$cshowList :: [Grammer.NumExpr] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ (ls :: [Grammer.NumExpr]) (s30 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ Grammer.NumExpr
+                   PrettyPrinter.$fShowNumExpr1
+                   ls
+                   s30) -}
+38dce82a116fa84d1faaf8e6175d542f
+  $fShowNumExpr_$cshowsPrec ::
+    GHC.Types.Int -> Grammer.NumExpr -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: GHC.Types.Int)
+                   (x :: Grammer.NumExpr)
+                   (s30 :: GHC.Base.String) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n
+                      (PrettyPrinter.$fShowNumExpr_$cshow x))
+                   s30) -}
+e7b09570d10c6fbadaa671d710db780c
+  $fShowStmt :: GHC.Show.Show Grammer.Stmt
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Grammer.Stmt
+                  PrettyPrinter.$fShowStmt_$cshowsPrec
+                  PrettyPrinter.$fShowStmt_$cshow
+                  PrettyPrinter.$fShowStmt_$cshowList -}
+fcbd4dc9bef548f4b7dbe61ffa9c693a
+  $fShowStmt1 :: Grammer.Stmt -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2,
+     Unfolding: (\ (x :: Grammer.Stmt)
+                   (s30 :: GHC.Base.String)[OneShot] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (PrettyPrinter.$fShowStmt_$cshow x)
+                   s30) -}
+74d3b1f5e74fc1fb4495ccc0cc0eeb67
+  $fShowStmt_$cshow :: Grammer.Stmt -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ (x :: Grammer.Stmt) ->
+                 Text.PrettyPrint.Annotated.HughesPJ.fullRenderAnn
+                   @ ()
+                   @ GHC.Base.String
+                   Text.PrettyPrint.Annotated.HughesPJ.PageMode
+                   Text.PrettyPrint.Annotated.HughesPJ.render3
+                   Text.PrettyPrint.Annotated.HughesPJ.render2
+                   PrettyPrinter.$fShowBoolExpr2
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   (PrettyPrinter.$wprintStmt x 0#)
+                     `cast`
+                   (Text.PrettyPrint.HughesPJ.N:Doc[0])) -}
+37af274a1f38df052ccf6866442a879d
+  $fShowStmt_$cshowList :: [Grammer.Stmt] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ (ls :: [Grammer.Stmt]) (s30 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ Grammer.Stmt
+                   PrettyPrinter.$fShowStmt1
+                   ls
+                   s30) -}
+df706ddbb113f501aba6d61041e8298f
+  $fShowStmt_$cshowsPrec ::
+    GHC.Types.Int -> Grammer.Stmt -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: GHC.Types.Int)
+                   (x :: Grammer.Stmt)
+                   (s30 :: GHC.Base.String) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n
+                      (PrettyPrinter.$fShowStmt_$cshow x))
+                   s30) -}
+5b56db5491bbecc762155a3541ba3729
+  $fShowStmt_list :: GHC.Show.Show Grammer.Stmt_list
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Grammer.Stmt_list
+                  PrettyPrinter.$fShowStmt_list_$cshowsPrec
+                  PrettyPrinter.$fShowStmt_list_$cshow
+                  PrettyPrinter.$fShowStmt_list_$cshowList -}
+a290e6582a3178e6e68e292fc73fec02
+  $fShowStmt_list1 ::
+    Grammer.Stmt_list -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2,
+     Unfolding: (\ (x :: Grammer.Stmt_list)
+                   (s30 :: GHC.Base.String)[OneShot] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (PrettyPrinter.$fShowStmt_list_$cshow x)
+                   s30) -}
+3819b86f0bad0a16dbe53a28cee52d9e
+  $fShowStmt_list_$cshow :: Grammer.Stmt_list -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ (x :: Grammer.Stmt_list) ->
+                 Text.PrettyPrint.Annotated.HughesPJ.fullRenderAnn
+                   @ ()
+                   @ GHC.Base.String
+                   Text.PrettyPrint.Annotated.HughesPJ.PageMode
+                   Text.PrettyPrint.Annotated.HughesPJ.render3
+                   Text.PrettyPrint.Annotated.HughesPJ.render2
+                   PrettyPrinter.$fShowBoolExpr2
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   (PrettyPrinter.$wprintSL x 0#)
+                     `cast`
+                   (Text.PrettyPrint.HughesPJ.N:Doc[0])) -}
+bfb5af844b67952aa209b3c6330a4426
+  $fShowStmt_list_$cshowList :: [Grammer.Stmt_list] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ (ls :: [Grammer.Stmt_list])
+                   (s30 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ Grammer.Stmt_list
+                   PrettyPrinter.$fShowStmt_list1
+                   ls
+                   s30) -}
+9e3e525681dd2f8ef934a5e38ba2b99a
+  $fShowStmt_list_$cshowsPrec ::
+    GHC.Types.Int -> Grammer.Stmt_list -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: GHC.Types.Int)
+                   (x :: Grammer.Stmt_list)
+                   (s30 :: GHC.Base.String) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n
+                      (PrettyPrinter.$fShowStmt_list_$cshow x))
+                   s30) -}
+040c25bba2323dba74aac1dc1269f725
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   PrettyPrinter.$trModule2
+                   PrettyPrinter.$trModule1) -}
+23715ef6567058611468301adc1af1d7
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "PrettyPrinter"#) -}
+a921731e5c3acade7f2a1da009d43a9c
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"#) -}
+4613bd13a683df67269d080ced2520e8
+  $wprintBool ::
+    Grammer.BoolExpr -> GHC.Prim.Int# -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><L,U>, Inline: [0] -}
+fbc132b0aa82a1d5e9e12aba9507cff2
+  $wprintExpr ::
+    Grammer.Expr -> GHC.Prim.Int# -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><S,U>, Inline: [0],
+     Unfolding: (\ (w :: Grammer.Expr) (ww :: GHC.Prim.Int#) ->
+                 case w of wild {
+                   Grammer.EVar v
+                   -> let {
+                        s30 :: GHC.Base.String = Grammer.$fEqVar_$cshow v
+                      } in
+                      case GHC.List.$wlenAcc @ GHC.Types.Char s30 0# of ww2 { DEFAULT ->
+                      case Text.PrettyPrint.Annotated.HughesPJ.$wmkNest
+                             @ ()
+                             (GHC.Prim.+# ww 3#)
+                             (Text.PrettyPrint.Annotated.HughesPJ.reduceDoc
+                                @ ()
+                                (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Str s30)
+                                      ww2)
+                                   (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))) of wild1 {
+                        DEFAULT
+                        -> case Text.PrettyPrint.Annotated.HughesPJ.$wmkNest
+                                  @ ()
+                                  ww
+                                  PrettyPrinter.$fShowExpr11 of wild2 {
+                             DEFAULT
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                                   @ ()
+                                   wild2
+                                   GHC.Types.True
+                                   wild1)
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                             Text.PrettyPrint.Annotated.HughesPJ.Empty
+                             -> wild1 `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.$wmkNest
+                              @ ()
+                              ww
+                              PrettyPrinter.$fShowExpr11)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }
+                   Grammer.BExp v
+                   -> case (PrettyPrinter.$wprintBool v (GHC.Prim.+# ww 3#))
+                             `cast`
+                           (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                        DEFAULT
+                        -> case Text.PrettyPrint.Annotated.HughesPJ.$wmkNest
+                                  @ ()
+                                  ww
+                                  PrettyPrinter.$fShowExpr8 of wild2 {
+                             DEFAULT
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                                   @ ()
+                                   wild2
+                                   GHC.Types.True
+                                   wild1)
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                             Text.PrettyPrint.Annotated.HughesPJ.Empty
+                             -> wild1 `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.$wmkNest
+                              @ ()
+                              ww
+                              PrettyPrinter.$fShowExpr8)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                   Grammer.NExp v
+                   -> case (PrettyPrinter.$wprintNum v (GHC.Prim.+# ww 3#))
+                             `cast`
+                           (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                        DEFAULT
+                        -> case Text.PrettyPrint.Annotated.HughesPJ.$wmkNest
+                                  @ ()
+                                  ww
+                                  PrettyPrinter.$fShowExpr5 of wild2 {
+                             DEFAULT
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                                   @ ()
+                                   wild2
+                                   GHC.Types.True
+                                   wild1)
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                             Text.PrettyPrint.Annotated.HughesPJ.Empty
+                             -> wild1 `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.$wmkNest
+                              @ ()
+                              ww
+                              PrettyPrinter.$fShowExpr5)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                   Grammer.LExp v
+                   -> case (PrettyPrinter.$wprintList v (GHC.Prim.+# ww 3#))
+                             `cast`
+                           (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                        DEFAULT
+                        -> case Text.PrettyPrint.Annotated.HughesPJ.$wmkNest
+                                  @ ()
+                                  ww
+                                  PrettyPrinter.$fShowExpr2 of wild2 {
+                             DEFAULT
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                                   @ ()
+                                   wild2
+                                   GHC.Types.True
+                                   wild1)
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                             Text.PrettyPrint.Annotated.HughesPJ.Empty
+                             -> wild1 `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.$wmkNest
+                              @ ()
+                              ww
+                              PrettyPrinter.$fShowExpr2)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }) -}
+40149079141ec83bfb022bce7f293c11
+  $wprintList ::
+    Grammer.ListExpr -> GHC.Prim.Int# -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><L,U>, Inline: [0] -}
+e13b0664669d1aafaa88294766e4ca2b
+  $wprintNum ::
+    Grammer.NumExpr -> GHC.Prim.Int# -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><S,U>, Inline: [0] -}
+d6648c884838f1ab6db937a9aba9d3ec
+  $wprintSL ::
+    Grammer.Stmt_list -> GHC.Prim.Int# -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><S,U>, Inline: [0] -}
+11e28d96d973f54b7414691586dff997
+  $wprintStmt ::
+    Grammer.Stmt -> GHC.Prim.Int# -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><L,U>, Inline: [0] -}
+4c54c8c285e48c3512b9cdcf58a5978d
+  debuger ::
+    GHC.Show.Show t =>
+    Data.Either.Either GHC.Base.String t -> GHC.Base.String
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(A,1*C1(U),A)><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ t
+                   ($dShow :: GHC.Show.Show t)
+                   (ds :: Data.Either.Either GHC.Base.String t) ->
+                 case ds of wild {
+                   Data.Either.Left s30 -> s30
+                   Data.Either.Right t1 -> GHC.Show.show @ t $dShow t1 }) -}
+fa2be77e3c83dc1b70ff820779752155
+  prettyPrinter ::
+    [GHC.Base.String]
+    -> Data.Either.Either GHC.Base.String [GHC.Base.String]
+  {- Arity: 1, Strictness: <S,1*U> -}
+bc1abe8b98b83c3a181849bcad94a92c
+  printBool ::
+    Grammer.BoolExpr -> GHC.Types.Int -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><S,U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Grammer.BoolExpr) (w1 :: GHC.Types.Int) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 PrettyPrinter.$wprintBool w ww1 }) -}
+fa112ba6c095ab1e9850c1ee6cd3b6c6
+  printExpr ::
+    Grammer.Expr -> GHC.Types.Int -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><S(S),U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Grammer.Expr) (w1 :: GHC.Types.Int) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 PrettyPrinter.$wprintExpr w ww1 }) -}
+b97232779b2a6aa12f74c936b3fddd3b
+  printList ::
+    Grammer.ListExpr -> GHC.Types.Int -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><S,U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Grammer.ListExpr) (w1 :: GHC.Types.Int) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 PrettyPrinter.$wprintList w ww1 }) -}
+c713b044a614d46ed86b579e4d493548
+  printNum ::
+    Grammer.NumExpr -> GHC.Types.Int -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><S(S),U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Grammer.NumExpr) (w1 :: GHC.Types.Int) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 PrettyPrinter.$wprintNum w ww1 }) -}
+8f6b45c12dd376f49db18066dc72db72
+  printSL ::
+    Grammer.Stmt_list -> GHC.Types.Int -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><S(S),U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Grammer.Stmt_list) (w1 :: GHC.Types.Int) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 PrettyPrinter.$wprintSL w ww1 }) -}
+c0592cdccf494277f8fbf9e64e946d3c
+  printStmt ::
+    Grammer.Stmt -> GHC.Types.Int -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><S,U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Grammer.Stmt) (w1 :: GHC.Types.Int) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 PrettyPrinter.$wprintStmt w ww1 }) -}
+instance GHC.Show.Show [Grammer.BoolExpr]
+  = PrettyPrinter.$fShowBoolExpr
+instance GHC.Show.Show [Grammer.Expr] = PrettyPrinter.$fShowExpr
+instance GHC.Show.Show [Grammer.ListExpr]
+  = PrettyPrinter.$fShowListExpr
+instance GHC.Show.Show [Grammer.NumExpr]
+  = PrettyPrinter.$fShowNumExpr
+instance GHC.Show.Show [Grammer.Stmt] = PrettyPrinter.$fShowStmt
+instance GHC.Show.Show [Grammer.Stmt_list]
+  = PrettyPrinter.$fShowStmt_list
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

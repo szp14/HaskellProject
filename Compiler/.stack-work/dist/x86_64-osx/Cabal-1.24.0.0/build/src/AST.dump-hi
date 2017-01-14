@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-13 03:33:04.464544 UTC
+2017-01-14 01:49:59.25583 UTC
 
-interface Compiler-0.1.0.0-A5AqcFYQOeY4hOCoTusz4T:AST 8001
-  interface hash: a6e6d79def5aef04b31946d6340f4d85
-  ABI hash: 044a0df1502dc6fe6b4d1847ca58cba1
-  export-list hash: b40501e951ece93991e58af02844453c
+interface Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:AST 8001
+  interface hash: 5067be99a1d82bd10eedc2fe5807b539
+  ABI hash: eb1c12a750a9193e09956e0eb6a60f4e
+  export-list hash: 67eb7d487a347549833e17b2a65e88b5
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: db082111cc32dd58ed548dcc273abe68
   sig of: Nothing
@@ -56,10 +56,10 @@ family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh1
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
                          vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector
-import  -/  Lexical ded13c5a7e534dd59e914c12b068fdb9
-  exports: adff915e72040da3ec2441897cc72692
-  Stmt c83303050bc67f175a82e1e5219a4727
-  stmtParser f7b28c8c04731185c428ad626a29e19f
+import  -/  Lexical efb96b2e98754a1c7f4596b930a82d44
+  exports: 6031e673bb203ba7d49321f533aafb93
+  Stmt 33346d2223bbd5ee71d81807aa14585c
+  stmtParser dedf3286f5111231b112f7a6389d0e23
 import  -/  attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Text d3cff0ad187398020adcebc8a0709b72
 import  -/  attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Text.Internal fd0d5edacc9a9428b223517c76c5dd06
 import  -/  base-4.9.0.0:Control.Applicative 7728b33d6969dce59e89474349eb1397
@@ -69,20 +69,20 @@ import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text 1e73069de2859bae8530c14767b0c6af
 import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Internal bfb0ec5fde448272375be97e2314e47b
-026c4581da213b840b63f2da16645494
+ce899432cd374c7908f44732445f8b8a
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module AST.$trModule2 AST.$trModule1) -}
-1a4868f6af58a99ed369af696568c39e
+f2631b0302c3cd41ab9c0ccb7facf7fb
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "AST"#) -}
-8c74993452bcedcae762b2bf371cf999
+5217d6dc03231d0a0d669f82e0a3dc7d
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
-                   "Compiler-0.1.0.0-A5AqcFYQOeY4hOCoTusz4T"#) -}
-dbeda06ff9015240f6c0d5644d792eee
+                   "Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"#) -}
+6dc8846c26bf258f58ceb139a27f5c88
   $wouter ::
     Data.Text.Array.MArray GHC.Prim.RealWorld
     -> GHC.Types.Int
@@ -93,7 +93,7 @@ dbeda06ff9015240f6c0d5644d792eee
           Data.Text.Internal.Text #)
   {- Arity: 5, Strictness: <L,U(U)><L,U(U)><S,1*U><S,U><S,U>,
      Inline: [0] -}
-5acba071d3a2ee73b881a92422bc6527
+a326ae8c5ccb52edfb6a08700a01ee5b
   parseAST ::
     GHC.Base.String -> Data.Either.Either GHC.Base.String Lexical.Stmt
   {- Arity: 1, Strictness: <S,1*U>,
@@ -159,13 +159,13 @@ dbeda06ff9015240f6c0d5644d792eee
                    Data.Attoparsec.Internal.Types.Partial ipv2 -> AST.parseAST1
                    Data.Attoparsec.Internal.Types.Done ds a1
                    -> Data.Either.Right @ [GHC.Types.Char] @ Lexical.Stmt a1 } } }) -}
-26caaf53cc90237113e7f5b4af15aeba
+f6319afabd925fe3096e1de73e2cc3be
   parseAST1 :: Data.Either.Either GHC.Base.String Lexical.Stmt
   {- Strictness: x -}
-5763a1774605667e9f602f9bbab3c4d9
+0a1a56a5011d186c4a027816d1a98df4
   parseAST2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# " > "#) -}
-b4654b59cfacff6d7f648e36f1326d6a
+c0337fc1e06fba82fb0734d6da489e09
   parseAST3 :: GHC.Types.Int
   {- HasNoCafRefs, Unfolding: (GHC.Types.I# 4#) -}
 vectorised variables:

@@ -1,12 +1,12 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-13 03:33:01.796391 UTC
+2017-01-14 03:51:59.658005 UTC
 
-interface Compiler-0.1.0.0-A5AqcFYQOeY4hOCoTusz4T:Lexical 8001
-  interface hash: 6ed45b6c82bebb7942ca324ddfb97b4e
-  ABI hash: ded13c5a7e534dd59e914c12b068fdb9
-  export-list hash: adff915e72040da3ec2441897cc72692
-  orphan hash: 1d25a4ca0d850695ece0a40f19a19210
+interface Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Lexical 8001
+  interface hash: de9b5b157a336f5d5a17d7c514f036f8
+  ABI hash: ad58eb66817460544fc0f66b1abe6359
+  export-list hash: 6031e673bb203ba7d49321f533aafb93
+  orphan hash: a7140978494091572335b62e7319089d
   flag hash: db082111cc32dd58ed548dcc273abe68
   sig of: Nothing
   used TH splices: False
@@ -25,36 +25,47 @@ exports:
   Lexical.divParser
   Lexical.equalParser
   Lexical.exprParser
+  Lexical.exprVarParser
   Lexical.falseParser
   Lexical.floatParser
   Lexical.geParser
   Lexical.greatParser
+  Lexical.ifParser
   Lexical.keywords
   Lexical.leParser
   Lexical.lessParser
   Lexical.lexeme
   Lexical.lexpParser
   Lexical.listExprParser
+  Lexical.listToStmt_list
   Lexical.listVarParser
   Lexical.mulParser
+  Lexical.new_vecParser
   Lexical.nexpParser
   Lexical.notParser
   Lexical.nullParser
   Lexical.numExprParser
   Lexical.numVarParser
   Lexical.orParser
+  Lexical.set_vecParser
+  Lexical.skipParser
   Lexical.stmtExprParser
+  Lexical.stmtListParser
   Lexical.stmtParser
+  Lexical.stmt_listParser
   Lexical.stringParser
   Lexical.subParser
   Lexical.trueParser
   Lexical.varParser
+  Lexical.vectorParser
+  Lexical.whileParser
   Lexical.BoolExpr{Lexical.And Lexical.BVar Lexical.FalseLit Lexical.Not Lexical.Or Lexical.TrueLit}
   Lexical.Expr{Lexical.BExp Lexical.EVar Lexical.LExp Lexical.NExp}
   Lexical.ListExpr{Lexical.Car Lexical.Cdr Lexical.CharLit Lexical.Cons Lexical.LVar Lexical.Nil Lexical.StringLit}
   Lexical.NumExpr{Lexical.Add Lexical.Div Lexical.E Lexical.G Lexical.GE Lexical.L Lexical.LE Lexical.Mul Lexical.NVar Lexical.Number Lexical.Sub}
-  Lexical.Stmt{Lexical.Assign Lexical.Exp}
-  Lexical.Var{Lexical.TypeBool Lexical.TypeList Lexical.TypeNum Lexical.TypeUnknown}
+  Lexical.Stmt{Lexical.Assign Lexical.Exp Lexical.If Lexical.New_vec Lexical.Set_vec Lexical.Skip Lexical.Stmt_cycle Lexical.While}
+  Lexical.Stmt_list{Lexical.Cycle Lexical.One}
+  Lexical.Var{Lexical.TypeBool Lexical.TypeList Lexical.TypeNum Lexical.TypeUnknown Lexical.TypeVector}
 module dependencies:
 package dependencies: array-0.5.1.1@array-0.5.1.1
                       attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43
@@ -98,34 +109,35 @@ family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh1
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
                          vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector
+import  -/  attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Combinator 1a39284ebbaf658e3583ff14a7addafc
 import  -/  attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Text d3cff0ad187398020adcebc8a0709b72
 import  -/  attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Text.Internal fd0d5edacc9a9428b223517c76c5dd06
 import  -/  base-4.9.0.0:Control.Applicative 7728b33d6969dce59e89474349eb1397
 import  -/  base-4.9.0.0:Data.Functor 6fc476505db88d678632a4a838125f13
 import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
+import  -/  base-4.9.0.0:GHC.List 13d2451194c1c6e53b4f4f07947736dd
 import  -/  base-4.9.0.0:GHC.Show 952347a6ab730bcb25c0854d8bc6ca51
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Set 3ed2324fd1e757464a8ac2b636a64e5a
 import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base a8d226a906391942317c3409714bd02d
 import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
-import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text 1e73069de2859bae8530c14767b0c6af
 import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Internal bfb0ec5fde448272375be97e2314e47b
 import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Show f1f9b8deb132e3cc6c9369ebd9da68d2
-84f1d68d568ac221a0f7a055af6faaa3
+4734be74f3e74f5eed8b8b43c63b8e76
   $fEqVar :: GHC.Classes.Eq Lexical.Var
   DFunId
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
      Unfolding: DFun:.
                   @ Lexical.Var Lexical.$fEqVar_$c== Lexical.$fEqVar_$c/= -}
-84f1d68d568ac221a0f7a055af6faaa3
+4734be74f3e74f5eed8b8b43c63b8e76
   $fEqVar_$c/= :: Lexical.Var -> Lexical.Var -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>,
      Inline: INLINE (sat-args=2),
      Unfolding: InlineRule (2, False, False)
                 (\ (x :: Lexical.Var) (y :: Lexical.Var) ->
                  GHC.Classes.not (Lexical.$fEqVar_$c== x y)) -}
-84f1d68d568ac221a0f7a055af6faaa3
+4734be74f3e74f5eed8b8b43c63b8e76
   $fEqVar_$c== :: Lexical.Var -> Lexical.Var -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
@@ -133,91 +145,10 @@ import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Show f1f9
                  GHC.Base.eqString
                    (Lexical.$fEqVar_$cshow a)
                    (Lexical.$fEqVar_$cshow b)) -}
-84f1d68d568ac221a0f7a055af6faaa3
+4734be74f3e74f5eed8b8b43c63b8e76
   $fEqVar_$cshow :: Lexical.Var -> GHC.Base.String
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-84f1d68d568ac221a0f7a055af6faaa3
-  $fOrdVar :: GHC.Classes.Ord Lexical.Var
-  DFunId
-  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun:.
-                  @ Lexical.Var
-                  Lexical.$fEqVar
-                  Lexical.$fOrdVar_$ccompare
-                  Lexical.$fOrdVar_$c<
-                  Lexical.$fOrdVar_$c<=
-                  Lexical.$fOrdVar_$c>
-                  Lexical.$fOrdVar_$c>=
-                  Lexical.$fOrdVar_$cmax
-                  Lexical.$fOrdVar_$cmin -}
-84f1d68d568ac221a0f7a055af6faaa3
-  $fOrdVar_$c< :: Lexical.Var -> Lexical.Var -> GHC.Types.Bool
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ (x :: Lexical.Var) (y :: Lexical.Var) ->
-                 case Lexical.$fOrdVar_$ccompare x y of wild {
-                   DEFAULT -> GHC.Types.False GHC.Types.LT -> GHC.Types.True }) -}
-84f1d68d568ac221a0f7a055af6faaa3
-  $fOrdVar_$c<= :: Lexical.Var -> Lexical.Var -> GHC.Types.Bool
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ (x :: Lexical.Var) (y :: Lexical.Var) ->
-                 case Lexical.$fOrdVar_$ccompare x y of wild {
-                   DEFAULT -> GHC.Types.True GHC.Types.GT -> GHC.Types.False }) -}
-84f1d68d568ac221a0f7a055af6faaa3
-  $fOrdVar_$c> :: Lexical.Var -> Lexical.Var -> GHC.Types.Bool
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ (x :: Lexical.Var) (y :: Lexical.Var) ->
-                 case Lexical.$fOrdVar_$ccompare x y of wild {
-                   DEFAULT -> GHC.Types.False GHC.Types.GT -> GHC.Types.True }) -}
-84f1d68d568ac221a0f7a055af6faaa3
-  $fOrdVar_$c>= :: Lexical.Var -> Lexical.Var -> GHC.Types.Bool
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ (x :: Lexical.Var) (y :: Lexical.Var) ->
-                 case Lexical.$fOrdVar_$ccompare x y of wild {
-                   DEFAULT -> GHC.Types.True GHC.Types.LT -> GHC.Types.False }) -}
-84f1d68d568ac221a0f7a055af6faaa3
-  $fOrdVar_$ccompare ::
-    Lexical.Var -> Lexical.Var -> GHC.Types.Ordering
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
-     Unfolding: (\ (a :: Lexical.Var) (b :: Lexical.Var) ->
-                 case a of wild {
-                   Lexical.TypeBool a1
-                   -> case b of wild1 {
-                        DEFAULT -> GHC.Types.LT
-                        Lexical.TypeBool b1 -> Data.Text.$fOrdText_$ccompare a1 b1 }
-                   Lexical.TypeNum a1
-                   -> case b of wild1 {
-                        DEFAULT -> GHC.Types.LT
-                        Lexical.TypeBool ds -> GHC.Types.GT
-                        Lexical.TypeNum b1 -> Data.Text.$fOrdText_$ccompare a1 b1 }
-                   Lexical.TypeList a1
-                   -> case b of wild1 {
-                        DEFAULT -> GHC.Types.GT
-                        Lexical.TypeList b1 -> Data.Text.$fOrdText_$ccompare a1 b1
-                        Lexical.TypeUnknown ds -> GHC.Types.LT }
-                   Lexical.TypeUnknown a1
-                   -> case b of wild1 {
-                        DEFAULT -> GHC.Types.GT
-                        Lexical.TypeUnknown b1
-                        -> Data.Text.$fOrdText_$ccompare a1 b1 } }) -}
-84f1d68d568ac221a0f7a055af6faaa3
-  $fOrdVar_$cmax :: Lexical.Var -> Lexical.Var -> Lexical.Var
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,U><S,U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ (x :: Lexical.Var) (y :: Lexical.Var) ->
-                 case Lexical.$fOrdVar_$ccompare x y of wild {
-                   DEFAULT -> y GHC.Types.GT -> x }) -}
-84f1d68d568ac221a0f7a055af6faaa3
-  $fOrdVar_$cmin :: Lexical.Var -> Lexical.Var -> Lexical.Var
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,U><S,U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ (x :: Lexical.Var) (y :: Lexical.Var) ->
-                 case Lexical.$fOrdVar_$ccompare x y of wild {
-                   DEFAULT -> x GHC.Types.GT -> y }) -}
-71b7b2323e18460994b0d1cd717ba07c
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowBoolExpr :: GHC.Show.Show Lexical.BoolExpr
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -226,15 +157,15 @@ import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Show f1f9
                   Lexical.$fShowBoolExpr_$cshowsPrec
                   Lexical.$fShowBoolExpr_$cshow
                   Lexical.$fShowBoolExpr_$cshowList -}
-71b7b2323e18460994b0d1cd717ba07c
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowBoolExpr1 :: Lexical.BoolExpr -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (Lexical.$fShowBoolExpr_$cshowsPrec
                    Lexical.$fShowBoolExpr2) -}
-b20630f1a7d3996fb4b58f93a8f16c88
+678b3e7db374dfc1924ffafbea665594
   $fShowBoolExpr2 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
-71b7b2323e18460994b0d1cd717ba07c
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowBoolExpr_$cshow :: Lexical.BoolExpr -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
@@ -243,17 +174,17 @@ b20630f1a7d3996fb4b58f93a8f16c88
                    GHC.Show.shows22
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-71b7b2323e18460994b0d1cd717ba07c
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowBoolExpr_$cshowList :: [Lexical.BoolExpr] -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (GHC.Show.showList__
                    @ Lexical.BoolExpr
                    Lexical.$fShowBoolExpr1) -}
-71b7b2323e18460994b0d1cd717ba07c
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowBoolExpr_$cshowsPrec ::
     GHC.Types.Int -> Lexical.BoolExpr -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <L,1*U(U)><S,1*U><L,U> -}
-a5b053a35e99ae10936ec3b6c01f4253
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowExpr :: GHC.Show.Show Lexical.Expr
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -262,26 +193,26 @@ a5b053a35e99ae10936ec3b6c01f4253
                   Lexical.$fShowExpr_$cshowsPrec1
                   Lexical.$fShowExpr_$cshow
                   Lexical.$fShowExpr_$cshowList -}
-a5b053a35e99ae10936ec3b6c01f4253
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowExpr1 :: Lexical.Expr -> GHC.Show.ShowS
   {- Arity: 1,
      Unfolding: (\ (w :: Lexical.Expr) -> Lexical.$w$cshowsPrec 0# w) -}
-52f1e5ee2faf312bba4108709bddc5a8
+009c63d9d9b0cd8932c37db3802cb421
   $fShowExpr2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "LExp "#) -}
-ea5b7442414ef46fadafee9c3a8e5f13
+5dbd229bd837f7b729bb2220098ca4ba
   $fShowExpr3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "NExp "#) -}
-1e9b10316ae04c9dae2c7deafd610764
+c5a06aa41844dabc906df86ad593e23a
   $fShowExpr4 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 11#) -}
-be7d8d037dc1c9d36c867308ea9a049a
+ce78b27b32e828ebcda44b871057bad9
   $fShowExpr5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "BExp "#) -}
-d41c555d739c3f6b839c8b1ca7c0f887
+7fe5f752ee68a0ec510fa397c2d4e9e5
   $fShowExpr6 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "EVar "#) -}
-a5b053a35e99ae10936ec3b6c01f4253
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowExpr_$cshow :: Lexical.Expr -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: (\ (x :: Lexical.Expr) ->
@@ -315,17 +246,17 @@ a5b053a35e99ae10936ec3b6c01f4253
                            Lexical.$fShowExpr4
                            b1
                            (GHC.Types.[] @ GHC.Types.Char)) }) -}
-a5b053a35e99ae10936ec3b6c01f4253
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowExpr_$cshowList :: [Lexical.Expr] -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (GHC.Show.showList__
                    @ Lexical.Expr
                    Lexical.$fShowExpr1) -}
-d070c5300eee747c23b50fd3670a8046
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowExpr_$cshowsPrec ::
     GHC.Types.Int -> Lexical.ListExpr -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <L,1*U(U)><S,1*U><L,U> -}
-a5b053a35e99ae10936ec3b6c01f4253
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowExpr_$cshowsPrec1 ::
     GHC.Types.Int -> Lexical.Expr -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S(S),1*U(U)><S,1*U>, Inline: INLINE[0],
@@ -333,7 +264,7 @@ a5b053a35e99ae10936ec3b6c01f4253
                 (\ (w :: GHC.Types.Int) (w1 :: Lexical.Expr) ->
                  case w of ww { GHC.Types.I# ww1 ->
                  Lexical.$w$cshowsPrec ww1 w1 }) -}
-d070c5300eee747c23b50fd3670a8046
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowListExpr :: GHC.Show.Show Lexical.ListExpr
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -342,12 +273,12 @@ d070c5300eee747c23b50fd3670a8046
                   Lexical.$fShowExpr_$cshowsPrec
                   Lexical.$fShowListExpr_$cshow
                   Lexical.$fShowListExpr_$cshowList -}
-d070c5300eee747c23b50fd3670a8046
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowListExpr1 :: Lexical.ListExpr -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (Lexical.$fShowExpr_$cshowsPrec
                    Lexical.$fShowBoolExpr2) -}
-d070c5300eee747c23b50fd3670a8046
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowListExpr_$cshow :: Lexical.ListExpr -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
@@ -356,13 +287,13 @@ d070c5300eee747c23b50fd3670a8046
                    GHC.Show.shows22
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-d070c5300eee747c23b50fd3670a8046
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowListExpr_$cshowList :: [Lexical.ListExpr] -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (GHC.Show.showList__
                    @ Lexical.ListExpr
                    Lexical.$fShowListExpr1) -}
-11be7d829d1ed81418e5c306782c3dec
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowNumExpr :: GHC.Show.Show Lexical.NumExpr
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -371,12 +302,12 @@ d070c5300eee747c23b50fd3670a8046
                   Lexical.$fShowNumExpr_$cshowsPrec
                   Lexical.$fShowNumExpr_$cshow
                   Lexical.$fShowNumExpr_$cshowList -}
-11be7d829d1ed81418e5c306782c3dec
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowNumExpr1 :: Lexical.NumExpr -> GHC.Show.ShowS
   {- Arity: 1,
      Unfolding: (\ (w :: Lexical.NumExpr) ->
                  Lexical.$w$cshowsPrec1 0# w) -}
-11be7d829d1ed81418e5c306782c3dec
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowNumExpr_$cshow :: Lexical.NumExpr -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
@@ -385,13 +316,13 @@ d070c5300eee747c23b50fd3670a8046
                    GHC.Show.shows22
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-11be7d829d1ed81418e5c306782c3dec
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowNumExpr_$cshowList :: [Lexical.NumExpr] -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (GHC.Show.showList__
                    @ Lexical.NumExpr
                    Lexical.$fShowNumExpr1) -}
-11be7d829d1ed81418e5c306782c3dec
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowNumExpr_$cshowsPrec ::
     GHC.Types.Int -> Lexical.NumExpr -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S(S),1*U(U)><S,1*U>, Inline: INLINE[0],
@@ -399,7 +330,7 @@ d070c5300eee747c23b50fd3670a8046
                 (\ (w :: GHC.Types.Int) (w1 :: Lexical.NumExpr) ->
                  case w of ww { GHC.Types.I# ww1 ->
                  Lexical.$w$cshowsPrec1 ww1 w1 }) -}
-c83303050bc67f175a82e1e5219a4727
+33346d2223bbd5ee71d81807aa14585c
   $fShowStmt :: GHC.Show.Show Lexical.Stmt
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -408,35 +339,68 @@ c83303050bc67f175a82e1e5219a4727
                   Lexical.$fShowStmt_$cshowsPrec
                   Lexical.$fShowStmt_$cshow
                   Lexical.$fShowStmt_$cshowList -}
-c83303050bc67f175a82e1e5219a4727
+33346d2223bbd5ee71d81807aa14585c
   $fShowStmt1 :: Lexical.Stmt -> GHC.Show.ShowS
   {- Arity: 1,
-     Unfolding: (\ (w :: Lexical.Stmt) ->
-                 Lexical.$w$cshowsPrec2 0# w) -}
-fab17fc6b47946fcbb254440464f0db1
-  $fShowStmt2 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Exp "#) -}
-126610d7533119328889bb7346c11a2c
-  $fShowStmt3 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Assign "#) -}
-c83303050bc67f175a82e1e5219a4727
+     Unfolding: (Lexical.$fShowStmt_$cshowsPrec
+                   Lexical.$fShowBoolExpr2) -}
+33346d2223bbd5ee71d81807aa14585c
   $fShowStmt_$cshow :: Lexical.Stmt -> GHC.Base.String
-  {- Arity: 1, Strictness: <S,1*U> -}
-c83303050bc67f175a82e1e5219a4727
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: Lexical.Stmt) ->
+                 Lexical.$fShowStmt_$cshowsPrec
+                   GHC.Show.shows22
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+33346d2223bbd5ee71d81807aa14585c
   $fShowStmt_$cshowList :: [Lexical.Stmt] -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (GHC.Show.showList__
                    @ Lexical.Stmt
                    Lexical.$fShowStmt1) -}
-c83303050bc67f175a82e1e5219a4727
+33346d2223bbd5ee71d81807aa14585c
   $fShowStmt_$cshowsPrec ::
     GHC.Types.Int -> Lexical.Stmt -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <L,1*U(U)><S,1*U> -}
+33346d2223bbd5ee71d81807aa14585c
+  $fShowStmt_list :: GHC.Show.Show Lexical.Stmt_list
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Lexical.Stmt_list
+                  Lexical.$fShowStmt_list_$cshowsPrec
+                  Lexical.$fShowStmt_list_$cshow
+                  Lexical.$fShowStmt_list_$cshowList -}
+33346d2223bbd5ee71d81807aa14585c
+  $fShowStmt_list1 :: Lexical.Stmt_list -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ (w :: Lexical.Stmt_list) ->
+                 Lexical.$w$cshowsPrec2 0# w) -}
+33346d2223bbd5ee71d81807aa14585c
+  $fShowStmt_list_$cshow :: Lexical.Stmt_list -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: Lexical.Stmt_list) ->
+                 Lexical.$fShowStmt_list_$cshowsPrec
+                   GHC.Show.shows22
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+33346d2223bbd5ee71d81807aa14585c
+  $fShowStmt_list_$cshowList :: [Lexical.Stmt_list] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Lexical.Stmt_list
+                   Lexical.$fShowStmt_list1) -}
+33346d2223bbd5ee71d81807aa14585c
+  $fShowStmt_list_$cshowsPrec ::
+    GHC.Types.Int -> Lexical.Stmt_list -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S(S),1*U(U)><S,1*U>, Inline: INLINE[0],
      Unfolding: InlineRule (2, True, False)
-                (\ (w :: GHC.Types.Int) (w1 :: Lexical.Stmt) ->
+                (\ (w :: GHC.Types.Int) (w1 :: Lexical.Stmt_list) ->
                  case w of ww { GHC.Types.I# ww1 ->
                  Lexical.$w$cshowsPrec2 ww1 w1 }) -}
-84f1d68d568ac221a0f7a055af6faaa3
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowVar :: GHC.Show.Show Lexical.Var
   DFunId
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -445,17 +409,17 @@ c83303050bc67f175a82e1e5219a4727
                   Lexical.$fShowVar_$cshowsPrec
                   Lexical.$fEqVar_$cshow
                   Lexical.$fShowVar_$cshowList -}
-84f1d68d568ac221a0f7a055af6faaa3
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowVar1 :: Lexical.Var -> GHC.Base.String -> [GHC.Types.Char]
   {- Arity: 2, HasNoCafRefs,
      Unfolding: (\ (x :: Lexical.Var) (s :: GHC.Base.String)[OneShot] ->
                  GHC.Base.++ @ GHC.Types.Char (Lexical.$fEqVar_$cshow x) s) -}
-84f1d68d568ac221a0f7a055af6faaa3
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowVar_$cshowList :: [Lexical.Var] -> GHC.Show.ShowS
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>,
      Unfolding: (\ (ls :: [Lexical.Var]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ Lexical.Var Lexical.$fShowVar1 ls s) -}
-84f1d68d568ac221a0f7a055af6faaa3
+4734be74f3e74f5eed8b8b43c63b8e76
   $fShowVar_$cshowsPrec ::
     GHC.Types.Int -> Lexical.Var -> GHC.Show.ShowS
   {- Arity: 3, HasNoCafRefs, Strictness: <L,A><S,1*U><L,1*U>,
@@ -470,7 +434,7 @@ c83303050bc67f175a82e1e5219a4727
                       (n :: b)[OneShot] ->
                     GHC.Base.foldr @ GHC.Types.Char @ b c n (Lexical.$fEqVar_$cshow x))
                    s) -}
-fcc1c273c94666e8fd07adbfa23755c3
+ea60b15bd4f1eae468b9a4d5c66dc53a
   $sfromList ::
     [GHC.Base.String] -> Data.Set.Base.Set GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
@@ -510,525 +474,645 @@ fcc1c273c94666e8fd07adbfa23755c3
                                      (Data.Set.Base.Tip @ GHC.Base.String)
                                      (Data.Set.Base.Tip @ GHC.Base.String))
                                   wild1 } } } }) -}
-2abdd24f36d78b9a9af67962503c34c6
+5f30d2be267771a7550a092072ccff8f
   $sfromList_go5 ::
     Data.Set.Base.Set GHC.Base.String
     -> [GHC.Base.String] -> Data.Set.Base.Set GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
-48eaa4c1baedb53e498e6ac4b2e38da3
+e5d4b7e6435ffca660e2788d17e9a0df
   $sinsert_$sgo5 ::
     GHC.Base.String
     -> Data.Set.Base.Set GHC.Base.String
     -> Data.Set.Base.Set GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
-88f357bcc5c149422afa94f4c0e25588
+c2d60fb08df51ce22570c9d44ac9e75a
   $smember_go5 ::
     GHC.Base.String
     -> Data.Set.Base.Set GHC.Base.String -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U> -}
-b613f68c6a02962de2e42cdac89e0d08
+56a1075f0b32a53c97c625c386a811e5
   $tc'Add :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   18279963465063834104##
-                   265201145431394597##
+                   14728109412659142004##
+                   15064757462905557894##
                    Lexical.$trModule
                    Lexical.$tc'Add1) -}
-9df8a35c98612eba7f32afbc0e6dcd5e
+ef8f716876bc34dd17e3477d7182ae1b
   $tc'Add1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Add"#) -}
-108a540ab33e424735025c102e107a24
+25058a82b60c2b75e41bfdc97c52ea37
   $tc'And :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   13816928548359690602##
-                   11497249424431927666##
+                   1777249295911905168##
+                   1518742761707874117##
                    Lexical.$trModule
                    Lexical.$tc'And1) -}
-41458797397a10a9c9e4452619e6ec25
+d250c0f964aa9c423224abeac839eb75
   $tc'And1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'And"#) -}
-34481ab76036cd1a9dc39b33961e7594
+9ce0f1c9f0b1b2589c0ea5e488f84a3a
   $tc'Assign :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   10624596759208237405##
-                   14815822818024468325##
+                   16974500991709883631##
+                   13005800457462489517##
                    Lexical.$trModule
                    Lexical.$tc'Assign1) -}
-95296bf56b64b087031ac202da230ad3
+58baa750df459e817b9002d856c2f81e
   $tc'Assign1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Assign"#) -}
-3a13f4c96bd387904c102c772b3a637a
+8acd1d6826d36a3834002c38a7548516
   $tc'BExp :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   11183913836116955921##
-                   10664658227060227615##
+                   14650938192889687553##
+                   575176493457227672##
                    Lexical.$trModule
                    Lexical.$tc'BExp1) -}
-178f1d005be1efba56bd17098e30f847
+113a40163039cffb9000c3dfe1c28883
   $tc'BExp1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'BExp"#) -}
-7b26befc3c170fe3a1313f71507ce6c6
+c9a385564422de06ce5c13757c912f5b
   $tc'BVar :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   11029925364230176598##
-                   9553610236647741165##
+                   7813814712505074116##
+                   4656259821838398553##
                    Lexical.$trModule
                    Lexical.$tc'BVar1) -}
-d68cb72a948662ff691c5bb62d611d24
+f7eba83c7cfecd5a37cc822195dba850
   $tc'BVar1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'BVar"#) -}
-0b3674e2a807a36c7197c0ec1fada061
+2797a7eace466533646bd195650986f7
   $tc'Car :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   10121079055910968409##
-                   14965446435930999739##
+                   2467096367601194062##
+                   5936472619564469359##
                    Lexical.$trModule
                    Lexical.$tc'Car1) -}
-5bb07dcd8bc8d046f50afc657f762782
+42f7ad8487f96db69964c64099096865
   $tc'Car1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Car"#) -}
-001696b6adf7bff0830d61763e3531e7
+9d1af5ad88b94dfb4797b3315c981397
   $tc'Cdr :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   6177743463128873071##
-                   15946212069801000971##
+                   3129709403321666635##
+                   7166809361616049286##
                    Lexical.$trModule
                    Lexical.$tc'Cdr1) -}
-207232d4ba9bb751fcfcf817f8942b11
+5fac716ff1583d75f42525353cd5b27c
   $tc'Cdr1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Cdr"#) -}
-7cfd6ae16c7e28fb9c4e6b7e9daad8ef
+e226e3fc0fc0c04500fca397e12e86d0
   $tc'CharLit :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   17775617628415114068##
-                   8226772873336127008##
+                   16866024397839321816##
+                   13837967283755899649##
                    Lexical.$trModule
                    Lexical.$tc'CharLit1) -}
-52b91483295728bf453fb238bfdcec69
+86c6f77b346d93a9021fd919386dea8b
   $tc'CharLit1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'CharLit"#) -}
-a5144689ef53020b445b99866fed8d02
+7ecadcbb5a5c26b6acddf406252b0773
   $tc'Cons :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   1266492064432660039##
-                   12219053287052492624##
+                   4262793817873468587##
+                   514893697839078220##
                    Lexical.$trModule
                    Lexical.$tc'Cons1) -}
-7f4c8d09fa259e0ec0e63cff3521e85a
+80ce389ed7e117bdd890a086d61ccc33
   $tc'Cons1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Cons"#) -}
-ff01c0dc66c9ad6ef5689120fe786345
+3ab8d5ed5c7d50b8f18946654c1cec98
+  $tc'Cycle :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   18384723707867670992##
+                   7096610494935190265##
+                   Lexical.$trModule
+                   Lexical.$tc'Cycle1) -}
+07a4a737377c2ad91fc832072ccce478
+  $tc'Cycle1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Cycle"#) -}
+4b0b764918f416874de93eaa915f8b91
   $tc'Div :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   1742575732019838510##
-                   11983611521396445897##
+                   15095390748468986577##
+                   13906827478279740705##
                    Lexical.$trModule
                    Lexical.$tc'Div1) -}
-897ffad0a2ffc8da04319ef5292f7250
+fa89610e081ac01a733dc3eecb5c19fc
   $tc'Div1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Div"#) -}
-0780c903a77651aa2a89d9e851b209b3
+41ddf69cae5f819635e66aa9e2af4338
   $tc'E :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   15763801364953911940##
-                   1490107564187385193##
+                   14261180669004559871##
+                   15154128908560446169##
                    Lexical.$trModule
                    Lexical.$tc'E1) -}
-ac309934f048e1197aa9a05abd07405f
+37e1eef32ee50a1f532dc5163fd9c0ac
   $tc'E1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'E"#) -}
-87caba5fc6d1c0778a9b370d2255eae7
+15463d732b862887d1bf497b44578f08
   $tc'EVar :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   5479954520392295161##
-                   43272173630104549##
+                   1020614846777937653##
+                   2308868984253406868##
                    Lexical.$trModule
                    Lexical.$tc'EVar1) -}
-f434c2def42c02f84439d72bf58fdd9d
+81067e0670e086a6651c05ee625a5f05
   $tc'EVar1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'EVar"#) -}
-560cc69fe72d4d833ba313bce0a50b6b
+ec547413cccfcdf9087ade3a09cb5cfd
   $tc'Exp :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   4108313845108735081##
-                   591558315623913578##
+                   3297603917503425959##
+                   458923732429044958##
                    Lexical.$trModule
                    Lexical.$tc'Exp1) -}
-6a463b7582bcc7f54553da2219331447
+8d9f17a56d7d1255a82e726241f948f1
   $tc'Exp1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Exp"#) -}
-8de3896e444dec380be3cfe82c45a707
+6faff372c2364ff2dc938e76252472ae
   $tc'FalseLit :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   6988907318508096479##
-                   8525371522408729915##
+                   483746503121834388##
+                   1906157852809883557##
                    Lexical.$trModule
                    Lexical.$tc'FalseLit1) -}
-4592eb25d4bc952231685be26aabc427
+13b94f4fc5e6dabf25bb23e5b8befabb
   $tc'FalseLit1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'FalseLit"#) -}
-0faf1fa9f23bc9521d3a85a26d276e25
+de42108919f5779bf21504df2ef8a037
   $tc'G :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   5735165878401783492##
-                   8510842884225628463##
+                   1984638464177971515##
+                   5793591390644207551##
                    Lexical.$trModule
                    Lexical.$tc'G1) -}
-6387fa6dd25e81aa8a12549c0e0363c5
+108d1a1a17add61405bfeedff649d730
   $tc'G1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'G"#) -}
-acac1ee24ff71aaf65cc5a21b3710c0a
+5713df6fdc5d1a9b20cb845adf163a55
   $tc'GE :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   10751579481036597075##
-                   15855735573719621302##
+                   465935319754908859##
+                   6677887889265986107##
                    Lexical.$trModule
                    Lexical.$tc'GE1) -}
-f5c5acb3213d8d2635eea0c5214e4f12
+ce5fa688894cf1436b2053f0d29227b1
   $tc'GE1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'GE"#) -}
-9849123ee71713beaba45d9031193673
+45aaee8feeebe6ec53efd7db3f783e2f
+  $tc'If :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   11309859226611947628##
+                   8866927334741580993##
+                   Lexical.$trModule
+                   Lexical.$tc'If1) -}
+aeb25cf93b1e9aedd357d8ec2e3e51a4
+  $tc'If1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'If"#) -}
+30fd6f137f892b37350fd32b2f649408
   $tc'L :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   8607368555380044112##
-                   15769774080417336144##
+                   4611659371903022057##
+                   15658285915974316567##
                    Lexical.$trModule
                    Lexical.$tc'L1) -}
-3fca1dac19e728fee3ab276620064e07
+a7f7cc508fb7a8400deb112658e541ca
   $tc'L1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'L"#) -}
-1123ab38b98b67b604e18ac7f9d3eb3a
+ae8cda893d95bf3bafaf89fcc842b018
   $tc'LE :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   4698840828837716811##
-                   13779687218544240595##
+                   1000465770248716585##
+                   2006219441648800440##
                    Lexical.$trModule
                    Lexical.$tc'LE1) -}
-3a2d6eec084715695aef5f8dc50ed50d
+d8cdf2201c382fdbe34993e2f7652440
   $tc'LE1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'LE"#) -}
-31b85baece6067b33fed5bcf2cac2bb1
+f5710665bbc42ece4b529079daf06ab5
   $tc'LExp :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   17491553174931636323##
-                   17922888343711655664##
+                   11800156834788852651##
+                   6553848721454273033##
                    Lexical.$trModule
                    Lexical.$tc'LExp1) -}
-b042f838e9e41ad15b50cffaee8328b1
+ce128d91afc1cd480ec39b1ed9f55e39
   $tc'LExp1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'LExp"#) -}
-6fed31c2204f6e4900d5ac87b148929a
+6982b18bb20e7a93ad0d68a8127ac6c5
   $tc'LVar :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   12300281370081284078##
-                   11765533185508115563##
+                   473913075892250478##
+                   11351747018302597967##
                    Lexical.$trModule
                    Lexical.$tc'LVar1) -}
-3f1dc01c5274218c1d321bf7e0edee02
+4187eb40e4a670f97e6019d5bb518b8e
   $tc'LVar1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'LVar"#) -}
-dee2d5156a25ac8fe8d8d18b9f0704f2
+03a67062f82dafba3bc68216b17bb1a2
   $tc'Mul :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   12128571956092823606##
-                   13000707515032235395##
+                   15412472345365336144##
+                   2862502453374022963##
                    Lexical.$trModule
                    Lexical.$tc'Mul1) -}
-4285504474dd7bae06e37bc45e5f2de1
+250dcfbf6774e6c920287fda3650449f
   $tc'Mul1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Mul"#) -}
-02a8b8dd6b903ee6eeaecced34224ea9
+b4fb3dff703c10b4a4e864eba1e98a48
   $tc'NExp :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   9096202722575388986##
-                   5800950536000150772##
+                   1121783809748122347##
+                   3954868751431681952##
                    Lexical.$trModule
                    Lexical.$tc'NExp1) -}
-c4471efeae00844def9b4bd74f665ffc
+2608e529830676db05f23e9d5b9960fb
   $tc'NExp1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'NExp"#) -}
-91b05fb260862f1a89ea2e4456f4317b
+c333bf7c1b1fb517a7a281eb4b507af8
   $tc'NVar :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   4365523727995989880##
-                   7095780634423794856##
+                   3901363889147009557##
+                   11723408227276140130##
                    Lexical.$trModule
                    Lexical.$tc'NVar1) -}
-972a4281b87e943f960b032c62c856da
+f7320bddc07148912ec2141e6236ae16
   $tc'NVar1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'NVar"#) -}
-3a28f0a5ea43ab103bdba325d13c9fa9
+edc64b8cca29a0f11a1b20b8c6072d6e
+  $tc'New_vec :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   703962436851462481##
+                   9801384119805204209##
+                   Lexical.$trModule
+                   Lexical.$tc'New_vec1) -}
+7546fe2610704f4876d1026360a406bb
+  $tc'New_vec1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'New_vec"#) -}
+f9548ac321577f781d78068da1ade687
   $tc'Nil :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   864787864109741725##
-                   5077293843304505182##
+                   2106103412293806157##
+                   18367545042484177175##
                    Lexical.$trModule
                    Lexical.$tc'Nil1) -}
-68ac4c3fddc58838f523a89f472359fe
+b8e1d41409bdb7455ee77f452b7794fd
   $tc'Nil1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Nil"#) -}
-9a17b37c5f09b527ba495162c2ea4cd0
+a392a925eb1c50f9d10782dce9038962
   $tc'Not :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   12635746911396818058##
-                   4080611567724657169##
+                   13093268279970766825##
+                   14408998027715772191##
                    Lexical.$trModule
                    Lexical.$tc'Not1) -}
-bea48133086e90927a7ced857c20c122
+6ec3006db285ba3c0380a090957e47ee
   $tc'Not1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Not"#) -}
-f645ab32fa30746699a51aafb15743de
+d582a94aa444c505401cec3be24aedc6
   $tc'Number :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   2409114811577918954##
-                   8694303860859894187##
+                   10342933420698034073##
+                   13362757345467613412##
                    Lexical.$trModule
                    Lexical.$tc'Number1) -}
-c5ed95cf4cf81a616a7d065fce7b74a9
+783c3eb5dd9f2730a575b393245e01d0
   $tc'Number1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Number"#) -}
-f4742a2a9864e360aaa88cdc751fe209
+08c1275b2fddd9736b5f62ca0880b2b4
+  $tc'One :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   6049458222905359623##
+                   15988673751375362784##
+                   Lexical.$trModule
+                   Lexical.$tc'One1) -}
+ef482a5b65e1c96472a0eed2552e7a7a
+  $tc'One1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'One"#) -}
+2d78164b487a6ee390d825824ec36c80
   $tc'Or :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   7831470710715227235##
-                   12173977507840334719##
+                   6207217802793618599##
+                   14072433722781980953##
                    Lexical.$trModule
                    Lexical.$tc'Or1) -}
-cc8f087bbd00401d4bcfe044c954e4ae
+56b1f0bba2b656f32c28bf9a0cc3c8b9
   $tc'Or1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Or"#) -}
-1ee3356c61f526c04601c6590aaca5fa
+549bc43d607d9058d8fbf077e58a6e3c
+  $tc'Set_vec :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   13088493845291727389##
+                   4239774947118832598##
+                   Lexical.$trModule
+                   Lexical.$tc'Set_vec1) -}
+5b750b1533c368551c069852801147cd
+  $tc'Set_vec1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Set_vec"#) -}
+6a1e1735001a36cf09019648486d50c4
+  $tc'Skip :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   6818023081958196166##
+                   13144668771107565645##
+                   Lexical.$trModule
+                   Lexical.$tc'Skip1) -}
+4bf06d8e5518b32e69670196c9288135
+  $tc'Skip1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Skip"#) -}
+ae48f812d372edc602be07890ed5f176
+  $tc'Stmt_cycle :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   10871976020071769952##
+                   9782305018878399929##
+                   Lexical.$trModule
+                   Lexical.$tc'Stmt_cycle1) -}
+e0e458e3de5356dfb5e218586c78fe08
+  $tc'Stmt_cycle1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Stmt_cycle"#) -}
+bcf85ad9bdc5dc642dcccc5ed58dc80d
   $tc'StringLit :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   6104378600926343876##
-                   4317732751143637090##
+                   6949670183539443850##
+                   5645420184502565292##
                    Lexical.$trModule
                    Lexical.$tc'StringLit1) -}
-2008531728f4aa99923909d0155a575b
+74c86fadfb1e678413ff7cf55dc3fdc7
   $tc'StringLit1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'StringLit"#) -}
-dce7cccf2addf6c0f9e24ef9b5fa1035
+d3da7aa888d606f19118e6bf99281ffb
   $tc'Sub :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   3075127598377919677##
-                   578710938796124431##
+                   17534188508463714919##
+                   15491754685757240277##
                    Lexical.$trModule
                    Lexical.$tc'Sub1) -}
-d2014b81fa5cbe3fb6a5678c14183975
+a868f9bfe36c7acb01c8a27f8451b22f
   $tc'Sub1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Sub"#) -}
-783c11472308b0e3ed557fdf8182b6ef
+5ef3bf07ee8da32751ddc2552ffb56b1
   $tc'TrueLit :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   16800712756092802675##
-                   15217153158089193075##
+                   17689218610952154497##
+                   2124790082085282332##
                    Lexical.$trModule
                    Lexical.$tc'TrueLit1) -}
-74be4cd6903ccb0aa82bf2a3df3669b6
+de218f20e4357b80a5f7c13d4b262dc7
   $tc'TrueLit1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'TrueLit"#) -}
-1330e6bf0d443375e5291e6a01fb8a22
+0b5eb5ff5ac2083af2a5c3a252088159
   $tc'TypeBool :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   8092892214135312435##
-                   756224841358019730##
+                   1996078809936091819##
+                   12010188345765131133##
                    Lexical.$trModule
                    Lexical.$tc'TypeBool1) -}
-2e8245adad3968b4e94ab576d3ece3aa
+d36e7c93f83f8b9d591e2ae4c948379c
   $tc'TypeBool1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'TypeBool"#) -}
-b49500653ed04edc2de100bd68f55776
+b36a784ecdf0808a48ea117d11b6ee3e
   $tc'TypeList :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   11384085708360487912##
-                   3300651587192744952##
+                   8264124618082724118##
+                   2767462526066824528##
                    Lexical.$trModule
                    Lexical.$tc'TypeList1) -}
-d1bd2ed93ad95d70b706b925a7ebf317
+0fc836e725ca0dbc014d5325055f5ee7
   $tc'TypeList1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'TypeList"#) -}
-c5a2208a72bac4f6f65b253da452a9e7
+d9bd27f74acbb681356278592ff3347a
   $tc'TypeNum :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   2328659442526498648##
-                   8491133458674195159##
+                   10109263656493007526##
+                   16934490480621358096##
                    Lexical.$trModule
                    Lexical.$tc'TypeNum1) -}
-bb872b8cea2387553bbc5779dd64304e
+89209f0c844c31c1f068f17771be67de
   $tc'TypeNum1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'TypeNum"#) -}
-dcc51135095faf43c8e5a6d0e45c290f
+a80f05738b63b560967c82b01355e7b7
   $tc'TypeUnknown :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   7785571058544598813##
-                   14950112745289263758##
+                   1069420502204502008##
+                   8112451042404775862##
                    Lexical.$trModule
                    Lexical.$tc'TypeUnknown1) -}
-4bef9eccbe7df0ff09dd4aa0ddd36c07
+914b68d695c9bb98b75416aba7b88eb9
   $tc'TypeUnknown1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'TypeUnknown"#) -}
-c61d7343de7186f09191aaaffc52b983
+7b7edae1d6fc48e156969ff56caf1e5a
+  $tc'TypeVector :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   18109132775677899117##
+                   14742045373601415050##
+                   Lexical.$trModule
+                   Lexical.$tc'TypeVector1) -}
+0e4b4e60a641d26abd2a05965fa8acac
+  $tc'TypeVector1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'TypeVector"#) -}
+29bfb7d725f689e7119910a3d005a888
+  $tc'While :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   17440877848081871191##
+                   18315148379949645079##
+                   Lexical.$trModule
+                   Lexical.$tc'While1) -}
+62de6197be2b965529047a4a12f1dae6
+  $tc'While1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'While"#) -}
+613a635cb595a55370f0947195268fe4
   $tcBoolExpr :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   16989509553191326950##
-                   8629897970801195380##
+                   14702033034934612652##
+                   4801220762278395827##
                    Lexical.$trModule
                    Lexical.$tcBoolExpr1) -}
-ad3fd51305db3f36701314816ab2c774
+40293a7ed769d2e76415e21e3b546cc5
   $tcBoolExpr1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "BoolExpr"#) -}
-7e52858efdb0ae40c0dab4aee9f93ce5
+43347bf5b0981488b57e6268e2725c6e
   $tcExpr :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   15561500806290834535##
-                   8073118814525102177##
+                   2699148126276935299##
+                   17207944219226996530##
                    Lexical.$trModule
                    Lexical.$tcExpr1) -}
-d66e159fe983119d2a83e63444c08d33
+19de1e74ebfdc073566932351c4d9216
   $tcExpr1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Expr"#) -}
-0f5b38841e69e61cb47540dacdc0ac98
+399212b182c66825031b45921a5fbb2e
   $tcListExpr :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   5447090433609456475##
-                   15934687528452179276##
+                   4620874342624212987##
+                   15416852636514671285##
                    Lexical.$trModule
                    Lexical.$tcListExpr1) -}
-63296577d6b8e92fe26436a56725b99b
+697531766217f18d0544410c4ffe7935
   $tcListExpr1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "ListExpr"#) -}
-50b8ac5bc486cb1f50baa05a3b8eec98
+cf37ecc51798dafb1d272f31ec645b35
   $tcNumExpr :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   16544676392682986282##
-                   16352396957409393402##
+                   2786706489517148979##
+                   17661949718894991698##
                    Lexical.$trModule
                    Lexical.$tcNumExpr1) -}
-c01119a26199c25988ccce784e99836f
+2f21f6e85c46336643a31da7c39dd6fa
   $tcNumExpr1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "NumExpr"#) -}
-2f68fc040b1ee15faa47d13b22b300cc
+e15944758bf7ad27bffef3e63638cc87
   $tcStmt :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   13160000569339082947##
-                   12958156164033270290##
+                   14797791543375660054##
+                   12168606170460535549##
                    Lexical.$trModule
                    Lexical.$tcStmt1) -}
-2185baa9b06f5ebddc76c1ae7ba0eb6e
+5f85465d768f4a09250cbd778c7fd1b5
   $tcStmt1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Stmt"#) -}
-9c3cc0c809700543acecea01615168b2
+35c65c1065e54381252d7f56b55cd951
+  $tcStmt_list :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   13544515048492694439##
+                   1427436471737262323##
+                   Lexical.$trModule
+                   Lexical.$tcStmt_list1) -}
+1968baebd9b8753d0655339f5cab4faa
+  $tcStmt_list1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Stmt_list"#) -}
+713c2e9c2671aa81e675ec21fa49c853
   $tcVar :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   5525862615665634807##
-                   13274982621465528963##
+                   16464646308701208564##
+                   2095879651535287945##
                    Lexical.$trModule
                    Lexical.$tcVar1) -}
-482f9ed05a4e0dbc9250e78681ab5120
+3080fce711a69f50a369d7822ee30742
   $tcVar1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Var"#) -}
-38d7f4f5115e6b0f01653b14b8f0fa03
+b1178df25990fcaa30ddae3a3f429236
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module
                    Lexical.$trModule2
                    Lexical.$trModule1) -}
-9f50600cbd7c95036019458f2538622b
+c19048305a122b2aab57c2bbe1441c38
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Lexical"#) -}
-031205b3068f17d3e9c5ff6eddbdfbe6
+080e0e35d23bea3b6f7e148ef7fc0958
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
-                   "Compiler-0.1.0.0-A5AqcFYQOeY4hOCoTusz4T"#) -}
-a5b053a35e99ae10936ec3b6c01f4253
+                   "Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"#) -}
+4734be74f3e74f5eed8b8b43c63b8e76
   $w$cshowsPrec :: GHC.Prim.Int# -> Lexical.Expr -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,U><S,1*U>, Inline: [0],
      Unfolding: (\ (ww :: GHC.Prim.Int#) (w :: Lexical.Expr) ->
                  case w of wild {
                    Lexical.EVar b1
                    -> let {
-                        lvl41 :: GHC.Base.String = Lexical.$fEqVar_$cshow b1
+                        lvl51 :: GHC.Base.String = Lexical.$fEqVar_$cshow b1
                       } in
                       case GHC.Prim.tagToEnum#
                              @ GHC.Types.Bool
@@ -1038,7 +1122,7 @@ a5b053a35e99ae10936ec3b6c01f4253
                            GHC.Base.++
                              @ GHC.Types.Char
                              Lexical.$fShowExpr6
-                             (GHC.Base.++ @ GHC.Types.Char lvl41 x)
+                             (GHC.Base.++ @ GHC.Types.Char lvl51 x)
                         GHC.Types.True
                         -> \ (x :: GHC.Base.String) ->
                            GHC.Types.:
@@ -1049,7 +1133,7 @@ a5b053a35e99ae10936ec3b6c01f4253
                                 Lexical.$fShowExpr6
                                 (GHC.Base.++
                                    @ GHC.Types.Char
-                                   lvl41
+                                   lvl51
                                    (GHC.Types.: @ GHC.Types.Char GHC.Show.shows6 x))) }
                    Lexical.BExp b1
                    -> case GHC.Prim.tagToEnum#
@@ -1115,65 +1199,15 @@ a5b053a35e99ae10936ec3b6c01f4253
                                    Lexical.$fShowExpr4
                                    b1
                                    (GHC.Types.: @ GHC.Types.Char GHC.Show.shows6 x))) } }) -}
-11be7d829d1ed81418e5c306782c3dec
+4734be74f3e74f5eed8b8b43c63b8e76
   $w$cshowsPrec1 ::
     GHC.Prim.Int# -> Lexical.NumExpr -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,U><S,1*U>, Inline: [0] -}
-c83303050bc67f175a82e1e5219a4727
-  $w$cshowsPrec2 :: GHC.Prim.Int# -> Lexical.Stmt -> GHC.Show.ShowS
-  {- Arity: 2, Strictness: <S,U><S,1*U>, Inline: [0],
-     Unfolding: (\ (ww :: GHC.Prim.Int#) (w :: Lexical.Stmt) ->
-                 case w of wild {
-                   Lexical.Assign b1 b2
-                   -> let {
-                        g :: GHC.Base.String -> GHC.Base.String
-                        = Lexical.$w$cshowsPrec 11# b2
-                      } in
-                      let {
-                        lvl41 :: GHC.Base.String = Lexical.$fEqVar_$cshow b1
-                      } in
-                      let {
-                        p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,U> -}
-                        = \ (x :: GHC.Base.String) ->
-                          GHC.Base.++
-                            @ GHC.Types.Char
-                            Lexical.$fShowStmt3
-                            (GHC.Base.++
-                               @ GHC.Types.Char
-                               lvl41
-                               (GHC.Types.: @ GHC.Types.Char GHC.Show.showSpace1 (g x)))
-                      } in
-                      case GHC.Prim.tagToEnum#
-                             @ GHC.Types.Bool
-                             (GHC.Prim.>=# ww 11#) of wild1 {
-                        GHC.Types.False -> p
-                        GHC.Types.True
-                        -> \ (x :: GHC.Base.String) ->
-                           GHC.Types.:
-                             @ GHC.Types.Char
-                             GHC.Show.shows9
-                             (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows6 x)) }
-                   Lexical.Exp b1
-                   -> let {
-                        g :: GHC.Base.String -> GHC.Base.String
-                        = Lexical.$w$cshowsPrec 11# b1
-                      } in
-                      case GHC.Prim.tagToEnum#
-                             @ GHC.Types.Bool
-                             (GHC.Prim.>=# ww 11#) of wild1 {
-                        GHC.Types.False
-                        -> \ (x :: GHC.Base.String) ->
-                           GHC.Base.++ @ GHC.Types.Char Lexical.$fShowStmt2 (g x)
-                        GHC.Types.True
-                        -> \ (x :: GHC.Base.String) ->
-                           GHC.Types.:
-                             @ GHC.Types.Char
-                             GHC.Show.shows9
-                             (GHC.Base.++
-                                @ GHC.Types.Char
-                                Lexical.$fShowStmt2
-                                (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows6 x))) } }) -}
-64840033862f6700055331b7ed3b6137
+33346d2223bbd5ee71d81807aa14585c
+  $w$cshowsPrec2 ::
+    GHC.Prim.Int# -> Lexical.Stmt_list -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,U><S,1*U>, Inline: [0] -}
+24c280499204480f27e6466dd85cb7f0
   $waddParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1195,7 +1229,7 @@ c83303050bc67f175a82e1e5219a4727
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-891ea4b4f4db9ecd58694e8cc789f94e
+8e6051f1c5140c5b8ebfd0b953bc8b3a
   $wandParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1217,7 +1251,7 @@ c83303050bc67f175a82e1e5219a4727
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-e5f1b68d4b7ddc4ad575b72e49eabc5c
+ce173d3de1e7508929f83101a5eb30a5
   $wassignParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1239,7 +1273,7 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-6deb050ce85ac28c8ffa3d05f68e3c07
+dee8a1ca6049fb6aa56e7bb7666c34a5
   $wbexpParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1301,7 +1335,7 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
                       nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                       more'
                       (Lexical.BExp a1) })) -}
-2876ea1202e743193e4f3c682f8d8eee
+be6ef79152a524844238bbb91d09fd96
   $wboolExprParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1323,7 +1357,7 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,U>,
      Inline: [0] -}
-44d2fed6b1dcd4df861b578b8c5a6f2b
+791e80298574c5eb5dc3eecaa2fad0e4
   $wboolVarParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1344,8 +1378,57 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
     -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
-     Inline: [0] -}
-18ef97ae0da9a65c68abd7bd6ceec082
+     Inline: [0],
+     Unfolding: (\ @ r
+                   (ww :: GHC.Prim.ByteArray#)
+                   (ww1 :: GHC.Prim.Int#)
+                   (ww2 :: GHC.Prim.Int#)
+                   (ww3 :: GHC.Prim.Int#)
+                   (ww4 :: GHC.Prim.Int#)
+                   (ww5 :: GHC.Prim.Int#)
+                   (w :: Data.Attoparsec.Internal.Types.More)
+                   (w1 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w2 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.BoolExpr
+                            r) ->
+                 Lexical.$wvarParser
+                   @ r
+                   ww
+                   ww1
+                   ww2
+                   ww3
+                   ww4
+                   ww5
+                   w
+                   w1
+                   (\ (t' :: Data.Attoparsec.Internal.Types.State
+                               Data.Text.Internal.Text)
+                      (pos' :: Data.Attoparsec.Internal.Types.Pos)[OneShot]
+                      (more' :: Data.Attoparsec.Internal.Types.More)[OneShot]
+                      (a1 :: Lexical.Var)[OneShot] ->
+                    case pos'
+                           `cast`
+                         (Data.Attoparsec.Internal.Types.N:Pos[0]) of nt1 { GHC.Types.I# ipv1 ->
+                    case a1 of wild {
+                      DEFAULT
+                      -> w1
+                           t'
+                           nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
+                           more'
+                           (GHC.Types.[] @ GHC.Base.String)
+                           Lexical.boolVarParser_msg3
+                      Lexical.TypeUnknown var
+                      -> w2
+                           t'
+                           nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
+                           more'
+                           (Lexical.BVar (Lexical.TypeBool var)) } })) -}
+633dbb55a26d48dbebc2731d54720de5
   $wcarParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1367,7 +1450,7 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-0c5e728c49b433e979893a428a1730b7
+91db8da12645c15c087816c1c18898cd
   $wcdrParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1389,7 +1472,7 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-534e1cb250e56cadf4757f56add2dd78
+b01feefea7c1096abc573e85811c674f
   $wcharParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1411,7 +1494,7 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-8fc60716761e43d41f332f9469e81032
+a919d279282a605c263cf4c61420c2b2
   $wconParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1433,7 +1516,7 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-45a649b068d069b68b8badf3a2fe7965
+d2e543546a5d2b7bcd876e04083971c8
   $wdivParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1455,7 +1538,7 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-8dbd61cc12956e0e7a09a3372d91b2e5
+221399f57a30b72be3a287a49a4300f3
   $wequalParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1477,8 +1560,30 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-71b626af2302ca48481cd67fb02b6b83
+49054eaaf489dcfd6b90180241fdf093
   $wexprParser ::
+    GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Expr
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 9,
+     Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: [0] -}
+74ab1ce22674906e4a17665cb5bf0023
+  $wexprVarParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
     -> GHC.Prim.Int#
@@ -1516,73 +1621,6 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
                             (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
                             Lexical.Expr
                             r) ->
-                 let {
-                   pos :: GHC.Types.Int = GHC.Types.I# ww5
-                 } in
-                 let {
-                   lose :: Data.Attoparsec.Internal.Types.Failure
-                             Data.Text.Internal.Text
-                             (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
-                             r
-                     {- Arity: 5,
-                        Strictness: <S(SSSLL),1*U(U,U,U,U,U)><L,A><L,U><L,A><L,A>,
-                        Unfolding: InlineRule (5, True, True)
-                                   (\ (t' :: Data.Attoparsec.Internal.Types.State
-                                               Data.Text.Internal.Text)
-                                      (_pos' :: Data.Attoparsec.Internal.Types.Pos)
-                                      (more' :: Data.Attoparsec.Internal.Types.More)
-                                      (_ctx :: [GHC.Base.String])
-                                      (_msg :: GHC.Base.String) ->
-                                    Lexical.exprParser3
-                                      @ r
-                                      t'
-                                      pos `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
-                                      more'
-                                      w1
-                                      w2) -}
-                   = \ (t' :: Data.Attoparsec.Internal.Types.State
-                                Data.Text.Internal.Text)
-                       (_pos' :: Data.Attoparsec.Internal.Types.Pos)
-                       (more' :: Data.Attoparsec.Internal.Types.More)
-                       (_ctx :: [GHC.Base.String])
-                       (_msg :: GHC.Base.String) ->
-                     case t'
-                            `cast`
-                          (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww6 { Data.Attoparsec.Text.Buffer.Buf ww7 ww8 ww9 ww10 ww11 ->
-                     Lexical.$wlexpParser @ r ww7 ww8 ww9 ww10 ww11 ww5 more' w1 w2 }
-                 } in
-                 let {
-                   lose1 :: Data.Attoparsec.Internal.Types.Failure
-                              Data.Text.Internal.Text
-                              (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
-                              r
-                     {- Arity: 5,
-                        Strictness: <S(SSSLL),1*U(U,U,U,U,U)><L,A><L,U><L,A><L,A>,
-                        Unfolding: InlineRule (5, True, True)
-                                   (\ (t' :: Data.Attoparsec.Internal.Types.State
-                                               Data.Text.Internal.Text)
-                                      (_pos' :: Data.Attoparsec.Internal.Types.Pos)
-                                      (more' :: Data.Attoparsec.Internal.Types.More)
-                                      (_ctx :: [GHC.Base.String])
-                                      (_msg :: GHC.Base.String) ->
-                                    Lexical.exprParser2
-                                      @ r
-                                      t'
-                                      pos `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
-                                      more'
-                                      lose
-                                      w2) -}
-                   = \ (t' :: Data.Attoparsec.Internal.Types.State
-                                Data.Text.Internal.Text)
-                       (_pos' :: Data.Attoparsec.Internal.Types.Pos)
-                       (more' :: Data.Attoparsec.Internal.Types.More)
-                       (_ctx :: [GHC.Base.String])
-                       (_msg :: GHC.Base.String) ->
-                     case t'
-                            `cast`
-                          (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww6 { Data.Attoparsec.Text.Buffer.Buf ww7 ww8 ww9 ww10 ww11 ->
-                     Lexical.$wnexpParser @ r ww7 ww8 ww9 ww10 ww11 ww5 more' lose w2 }
-                 } in
                  Lexical.$wvarParser
                    @ r
                    ww
@@ -1592,28 +1630,21 @@ e5f1b68d4b7ddc4ad575b72e49eabc5c
                    ww4
                    ww5
                    w
+                   w1
                    (\ (t' :: Data.Attoparsec.Internal.Types.State
                                Data.Text.Internal.Text)
-                      (_pos' :: Data.Attoparsec.Internal.Types.Pos)
-                      (more' :: Data.Attoparsec.Internal.Types.More)
-                      (_ctx :: [GHC.Base.String])
-                      (_msg :: GHC.Base.String) ->
-                    case t'
+                      (pos' :: Data.Attoparsec.Internal.Types.Pos)[OneShot]
+                      (more' :: Data.Attoparsec.Internal.Types.More)[OneShot]
+                      (a1 :: Lexical.Var)[OneShot] ->
+                    case pos'
                            `cast`
-                         (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww6 { Data.Attoparsec.Text.Buffer.Buf ww7 ww8 ww9 ww10 ww11 ->
-                    Lexical.$wbexpParser
-                      @ r
-                      ww7
-                      ww8
-                      ww9
-                      ww10
-                      ww11
-                      ww5
+                         (Data.Attoparsec.Internal.Types.N:Pos[0]) of nt1 { GHC.Types.I# ipv1 ->
+                    w2
+                      t'
+                      nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                       more'
-                      lose1
-                      w2 })
-                   w2) -}
-a0de76f1ff6329cbe041d63c891a5afb
+                      (Lexical.EVar a1) })) -}
+d57e673910fceff73a339367ffe3d062
   $wfalseParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1635,7 +1666,7 @@ a0de76f1ff6329cbe041d63c891a5afb
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,C(C1(C1(C1(C1(U)))))><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-e5d8f3984f67c3d26c9620fa7813fc46
+cf3acdbf60eb8584281cff722e7f0405
   $wfloatParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1675,7 +1706,7 @@ e5d8f3984f67c3d26c9620fa7813fc46
                             Lexical.NumExpr
                             r) ->
                  let {
-                   lvl41 :: Data.Attoparsec.Internal.Types.State
+                   lvl51 :: Data.Attoparsec.Internal.Types.State
                               Data.Text.Internal.Text
                             -> Data.Attoparsec.Internal.Types.Pos
                             -> Data.Attoparsec.Internal.Types.More
@@ -1713,8 +1744,8 @@ e5d8f3984f67c3d26c9620fa7813fc46
                     case pos'
                            `cast`
                          (Data.Attoparsec.Internal.Types.N:Pos[0]) of nt1 { GHC.Types.I# ipv1 ->
-                    Data.Attoparsec.Text.$wdouble @ r t' ipv1 more' w1 lvl41 })) -}
-3f1fddbd43cc3c65d80413f9c0686cc1
+                    Data.Attoparsec.Text.$wdouble @ r t' ipv1 more' w1 lvl51 })) -}
+64f75893fba99f925138847f435a3036
   $wgeParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1736,7 +1767,7 @@ e5d8f3984f67c3d26c9620fa7813fc46
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-8849b66b9e3a806db03a36db118b4f18
+15235bc045461d203e24eff4450619d8
   $wgo1 ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1754,7 +1785,7 @@ e5d8f3984f67c3d26c9620fa7813fc46
   {- Arity: 8,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-e7026cead973c8396a5194520e7aa792
+cd0cc6f0d7151004e5ece26f05316a81
   $wgo2 ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1772,14 +1803,14 @@ e7026cead973c8396a5194520e7aa792
   {- Arity: 8,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-75dcfc865d1bc5a25e87cff119c679d8
+17cc9ebeb9fc01c15ae124903d5d68d0
   $wgo5 ::
     GHC.Prim.Int#
     -> Data.Set.Base.Set GHC.Base.String
     -> [GHC.Base.String]
     -> Data.Set.Base.Set GHC.Base.String
   {- Arity: 3, Strictness: <L,U><S,1*U><S,1*U>, Inline: [0] -}
-810a19c87565d2d9de308813f0c4ed8b
+533d51a53a74b8eb2e6f77456f2aae07
   $wgreatParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1801,7 +1832,29 @@ e7026cead973c8396a5194520e7aa792
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-290d893146d420091e24ae45db2ed401
+20a44afc49b1c38e5b7830f56de59a8b
+  $wifParser ::
+    GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 9,
+     Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: [0] -}
+47708607f2bf985c8cecc1cc43470799
   $wleParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1823,7 +1876,7 @@ e7026cead973c8396a5194520e7aa792
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-30b97b8ee0e50b06b36202d5c3c09a27
+ee5413fc3e3913c04b6ee60d2c49d246
   $wlessParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1845,7 +1898,7 @@ e7026cead973c8396a5194520e7aa792
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-2f9a6995ec8e4343755ab559593a9258
+952e93823d29b16ff732ad39ff370d7e
   $wlexeme ::
     Data.Attoparsec.Text.Internal.Parser a
     -> forall r.
@@ -1914,7 +1967,7 @@ e7026cead973c8396a5194520e7aa792
                       more'
                       w2
                       w3 })) -}
-8362c5fba24392dbf8c70305995690f4
+bdcfacdfc64c755e5db2658fb21a40f1
   $wlexpParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1976,7 +2029,7 @@ e7026cead973c8396a5194520e7aa792
                       nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                       more'
                       (Lexical.LExp a1) })) -}
-b4437f8952f4365c4a599f52aec06ab4
+a156793e5e2fd8ddaae572ca8ad290e7
   $wlistExprParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1998,7 +2051,7 @@ b4437f8952f4365c4a599f52aec06ab4
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-fcb40d15fef59343aac799899bcc2e2e
+b9c168ef603c3fddba333360abbb8a9f
   $wlistVarParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2019,8 +2072,57 @@ fcb40d15fef59343aac799899bcc2e2e
     -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
-     Inline: [0] -}
-9ec1c6d1cae4eea52d3a75f0733d5c93
+     Inline: [0],
+     Unfolding: (\ @ r
+                   (ww :: GHC.Prim.ByteArray#)
+                   (ww1 :: GHC.Prim.Int#)
+                   (ww2 :: GHC.Prim.Int#)
+                   (ww3 :: GHC.Prim.Int#)
+                   (ww4 :: GHC.Prim.Int#)
+                   (ww5 :: GHC.Prim.Int#)
+                   (w :: Data.Attoparsec.Internal.Types.More)
+                   (w1 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w2 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.ListExpr
+                            r) ->
+                 Lexical.$wvarParser
+                   @ r
+                   ww
+                   ww1
+                   ww2
+                   ww3
+                   ww4
+                   ww5
+                   w
+                   w1
+                   (\ (t' :: Data.Attoparsec.Internal.Types.State
+                               Data.Text.Internal.Text)
+                      (pos' :: Data.Attoparsec.Internal.Types.Pos)[OneShot]
+                      (more' :: Data.Attoparsec.Internal.Types.More)[OneShot]
+                      (a1 :: Lexical.Var)[OneShot] ->
+                    case pos'
+                           `cast`
+                         (Data.Attoparsec.Internal.Types.N:Pos[0]) of nt1 { GHC.Types.I# ipv1 ->
+                    case a1 of wild {
+                      DEFAULT
+                      -> w1
+                           t'
+                           nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
+                           more'
+                           (GHC.Types.[] @ GHC.Base.String)
+                           Lexical.listVarParser_msg3
+                      Lexical.TypeUnknown var
+                      -> w2
+                           t'
+                           nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
+                           more'
+                           (Lexical.LVar (Lexical.TypeList var)) } })) -}
+9774954c8f3e58e35ff0c4f1802875de
   $wmulParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2042,7 +2144,29 @@ fcb40d15fef59343aac799899bcc2e2e
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-825fd9a2045cc98b097b2081f746797c
+a282c352ae8e80ca4fb8dd0696ef5a11
+  $wnew_vecParser ::
+    GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 9,
+     Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: [0] -}
+e3b2695d62eef11afc5643d977ce4008
   $wnexpParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2104,7 +2228,7 @@ fcb40d15fef59343aac799899bcc2e2e
                       nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                       more'
                       (Lexical.NExp a1) })) -}
-fbc9ab606a5e4236bac45c8cbc9b1c0f
+da2635cdc1071ada89994debc24e4657
   $wnotParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2126,7 +2250,7 @@ fbc9ab606a5e4236bac45c8cbc9b1c0f
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-484a8d5bf08397b1eb608055bbbff849
+e9a165a69f9226ae4f8feb11dbf6b255
   $wnullParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2148,7 +2272,7 @@ fbc9ab606a5e4236bac45c8cbc9b1c0f
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-fb2e313a62aa148d8d8d224ead852f60
+98e32886db94d2f7049e46d6bdd9999d
   $wnumExprParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2170,7 +2294,7 @@ fb2e313a62aa148d8d8d224ead852f60
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-2059cdb4936c7953df8fb0092e3d5209
+8d1c9afc7b4d0de3df5f0a370618a9cb
   $wnumVarParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2191,8 +2315,57 @@ fb2e313a62aa148d8d8d224ead852f60
     -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
-     Inline: [0] -}
-9104c069a89583c70fecef670093b747
+     Inline: [0],
+     Unfolding: (\ @ r
+                   (ww :: GHC.Prim.ByteArray#)
+                   (ww1 :: GHC.Prim.Int#)
+                   (ww2 :: GHC.Prim.Int#)
+                   (ww3 :: GHC.Prim.Int#)
+                   (ww4 :: GHC.Prim.Int#)
+                   (ww5 :: GHC.Prim.Int#)
+                   (w :: Data.Attoparsec.Internal.Types.More)
+                   (w1 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w2 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.NumExpr
+                            r) ->
+                 Lexical.$wvarParser
+                   @ r
+                   ww
+                   ww1
+                   ww2
+                   ww3
+                   ww4
+                   ww5
+                   w
+                   w1
+                   (\ (t' :: Data.Attoparsec.Internal.Types.State
+                               Data.Text.Internal.Text)
+                      (pos' :: Data.Attoparsec.Internal.Types.Pos)[OneShot]
+                      (more' :: Data.Attoparsec.Internal.Types.More)[OneShot]
+                      (a1 :: Lexical.Var)[OneShot] ->
+                    case pos'
+                           `cast`
+                         (Data.Attoparsec.Internal.Types.N:Pos[0]) of nt1 { GHC.Types.I# ipv1 ->
+                    case a1 of wild {
+                      DEFAULT
+                      -> w1
+                           t'
+                           nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
+                           more'
+                           (GHC.Types.[] @ GHC.Base.String)
+                           Lexical.numVarParser_msg3
+                      Lexical.TypeUnknown var
+                      -> w2
+                           t'
+                           nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
+                           more'
+                           (Lexical.NVar (Lexical.TypeNum var)) } })) -}
+8c86ceae962849e9f9853350c1e2ed49
   $worParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2214,7 +2387,51 @@ fb2e313a62aa148d8d8d224ead852f60
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-80e7d9abfdb62880b96c46255c8926c3
+5cddbf05d880c5011f45029139e95d74
+  $wset_vecParser ::
+    GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 9,
+     Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: [0] -}
+ce6ff7f2840818b9ba0bd6b6f5a9918d
+  $wskipParser ::
+    GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 9,
+     Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: [0] -}
+f114bce2b46210d6e38308415086ffd0
   $wstmtExprParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2276,8 +2493,8 @@ fb2e313a62aa148d8d8d224ead852f60
                       nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                       more'
                       (Lexical.Exp a1) })) -}
-62b78c7e5eaf5d0dcda504bd267d77e6
-  $wstmtParser ::
+474ebfe5350ea0b31d5e88ea35da3c55
+  $wstmtListParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
     -> GHC.Prim.Int#
@@ -2315,7 +2532,7 @@ fb2e313a62aa148d8d8d224ead852f60
                             (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
                             Lexical.Stmt
                             r) ->
-                 Lexical.$wstmtExprParser
+                 Lexical.$wstmt_listParser
                    @ r
                    ww
                    ww1
@@ -2324,18 +2541,65 @@ fb2e313a62aa148d8d8d224ead852f60
                    ww4
                    ww5
                    w
+                   w1
                    (\ (t' :: Data.Attoparsec.Internal.Types.State
                                Data.Text.Internal.Text)
-                      (_pos' :: Data.Attoparsec.Internal.Types.Pos)
-                      (more' :: Data.Attoparsec.Internal.Types.More)
-                      (_ctx :: [GHC.Base.String])
-                      (_msg :: GHC.Base.String) ->
-                    case t'
+                      (pos' :: Data.Attoparsec.Internal.Types.Pos)[OneShot]
+                      (more' :: Data.Attoparsec.Internal.Types.More)[OneShot]
+                      (a1 :: Lexical.Stmt_list)[OneShot] ->
+                    case pos'
                            `cast`
-                         (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww6 { Data.Attoparsec.Text.Buffer.Buf ww7 ww8 ww9 ww10 ww11 ->
-                    Lexical.$wassignParser @ r ww7 ww8 ww9 ww10 ww11 ww5 more' w1 w2 })
-                   w2) -}
-3c9877caf63392e5ec1650416357455e
+                         (Data.Attoparsec.Internal.Types.N:Pos[0]) of nt1 { GHC.Types.I# ipv1 ->
+                    w2
+                      t'
+                      nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
+                      more'
+                      (Lexical.Stmt_cycle a1) })) -}
+a44a8373043a872d67fa8f6821304f1e
+  $wstmtParser ::
+    GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 9,
+     Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: [0] -}
+0cd49e73fc8220bc7946398e13c371fe
+  $wstmt_listParser ::
+    GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt_list
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 9,
+     Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: [0] -}
+e4fe5d44df332b02d8498ed8e5db3d03
   $wstringParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2357,7 +2621,7 @@ fb2e313a62aa148d8d8d224ead852f60
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-0e5970f38c7ca1b4682ed12ac2e57177
+dd0e72f512e7c37dc05b4c1736509398
   $wsubParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2379,7 +2643,7 @@ fb2e313a62aa148d8d8d224ead852f60
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-a91334dfc37597ec2435cca9dc373aa3
+dbb57c00e1cd57361c43ffc25fc26992
   $wtrueParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2401,8 +2665,30 @@ a91334dfc37597ec2435cca9dc373aa3
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,C(C1(C1(C1(C1(U)))))><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-b8bb22623cca82ca96ef9c4311c049ba
+649137ded0ab852fcf93cb45a3ecd86c
   $wvarParser ::
+    GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Var
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 9,
+     Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: [0] -}
+2b406d5bc823e3238e671eb594e88069
+  $wvectorParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
     -> GHC.Prim.Int#
@@ -2423,7 +2709,29 @@ b8bb22623cca82ca96ef9c4311c049ba
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-71b7b2323e18460994b0d1cd717ba07c
+20f597b28eb3237e4dfdaf212e608675
+  $wwhileParser ::
+    GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 9,
+     Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: [0] -}
+4734be74f3e74f5eed8b8b43c63b8e76
   data BoolExpr
     = BVar Lexical.Var
     | FalseLit
@@ -2431,13 +2739,13 @@ b8bb22623cca82ca96ef9c4311c049ba
     | Not Lexical.BoolExpr
     | And Lexical.BoolExpr Lexical.BoolExpr
     | Or Lexical.BoolExpr Lexical.BoolExpr
-a5b053a35e99ae10936ec3b6c01f4253
+4734be74f3e74f5eed8b8b43c63b8e76
   data Expr
     = EVar Lexical.Var
     | BExp Lexical.BoolExpr
     | NExp Lexical.NumExpr
     | LExp Lexical.ListExpr
-d070c5300eee747c23b50fd3670a8046
+4734be74f3e74f5eed8b8b43c63b8e76
   data ListExpr
     = LVar Lexical.Var
     | Nil
@@ -2446,7 +2754,7 @@ d070c5300eee747c23b50fd3670a8046
     | Cdr Lexical.ListExpr
     | CharLit GHC.Types.Char
     | StringLit GHC.Base.String
-11be7d829d1ed81418e5c306782c3dec
+4734be74f3e74f5eed8b8b43c63b8e76
   data NumExpr
     = NVar Lexical.Var
     | Number GHC.Types.Double
@@ -2459,15 +2767,27 @@ d070c5300eee747c23b50fd3670a8046
     | LE Lexical.NumExpr Lexical.NumExpr
     | G Lexical.NumExpr Lexical.NumExpr
     | GE Lexical.NumExpr Lexical.NumExpr
-c83303050bc67f175a82e1e5219a4727
-  data Stmt = Assign Lexical.Var Lexical.Expr | Exp Lexical.Expr
-84f1d68d568ac221a0f7a055af6faaa3
+33346d2223bbd5ee71d81807aa14585c
+  data Stmt
+    = Exp Lexical.Expr
+    | Stmt_cycle Lexical.Stmt_list
+    | Assign Lexical.Var Lexical.Expr
+    | Skip
+    | If Lexical.Expr Lexical.Stmt Lexical.Stmt
+    | While Lexical.Expr Lexical.Stmt
+    | New_vec Lexical.Var Lexical.Expr
+    | Set_vec Lexical.Var Lexical.Expr Lexical.Expr
+33346d2223bbd5ee71d81807aa14585c
+  data Stmt_list
+    = One Lexical.Stmt | Cycle Lexical.Stmt Lexical.Stmt_list
+4734be74f3e74f5eed8b8b43c63b8e76
   data Var
     = TypeBool Data.Text.Internal.Text
     | TypeNum Data.Text.Internal.Text
     | TypeList Data.Text.Internal.Text
+    | TypeVector Data.Text.Internal.Text Lexical.Expr
     | TypeUnknown Data.Text.Internal.Text
-c38299f4853d92019a2c18ae875a9b1a
+172601c7c15685cbe1e34102be79e3f8
   addParser :: Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2476,7 +2796,7 @@ c38299f4853d92019a2c18ae875a9b1a
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-f289dfc67700c7b301ab99ca8ce4733c
+a8659f0d2804d395d0818923f9872524
   addParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2514,7 +2834,7 @@ f289dfc67700c7b301ab99ca8ce4733c
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$waddParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-cbf092b153f88274f612e4df461b47e3
+fe16848383ad4bcefc20b09a463d4d95
   andParser :: Data.Attoparsec.Text.Internal.Parser Lexical.BoolExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2523,7 +2843,7 @@ cbf092b153f88274f612e4df461b47e3
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.BoolExpr>_R)) -}
-8660dfb8aa20183ca7483a26223db33e
+e518c16b6c112240f9c52dbb8e973e2c
   andParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2561,7 +2881,7 @@ cbf092b153f88274f612e4df461b47e3
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wandParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-b856427b17e4e64e98ed19bea15ee633
+65cc932f52aa10bbd87e5f1282d7ba16
   assignParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2570,7 +2890,7 @@ b856427b17e4e64e98ed19bea15ee633
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.Stmt>_R)) -}
-2a3176a806e46c9a81fc5ccb0e8917f2
+b2cb1c78f3c71d9d4af69ecb9e20b920
   assignParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2608,7 +2928,7 @@ b856427b17e4e64e98ed19bea15ee633
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wassignParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-a26f0a97160eb4dc2046b16f6e3b7432
+8a2901898da94041297ea4cc31dfe003
   bexpParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Expr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2617,7 +2937,7 @@ a26f0a97160eb4dc2046b16f6e3b7432
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.Expr>_R)) -}
-6fdb3e035409140d7f1026579f77f194
+25f0da40f61a64581fad32ae055eb8a1
   bexpParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2655,7 +2975,7 @@ a26f0a97160eb4dc2046b16f6e3b7432
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wbexpParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-a0239851ea21c294bbb74c2db65cb9e3
+8143fdaf1fa8809ff15f552cf2f808c6
   boolExprParser ::
     Data.Attoparsec.Text.Internal.Parser Lexical.BoolExpr
   {- Arity: 5,
@@ -2665,7 +2985,7 @@ a0239851ea21c294bbb74c2db65cb9e3
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.BoolExpr>_R)) -}
-0e7b236fbb1c0ee28b9bfb9b509b9518
+3b9aff55845daa8af9685b544cf74281
   boolExprParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2713,7 +3033,7 @@ a0239851ea21c294bbb74c2db65cb9e3
                    w2
                    w3
                    w4 } }) -}
-8cfc0a1d4c7a7e694b9707936b7e07da
+95eb7d519472f21577867b34f904bc0c
   boolVarParser ::
     Data.Attoparsec.Text.Internal.Parser Lexical.BoolExpr
   {- Arity: 5,
@@ -2723,7 +3043,7 @@ a0239851ea21c294bbb74c2db65cb9e3
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.BoolExpr>_R)) -}
-2647453fb7dfe12adbc2d94ef1b0584f
+41b1ee6339a60a1fcb75870989b4f513
   boolVarParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2771,7 +3091,11 @@ a0239851ea21c294bbb74c2db65cb9e3
                    w2
                    w3
                    w4 } }) -}
-de8ff065422df336b86ea22c76be60c3
+0d0e272f988616dfcff617d456de5ffc
+  boolVarParser_msg3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "Failed reading: Pattern match failure in do expression at src/Lexical.hs:60:5-21"#) -}
+da660d6c520fef5d733533fe16bfb8fc
   carParser :: Data.Attoparsec.Text.Internal.Parser Lexical.ListExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2780,7 +3104,7 @@ de8ff065422df336b86ea22c76be60c3
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.ListExpr>_R)) -}
-7176a09f48285cb5b067d755b2d288d1
+7ccc74ac59e89cdd6cb16b79e973b7b5
   carParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2818,7 +3142,7 @@ de8ff065422df336b86ea22c76be60c3
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wcarParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-4178a6f44435157b2dda242452dc1edd
+6e49603166c545ec501d2ec8ab7d0282
   cdrParser :: Data.Attoparsec.Text.Internal.Parser Lexical.ListExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2827,7 +3151,7 @@ de8ff065422df336b86ea22c76be60c3
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.ListExpr>_R)) -}
-780029178abe4b6891c1e7dde0a214f4
+3d0d1188e46b92610cf6181e8cf81eba
   cdrParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2865,7 +3189,7 @@ de8ff065422df336b86ea22c76be60c3
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wcdrParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-f15ab19bf4ab301ae799a94be689500f
+09e149a436bed82f29cf0391af45d1c8
   charParser :: Data.Attoparsec.Text.Internal.Parser Lexical.ListExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2874,7 +3198,7 @@ f15ab19bf4ab301ae799a94be689500f
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.ListExpr>_R)) -}
-b2e6f648c06f9901ca0326ecb6421af1
+f4009f50a93f442901c8249dd0f02ae1
   charParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2912,7 +3236,7 @@ b2e6f648c06f9901ca0326ecb6421af1
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wcharParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-93b933ff652c8e2ac9eca1cfb4735e94
+bbe25d915d33029ec4d0699b05534e5c
   conParser :: Data.Attoparsec.Text.Internal.Parser Lexical.ListExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2921,7 +3245,7 @@ b2e6f648c06f9901ca0326ecb6421af1
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.ListExpr>_R)) -}
-f38ffeefeed9bbb270c14f35004e528d
+271c6269b10b1860c576d67d8c5cc0b5
   conParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2959,7 +3283,7 @@ f38ffeefeed9bbb270c14f35004e528d
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wconParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-ecb82fcada7e31f5272dbc8bcb414832
+a97017f26eeaba82721b321b1b66073d
   divParser :: Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2968,7 +3292,7 @@ ecb82fcada7e31f5272dbc8bcb414832
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-6a16da071181ec6324ccc415df3e294c
+f3654ce5004093ebf2eecab6967fd377
   divParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3006,7 +3330,7 @@ ecb82fcada7e31f5272dbc8bcb414832
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wdivParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-0b4f75a26022d344e0bba0c5d260454e
+1c79b50c137e7a8d0a719abd0ebdf3d9
   equalParser :: Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3015,7 +3339,7 @@ ecb82fcada7e31f5272dbc8bcb414832
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-1183bb5b08340b5f93895e4aac328ea5
+7165fb255ee229a5fc79fc9d994cca13
   equalParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3053,7 +3377,7 @@ ecb82fcada7e31f5272dbc8bcb414832
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wequalParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-220b2bfdea7de7de138d34f2c457c13f
+a94dcc9038f5f3e4efe06cdab1591d08
   exprParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Expr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3062,7 +3386,7 @@ ecb82fcada7e31f5272dbc8bcb414832
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.Expr>_R)) -}
-c3fc449db676054d1c55a24f3cb6d15e
+4750b16be9980992520a319bd0dc8634
   exprParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3100,8 +3424,17 @@ c3fc449db676054d1c55a24f3cb6d15e
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wexprParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-db2a95892fbfed15c4535e96ab20503f
-  exprParser2 ::
+251f4c62795bfd90f57310444cc89fb0
+  exprVarParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Expr
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Unfolding: InlineRule (0, True, True)
+                Lexical.exprVarParser1
+                  `cast`
+                (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
+                          <Data.Text.Internal.Text>_N <Lexical.Expr>_R)) -}
+a29f2db71c7f5ca367cec64239bb5019
+  exprVarParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
     -> Data.Attoparsec.Internal.Types.More
@@ -3137,46 +3470,18 @@ db2a95892fbfed15c4535e96ab20503f
                  case w1
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
-                 Lexical.$wnexpParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-e17b4074f90bd0f9a592aeaeb64f9256
-  exprParser3 ::
-    Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
-    -> Data.Attoparsec.Internal.Types.Pos
-    -> Data.Attoparsec.Internal.Types.More
-    -> Data.Attoparsec.Internal.Types.Failure
-         Data.Text.Internal.Text
-         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
-         r
-    -> Data.Attoparsec.Internal.Types.Success
-         Data.Text.Internal.Text
-         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
-         Lexical.Expr
-         r
-    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
-  {- Arity: 5,
-     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
-     Inline: INLINE[0],
-     Unfolding: InlineRule (5, True, False)
-                (\ @ r
-                   (w :: Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
-                   (w1 :: Data.Attoparsec.Internal.Types.Pos)
-                   (w2 :: Data.Attoparsec.Internal.Types.More)
-                   (w3 :: Data.Attoparsec.Internal.Types.Failure
-                            Data.Text.Internal.Text
-                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
-                            r)
-                   (w4 :: Data.Attoparsec.Internal.Types.Success
-                            Data.Text.Internal.Text
-                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
-                            Lexical.Expr
-                            r) ->
-                 case w `cast`
-                      (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww { Data.Attoparsec.Text.Buffer.Buf ww1 ww2 ww3 ww4 ww5 ->
-                 case w1
-                        `cast`
-                      (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
-                 Lexical.$wlexpParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-3710e5fd070ff1c087c4e30763dee01b
+                 Lexical.$wexprVarParser
+                   @ r
+                   ww1
+                   ww2
+                   ww3
+                   ww4
+                   ww5
+                   ww7
+                   w2
+                   w3
+                   w4 } }) -}
+21c3271a47b1d54500ce631889e70c21
   falseParser ::
     Data.Attoparsec.Text.Internal.Parser Lexical.BoolExpr
   {- Arity: 5,
@@ -3185,7 +3490,7 @@ e17b4074f90bd0f9a592aeaeb64f9256
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.BoolExpr>_R)) -}
-c5ada72d1578871814ecd1584affde78
+238a8941e20dc51e0d74db46b6af6215
   falseParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3250,7 +3555,7 @@ c5ada72d1578871814ecd1584affde78
                       more'
                       w3
                       w4 } }) } }) -}
-e6f27e64a3c8159c9effbe3ca1d8cf2c
+a13115e21a6f14791c6d6fec31fe7d2a
   floatParser :: Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,C(C1(C1(C1(C1(U)))))><L,C(C1(C1(C1(U))))>,
@@ -3259,7 +3564,7 @@ e6f27e64a3c8159c9effbe3ca1d8cf2c
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-6753d70951ceddaa559681546f76a64e
+6d78daf9a0c42ff00ede05159bc30629
   floatParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3297,7 +3602,7 @@ e6f27e64a3c8159c9effbe3ca1d8cf2c
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wfloatParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-cebe5fa90fc4264ed2d4e4ea0732bc24
+c2018013abc3abc791b0905d3f3e3cb4
   geParser :: Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3306,7 +3611,7 @@ cebe5fa90fc4264ed2d4e4ea0732bc24
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-419181f623cbc95d2f3f6a9306e760ba
+d75b85e62d45865a07c9889829c1518b
   geParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3344,7 +3649,7 @@ cebe5fa90fc4264ed2d4e4ea0732bc24
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wgeParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-7987b5c003f65fccefbc434d8a2e56f0
+e74becb4c7e1a59de070ff423cef6bad
   greatParser :: Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3353,7 +3658,7 @@ cebe5fa90fc4264ed2d4e4ea0732bc24
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-1499a42b5863b818e46b5174f3bf405a
+5823ce8c5770c79899e73177977a0bfb
   greatParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3391,73 +3696,174 @@ cebe5fa90fc4264ed2d4e4ea0732bc24
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wgreatParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-4a6b488e75d3a6020438333cda575773
+362818ed1fa501139080a29f14805a7e
+  ifParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Stmt
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Unfolding: InlineRule (0, True, True)
+                Lexical.ifParser1
+                  `cast`
+                (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
+                          <Data.Text.Internal.Text>_N <Lexical.Stmt>_R)) -}
+fcb3336b7e332a584c142dbaa63ae42c
+  ifParser1 ::
+    Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
+    -> Data.Attoparsec.Internal.Types.Pos
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ r
+                   (w :: Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                   (w1 :: Data.Attoparsec.Internal.Types.Pos)
+                   (w2 :: Data.Attoparsec.Internal.Types.More)
+                   (w3 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w4 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.Stmt
+                            r) ->
+                 case w `cast`
+                      (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww { Data.Attoparsec.Text.Buffer.Buf ww1 ww2 ww3 ww4 ww5 ->
+                 case w1
+                        `cast`
+                      (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
+                 Lexical.$wifParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
+459e91866be56c14619f6aa988df0193
   keywords :: Data.Set.Base.Set GHC.Base.String
   {- Unfolding: (Lexical.$sfromList Lexical.keywords1) -}
-8610c309ae961433d311e128e7dc5400
+02b59b6b62b88d81d4db9f92bc6b38fc
   keywords1 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
-                   Lexical.keywords14
+                   Lexical.keywords26
                    Lexical.keywords2) -}
-d54ff98550a2814de06940a316994874
-  keywords10 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "car"#) -}
-eb7465db4f9fb188d04faafcb2302ab4
-  keywords11 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "cons"#) -}
-eb48dc841b465dd6327a5138bb7085d5
-  keywords12 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "nil"#) -}
-6a61c831308b5dfe07c4067a97e83d4e
-  keywords13 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "False"#) -}
-b7acd26bd255ea929806c643f3316c2c
+87c960ca6f6a86e5384648e67c2fc0dc
+  keywords10 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lexical.keywords17
+                   Lexical.keywords11) -}
+24e8abbafe25b6851dbcd49d33175171
+  keywords11 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lexical.keywords16
+                   Lexical.keywords12) -}
+29f5e6400ecbfd42eb4507399971ca02
+  keywords12 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lexical.keywords15
+                   Lexical.keywords13) -}
+dc83b328599e624914f31b90d3ea0928
+  keywords13 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lexical.keywords14
+                   (GHC.Types.[] @ GHC.Base.String)) -}
+64ab27d37724c7c2d68ff2a276d56a6d
   keywords14 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "True"#) -}
-bf01e9c34c1328751ab1da320db9b4fb
+  {- Unfolding: (GHC.CString.unpackCString# "make"#) -}
+6ee786ac75340a518dc377c5a3b619d7
+  keywords15 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "vector"#) -}
+f3d9e2721c227bfcb9ba6366d5dae2db
+  keywords16 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "begin"#) -}
+a0a97d707647f90ef77e332407bbcdc5
+  keywords17 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "skip"#) -}
+089c9442b38a2aa9908496ea4c31097a
+  keywords18 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "while"#) -}
+f03c36ff98e6d63cc1b52a6c9d22ae49
+  keywords19 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "if"#) -}
+87d622b1a0fb983bc768c49faac70d34
   keywords2 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
-                   Lexical.keywords13
+                   Lexical.keywords25
                    Lexical.keywords3) -}
-7bc938ba2bcc9fd746710241c70abeec
+8b78615338a234cf021cf599b6c6fea3
+  keywords20 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "set!"#) -}
+2ab1a25338bf595d6ee086f5b0ad1fb3
+  keywords21 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "cdr"#) -}
+29b116e26626d248594177535d16a892
+  keywords22 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "car"#) -}
+98dda8a927ab6a3bafcc9573fdf657cf
+  keywords23 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "cons"#) -}
+fe14e840148bf67f79a92103701f33b5
+  keywords24 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "nil"#) -}
+d344cd936557a58970f9e022d26afa89
+  keywords25 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "False"#) -}
+3bad413e82413208d7adce3d24fc3482
+  keywords26 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "True"#) -}
+4c63597f3e957203b5071479e79d98d0
   keywords3 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
-                   Lexical.keywords12
+                   Lexical.keywords24
                    Lexical.keywords4) -}
-2eb746c0c291c1165ec0bf0f600ff930
+a6aff1875f44365cfff0ee42880582e3
   keywords4 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
-                   Lexical.keywords11
+                   Lexical.keywords23
                    Lexical.keywords5) -}
-19f53ef11883bb8fbb7444bd26dde657
+26e4164d54e566de88adadfad01646ad
   keywords5 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
-                   Lexical.keywords10
+                   Lexical.keywords22
                    Lexical.keywords6) -}
-07c78d902f8038191029b91fcbd79559
+2994649981d0e88a4eace54ceb2bde20
   keywords6 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
-                   Lexical.keywords9
+                   Lexical.keywords21
                    Lexical.keywords7) -}
-c5ddd30e66772f400b17f33423fe2177
+333b28010719694c620efb68a86da131
   keywords7 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
-                   Lexical.keywords8
-                   (GHC.Types.[] @ GHC.Base.String)) -}
-e9ca6fc1c56906826b8c0a970b09cc59
-  keywords8 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "set!"#) -}
-07cac8d07e8130b1bf429ae951677aaa
-  keywords9 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "cdr"#) -}
-a16484566d638b1c86b395be022d5449
+                   Lexical.keywords20
+                   Lexical.keywords8) -}
+5b882cbbbc5fd19c9e06e6ae64502e59
+  keywords8 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lexical.keywords19
+                   Lexical.keywords9) -}
+f0a7d93d7646b2990a536e3dc1f7e6bb
+  keywords9 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lexical.keywords18
+                   Lexical.keywords10) -}
+8342b4cf6782eeeddb7791551a2ccbb9
   leParser :: Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3466,7 +3872,7 @@ a16484566d638b1c86b395be022d5449
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-37d674b28c905b9a2fb329b2d85c76ae
+7b5d336cf30c4bdba0918b2508150727
   leParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3504,7 +3910,7 @@ a16484566d638b1c86b395be022d5449
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wleParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-d1bf7b083fdefec67a8c320d639dc4dc
+a28f349e98af27fbd0afe09240271cf6
   lessParser :: Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3513,7 +3919,7 @@ d1bf7b083fdefec67a8c320d639dc4dc
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-b65ed5824032e87975a60c207830559e
+83780a148a65e6f8150008baf43261b8
   lessParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3551,7 +3957,7 @@ b65ed5824032e87975a60c207830559e
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wlessParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-b80edf2cfd4f06cb1da4c16afaea4ef4
+65c9cd116bb2dc3f38f030de6feccfc6
   lexeme ::
     Data.Attoparsec.Text.Internal.Parser a
     -> Data.Attoparsec.Text.Internal.Parser a
@@ -3564,7 +3970,7 @@ b80edf2cfd4f06cb1da4c16afaea4ef4
                  <Data.Attoparsec.Text.Internal.Parser a>_R
                  ->_R Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                                <Data.Text.Internal.Text>_N <a>_R)) -}
-b85680ec65f2ba0fe99f62bdf1fa347c
+de8c43e894f74c8f7d1cd0564b7b21ef
   lexeme1 ::
     Data.Attoparsec.Text.Internal.Parser a
     -> forall r.
@@ -3608,16 +4014,54 @@ b85680ec65f2ba0fe99f62bdf1fa347c
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wlexeme @ a w @ r ww1 ww2 ww3 ww4 ww5 ww7 w3 w4 w5 } }) -}
-215b525151acf55d0fca3235f52466e5
+13bb9a6aa3b593d576b000d694a35426
   lexpParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Expr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Unfolding: InlineRule (0, True, True)
-                Lexical.exprParser3
+                Lexical.lexpParser1
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.Expr>_R)) -}
-c7e0bfa8132e4306c74aaf9d81469c1f
+d93d2116453eb79bc93c348c1268fa5d
+  lexpParser1 ::
+    Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
+    -> Data.Attoparsec.Internal.Types.Pos
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Expr
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ r
+                   (w :: Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                   (w1 :: Data.Attoparsec.Internal.Types.Pos)
+                   (w2 :: Data.Attoparsec.Internal.Types.More)
+                   (w3 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w4 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.Expr
+                            r) ->
+                 case w `cast`
+                      (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww { Data.Attoparsec.Text.Buffer.Buf ww1 ww2 ww3 ww4 ww5 ->
+                 case w1
+                        `cast`
+                      (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
+                 Lexical.$wlexpParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
+b0d863ffd18d4ad062e679649fa10c09
   listExprParser ::
     Data.Attoparsec.Text.Internal.Parser Lexical.ListExpr
   {- Arity: 5,
@@ -3627,7 +4071,7 @@ c7e0bfa8132e4306c74aaf9d81469c1f
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.ListExpr>_R)) -}
-9e13cf7b124a036d442968de5c6ac81f
+9edde7f751139cbcff0fdd2d32236d0b
   listExprParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3675,7 +4119,11 @@ c7e0bfa8132e4306c74aaf9d81469c1f
                    w2
                    w3
                    w4 } }) -}
-8eb1e6e97a16a7abde7e39bd577bc6fd
+cec576e269808779dd86963433c1080c
+  listToStmt_list ::
+    [Lexical.Stmt] -> Lexical.Stmt_list -> Lexical.Stmt_list
+  {- Arity: 2, Strictness: <S,1*U><L,U> -}
+d8cfc8c5423ed6d53d8c728853c55d68
   listVarParser ::
     Data.Attoparsec.Text.Internal.Parser Lexical.ListExpr
   {- Arity: 5,
@@ -3685,7 +4133,7 @@ c7e0bfa8132e4306c74aaf9d81469c1f
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.ListExpr>_R)) -}
-025156de3de9d3261ff3b107703b719b
+7e6bc6272ef91ad0cc4c056aa52796e2
   listVarParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3733,7 +4181,11 @@ c7e0bfa8132e4306c74aaf9d81469c1f
                    w2
                    w3
                    w4 } }) -}
-fad2f2d7f91b1b3cce2670eb09319ca5
+400772d9b15f636f110ce5d3aabeb2ec
+  listVarParser_msg3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "Failed reading: Pattern match failure in do expression at src/Lexical.hs:217:5-21"#) -}
+d12207dfdf1f9ebb2e926df2c8caf354
   mulParser :: Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3742,7 +4194,7 @@ fad2f2d7f91b1b3cce2670eb09319ca5
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-9a01924bf9d0cbf43b266a0b8d4f457f
+e85845f321a067324c936e1f22653801
   mulParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3780,16 +4232,111 @@ fad2f2d7f91b1b3cce2670eb09319ca5
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wmulParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-759094a214807d7a19f2bd1d5e09015c
+fbc727649dc45f73d7e5fa28b3997b63
+  new_vecParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Stmt
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Unfolding: InlineRule (0, True, True)
+                Lexical.new_vecParser1
+                  `cast`
+                (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
+                          <Data.Text.Internal.Text>_N <Lexical.Stmt>_R)) -}
+4dd77a741d15b5ee7b0697c7e156d884
+  new_vecParser1 ::
+    Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
+    -> Data.Attoparsec.Internal.Types.Pos
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ r
+                   (w :: Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                   (w1 :: Data.Attoparsec.Internal.Types.Pos)
+                   (w2 :: Data.Attoparsec.Internal.Types.More)
+                   (w3 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w4 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.Stmt
+                            r) ->
+                 case w `cast`
+                      (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww { Data.Attoparsec.Text.Buffer.Buf ww1 ww2 ww3 ww4 ww5 ->
+                 case w1
+                        `cast`
+                      (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
+                 Lexical.$wnew_vecParser
+                   @ r
+                   ww1
+                   ww2
+                   ww3
+                   ww4
+                   ww5
+                   ww7
+                   w2
+                   w3
+                   w4 } }) -}
+d7c266bf732e515d4ffbb04eccce1be8
   nexpParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Expr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Unfolding: InlineRule (0, True, True)
-                Lexical.exprParser2
+                Lexical.nexpParser1
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.Expr>_R)) -}
-34ae3631386b8028078f07dbcdcc4e38
+00ef9c74dfc83927f5cf80642039a493
+  nexpParser1 ::
+    Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
+    -> Data.Attoparsec.Internal.Types.Pos
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Expr
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ r
+                   (w :: Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                   (w1 :: Data.Attoparsec.Internal.Types.Pos)
+                   (w2 :: Data.Attoparsec.Internal.Types.More)
+                   (w3 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w4 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.Expr
+                            r) ->
+                 case w `cast`
+                      (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww { Data.Attoparsec.Text.Buffer.Buf ww1 ww2 ww3 ww4 ww5 ->
+                 case w1
+                        `cast`
+                      (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
+                 Lexical.$wnexpParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
+b557b7e46c2d3f695ec2b38086d3f682
   notParser :: Data.Attoparsec.Text.Internal.Parser Lexical.BoolExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3798,7 +4345,7 @@ fad2f2d7f91b1b3cce2670eb09319ca5
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.BoolExpr>_R)) -}
-da9c4bc031fbae78d9fd651c0d009b8a
+7501390ba810223f2977b8e811c1f855
   notParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3836,7 +4383,7 @@ da9c4bc031fbae78d9fd651c0d009b8a
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wnotParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-b899631879c63e604a0c56a271d46aae
+c420282a821c202a7ca399d8a77f937a
   nullParser :: Data.Attoparsec.Text.Internal.Parser Lexical.ListExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3845,7 +4392,7 @@ b899631879c63e604a0c56a271d46aae
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.ListExpr>_R)) -}
-4c5fc2d1e933d9c9ec6540b94d9b4bbf
+17fe7513801679f23b14b9fee714c136
   nullParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3883,7 +4430,7 @@ b899631879c63e604a0c56a271d46aae
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wnullParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-b9220bd006cb0aeea0e16f05bb8b602c
+5d87c4dcf123b87fd28bdc29f2c1d71f
   numExprParser ::
     Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
@@ -3893,7 +4440,7 @@ b9220bd006cb0aeea0e16f05bb8b602c
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-b1d64e882c20d3dedadde58b6c9a9ee9
+40c89ed8d1a2db0b17ee88c4c76e3a57
   numExprParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3941,7 +4488,7 @@ b1d64e882c20d3dedadde58b6c9a9ee9
                    w2
                    w3
                    w4 } }) -}
-09aaa5ea32b56bb16955193939172e11
+fd2aa280bd6585ba1447dbc6875d982e
   numVarParser ::
     Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
@@ -3951,7 +4498,7 @@ b1d64e882c20d3dedadde58b6c9a9ee9
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-a3effc7def12932cbbcf7ecce76afd08
+7a35bfe4f3a199aa58f471896dcea1eb
   numVarParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3989,7 +4536,11 @@ a3effc7def12932cbbcf7ecce76afd08
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wnumVarParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-512bd48ec605294764e2465850eda0e9
+161417f9fe215a735e44a66c9359208e
+  numVarParser_msg3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "Failed reading: Pattern match failure in do expression at src/Lexical.hs:113:5-21"#) -}
+8f9d15d56566d40e9ea5e4f84a9d7562
   orParser :: Data.Attoparsec.Text.Internal.Parser Lexical.BoolExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3998,7 +4549,7 @@ a3effc7def12932cbbcf7ecce76afd08
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.BoolExpr>_R)) -}
-30c92afda4c0311805cb2a2b99746542
+b06bbb1f1ee60590294cb9d3024c17ad
   orParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4036,7 +4587,111 @@ a3effc7def12932cbbcf7ecce76afd08
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$worParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-a3727660c29e710984139688d29b2828
+dd9cc966023cde8d72716ccf1d59e63a
+  set_vecParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Stmt
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Unfolding: InlineRule (0, True, True)
+                Lexical.set_vecParser1
+                  `cast`
+                (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
+                          <Data.Text.Internal.Text>_N <Lexical.Stmt>_R)) -}
+55279516ed6d217114dba62f09074274
+  set_vecParser1 ::
+    Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
+    -> Data.Attoparsec.Internal.Types.Pos
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ r
+                   (w :: Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                   (w1 :: Data.Attoparsec.Internal.Types.Pos)
+                   (w2 :: Data.Attoparsec.Internal.Types.More)
+                   (w3 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w4 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.Stmt
+                            r) ->
+                 case w `cast`
+                      (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww { Data.Attoparsec.Text.Buffer.Buf ww1 ww2 ww3 ww4 ww5 ->
+                 case w1
+                        `cast`
+                      (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
+                 Lexical.$wset_vecParser
+                   @ r
+                   ww1
+                   ww2
+                   ww3
+                   ww4
+                   ww5
+                   ww7
+                   w2
+                   w3
+                   w4 } }) -}
+a21fe272db4547dcacf07361a46b003d
+  skipParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Stmt
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Unfolding: InlineRule (0, True, True)
+                Lexical.skipParser1
+                  `cast`
+                (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
+                          <Data.Text.Internal.Text>_N <Lexical.Stmt>_R)) -}
+2fcefb03e00e928d15d22e99952a5c87
+  skipParser1 ::
+    Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
+    -> Data.Attoparsec.Internal.Types.Pos
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ r
+                   (w :: Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                   (w1 :: Data.Attoparsec.Internal.Types.Pos)
+                   (w2 :: Data.Attoparsec.Internal.Types.More)
+                   (w3 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w4 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.Stmt
+                            r) ->
+                 case w `cast`
+                      (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww { Data.Attoparsec.Text.Buffer.Buf ww1 ww2 ww3 ww4 ww5 ->
+                 case w1
+                        `cast`
+                      (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
+                 Lexical.$wskipParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
+9f7f0d4c2b89b503384e8656e7718d87
   stmtExprParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4045,7 +4700,7 @@ a3727660c29e710984139688d29b2828
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.Stmt>_R)) -}
-6b62ca46fd08754d42e1e6422018ae99
+ed09db7a31aa795c81e3779951fab7a3
   stmtExprParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4093,7 +4748,64 @@ a3727660c29e710984139688d29b2828
                    w2
                    w3
                    w4 } }) -}
-f7b28c8c04731185c428ad626a29e19f
+d2469aca61feaad62e1d6a46d6b65c3f
+  stmtListParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Stmt
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Unfolding: InlineRule (0, True, True)
+                Lexical.stmtListParser1
+                  `cast`
+                (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
+                          <Data.Text.Internal.Text>_N <Lexical.Stmt>_R)) -}
+056d47cb9c45924b508a1fa6d7fa09ff
+  stmtListParser1 ::
+    Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
+    -> Data.Attoparsec.Internal.Types.Pos
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ r
+                   (w :: Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                   (w1 :: Data.Attoparsec.Internal.Types.Pos)
+                   (w2 :: Data.Attoparsec.Internal.Types.More)
+                   (w3 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w4 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.Stmt
+                            r) ->
+                 case w `cast`
+                      (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww { Data.Attoparsec.Text.Buffer.Buf ww1 ww2 ww3 ww4 ww5 ->
+                 case w1
+                        `cast`
+                      (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
+                 Lexical.$wstmtListParser
+                   @ r
+                   ww1
+                   ww2
+                   ww3
+                   ww4
+                   ww5
+                   ww7
+                   w2
+                   w3
+                   w4 } }) -}
+dedf3286f5111231b112f7a6389d0e23
   stmtParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4102,7 +4814,7 @@ f7b28c8c04731185c428ad626a29e19f
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.Stmt>_R)) -}
-05d9110039a74acdec1eac193435093c
+6b49222fe6cbe0f8401c8afb27f60fcf
   stmtParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4140,7 +4852,65 @@ f7b28c8c04731185c428ad626a29e19f
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wstmtParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-00b5c610137affa1c51b717a809c3593
+6a558c463e5c31d38ae4a5c9e2d0f25f
+  stmt_listParser ::
+    Data.Attoparsec.Text.Internal.Parser Lexical.Stmt_list
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Unfolding: InlineRule (0, True, True)
+                Lexical.stmt_listParser1
+                  `cast`
+                (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
+                          <Data.Text.Internal.Text>_N <Lexical.Stmt_list>_R)) -}
+d5d58b7262247aee46f2ecfab46125cc
+  stmt_listParser1 ::
+    Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
+    -> Data.Attoparsec.Internal.Types.Pos
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt_list
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ r
+                   (w :: Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                   (w1 :: Data.Attoparsec.Internal.Types.Pos)
+                   (w2 :: Data.Attoparsec.Internal.Types.More)
+                   (w3 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w4 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.Stmt_list
+                            r) ->
+                 case w `cast`
+                      (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww { Data.Attoparsec.Text.Buffer.Buf ww1 ww2 ww3 ww4 ww5 ->
+                 case w1
+                        `cast`
+                      (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
+                 Lexical.$wstmt_listParser
+                   @ r
+                   ww1
+                   ww2
+                   ww3
+                   ww4
+                   ww5
+                   ww7
+                   w2
+                   w3
+                   w4 } }) -}
+1c78701d9d002903cdcd72084ffa47bc
   stringParser ::
     Data.Attoparsec.Text.Internal.Parser Lexical.ListExpr
   {- Arity: 5,
@@ -4150,7 +4920,7 @@ f7b28c8c04731185c428ad626a29e19f
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.ListExpr>_R)) -}
-2d3b78bab92afd0c27c61521b75b961e
+49d85b2e536da19c9076296843cc3f53
   stringParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4188,7 +4958,7 @@ f7b28c8c04731185c428ad626a29e19f
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wstringParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-144c9414d7200858c16116aa60a628d2
+dc148a9a1ad82df3de4ee9d3d9a6619d
   subParser :: Data.Attoparsec.Text.Internal.Parser Lexical.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4197,7 +4967,7 @@ f7b28c8c04731185c428ad626a29e19f
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.NumExpr>_R)) -}
-33451cbc4753a234cc6b276f4ecffd20
+c8637552222bd52b2b8ad3fcad5165ba
   subParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4235,7 +5005,7 @@ f7b28c8c04731185c428ad626a29e19f
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Lexical.$wsubParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-1db7446f10d28ce12e58282b9b97af25
+033b569783d3f31c234cfd1b31c832a5
   trueParser :: Data.Attoparsec.Text.Internal.Parser Lexical.BoolExpr
   {- Arity: 5,
      Unfolding: InlineRule (0, True, True)
@@ -4243,7 +5013,7 @@ f7b28c8c04731185c428ad626a29e19f
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Lexical.BoolExpr>_R)) -}
-e49aa10d999e80ccc64d9aa85a7fbbe3
+52c92fe069569fc23b864c5750e5f48e
   trueParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4308,17 +5078,64 @@ e49aa10d999e80ccc64d9aa85a7fbbe3
                       more'
                       w3
                       w4 } }) } }) -}
-a94d5039a4914d6c8617232e522c6e82
-  varParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Expr
+a60724e55d448f2d1bd0d4f08a0c8743
+  varParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Var
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Unfolding: InlineRule (0, True, True)
                 Lexical.varParser1
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
-                          <Data.Text.Internal.Text>_N <Lexical.Expr>_R)) -}
-dc96fee72193b2cb0c3d139e04eff827
+                          <Data.Text.Internal.Text>_N <Lexical.Var>_R)) -}
+3b10456043b24e216e3f8d2f2792378d
   varParser1 ::
+    Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
+    -> Data.Attoparsec.Internal.Types.Pos
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Var
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ r
+                   (w :: Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                   (w1 :: Data.Attoparsec.Internal.Types.Pos)
+                   (w2 :: Data.Attoparsec.Internal.Types.More)
+                   (w3 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w4 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.Var
+                            r) ->
+                 case w `cast`
+                      (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww { Data.Attoparsec.Text.Buffer.Buf ww1 ww2 ww3 ww4 ww5 ->
+                 case w1
+                        `cast`
+                      (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
+                 Lexical.$wvarParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
+370c404e26a9833bbe8fe5bc50e9f6ba
+  vectorParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Expr
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Unfolding: InlineRule (0, True, True)
+                Lexical.vectorParser1
+                  `cast`
+                (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
+                          <Data.Text.Internal.Text>_N <Lexical.Expr>_R)) -}
+2d0de6d586e123f7df8cd03afa49c553
+  vectorParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
     -> Data.Attoparsec.Internal.Types.More
@@ -4354,14 +5171,62 @@ dc96fee72193b2cb0c3d139e04eff827
                  case w1
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
-                 Lexical.$wvarParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
+                 Lexical.$wvectorParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
+7507603c7c8f57cd8395f9c9e2867014
+  whileParser :: Data.Attoparsec.Text.Internal.Parser Lexical.Stmt
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Unfolding: InlineRule (0, True, True)
+                Lexical.whileParser1
+                  `cast`
+                (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
+                          <Data.Text.Internal.Text>_N <Lexical.Stmt>_R)) -}
+93c8eb6bbddc9bdad185dab17b937ce6
+  whileParser1 ::
+    Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
+    -> Data.Attoparsec.Internal.Types.Pos
+    -> Data.Attoparsec.Internal.Types.More
+    -> Data.Attoparsec.Internal.Types.Failure
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         r
+    -> Data.Attoparsec.Internal.Types.Success
+         Data.Text.Internal.Text
+         (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+         Lexical.Stmt
+         r
+    -> Data.Attoparsec.Internal.Types.IResult Data.Text.Internal.Text r
+  {- Arity: 5,
+     Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ r
+                   (w :: Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                   (w1 :: Data.Attoparsec.Internal.Types.Pos)
+                   (w2 :: Data.Attoparsec.Internal.Types.More)
+                   (w3 :: Data.Attoparsec.Internal.Types.Failure
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            r)
+                   (w4 :: Data.Attoparsec.Internal.Types.Success
+                            Data.Text.Internal.Text
+                            (Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text)
+                            Lexical.Stmt
+                            r) ->
+                 case w `cast`
+                      (Sub (Data.Attoparsec.Internal.Types.D:R:StateText[0])) of ww { Data.Attoparsec.Text.Buffer.Buf ww1 ww2 ww3 ww4 ww5 ->
+                 case w1
+                        `cast`
+                      (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
+                 Lexical.$wwhileParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
 instance GHC.Classes.Eq [Lexical.Var] = Lexical.$fEqVar
-instance GHC.Classes.Ord [Lexical.Var] = Lexical.$fOrdVar
 instance GHC.Show.Show [Lexical.BoolExpr] = Lexical.$fShowBoolExpr
 instance GHC.Show.Show [Lexical.Expr] = Lexical.$fShowExpr
 instance GHC.Show.Show [Lexical.ListExpr] = Lexical.$fShowListExpr
 instance GHC.Show.Show [Lexical.NumExpr] = Lexical.$fShowNumExpr
 instance GHC.Show.Show [Lexical.Stmt] = Lexical.$fShowStmt
+instance GHC.Show.Show [Lexical.Stmt_list]
+  = Lexical.$fShowStmt_list
 instance GHC.Show.Show [Lexical.Var] = Lexical.$fShowVar
 "SPEC/Lexical fromList @ String" [ALWAYS] forall ($dOrd :: GHC.Classes.Ord
                                                              GHC.Base.String)

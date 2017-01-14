@@ -6,16 +6,17 @@ import Control.Monad.State
 import System.Environment
 import System.IO
 import Repl
-import AST
-import Lexical
+import Interpreter
+import Grammer
+import PrettyPrinter
 
 data Option = Option {
     inPath :: String,
     outPath :: String, 
     funType :: Int
-    -- 0: intepret
-    -- 1: AST
-    -- 2: REPL
+    -- 0: interpreter
+    -- 1: pretty printer
+    -- 2: repl
 }
     deriving Show
 
@@ -87,19 +88,23 @@ defMain = do
         _ -> do
             inH <- openFile (inPath option) ReadMode
             readCon <- hGetContents inH
-            let ast = parseAST readCon
-            case ast of
-                Left errstr -> putStrLn errstr
-                Right stmt -> do
-                    writeCon <- case funType option of
-                        0 -> do
-                            let (Exp expr) = stmt
-                            return (show (eval expr M.empty))
-                        1 -> do
-                            return ""
-                    case outPath option of
-                        "" -> do
-                            putStr writeCon
-                        outFile -> do
-                            writeFile outFile writeCon
+            let linesCon = lines readCon
+            writeCon <- case funType option of
+                0 -> case interpreter linesCon M.empty of
+                    Right ansList -> do
+                        return (Prelude.unlines ansList)
+                    Left errStr -> do
+                        putStrLn errStr
+                        return ""
+                1 -> case prettyPrinter linesCon of
+                    Right ansList -> do
+                        return (Prelude.unlines ansList)
+                    Left errStr -> do
+                        putStrLn errStr
+                        return ""
+            case outPath option of
+                "" -> do
+                    putStr writeCon
+                outFile -> do
+                    writeFile outFile writeCon
             hClose inH

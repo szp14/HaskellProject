@@ -1,26 +1,20 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-13 03:33:04.813815 UTC
+2017-01-14 08:04:52.389849 UTC
 
-interface Compiler-0.1.0.0-A5AqcFYQOeY4hOCoTusz4T:Repl 8001
-  interface hash: 3c474575ef61fd3b27d3654b746903ce
-  ABI hash: 2dc3a804116dd05ad4b18b845d7cba78
-  export-list hash: 4a708b5ca389f248337d354cf4408d9a
+interface Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Repl 8001
+  interface hash: f7a1615f600d57b2294619214970573b
+  ABI hash: db4477fad43cc0d3a937226ffa3b4054
+  export-list hash: 7cbebf98c4270ff2930d7eeb1bd7c3a2
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: a4046e0fdab24403354cf30558c1ea1c
   sig of: Nothing
   used TH splices: False
   where
 exports:
-  Repl.eval
-  Repl.getBool
-  Repl.getList
-  Repl.getNum
   Repl.mainLoop
   Repl.repl
-  Repl.Env
-  Repl.Value{Repl.BoolVal Repl.CharVal Repl.ListVal Repl.NumVal boolVal charVal listVal numVal}
-module dependencies: AST Lexical
+module dependencies: Grammer Interpreter
 package dependencies: array-0.5.1.1@array-0.5.1.1
                       attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43
                       base-4.9.0.0 binary-0.8.3.0@binary-0.8.3.0
@@ -63,367 +57,58 @@ family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh1
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
                          vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector
-import  -/  AST 044a0df1502dc6fe6b4d1847ca58cba1
-  exports: b40501e951ece93991e58af02844453c
-  parseAST 5acba071d3a2ee73b881a92422bc6527
-import  -/  Lexical ded13c5a7e534dd59e914c12b068fdb9
-  exports: adff915e72040da3ec2441897cc72692
-  Add deef72f8d83df6a21a0315bd185bcf82
-  And 131f4027aa6f8a3f07013f2cebcefb98
-  Assign ea1620b5cd258ab83057b9e1655f23ab
-  BExp f09685e94bf981159e4eb1459cccd4c0
-  BVar 03597aed7f68f83f12987345f2587617
-  BoolExpr 71b7b2323e18460994b0d1cd717ba07c
-  Car 211614ced13eec3db4b4e8dd2c1efb1a
-  Cdr 43507b5d8b904dcecd8d2ae1bbd9c09e
-  CharLit f07b223843ba8561a33d41d7940ce9ab
-  Cons 6050ad3320a13ca45451a3bc9e440275
-  Div c068ccf38c35cb40598e6d2349577c3a
-  E faf034bc83aeb56a62d1664fab7eba96
-  EVar 9af0edb03c9c8569c31a5ef5a93cbbbe
-  Exp d4de8f31a6686b7996e6a377e4c955ed
-  Expr a5b053a35e99ae10936ec3b6c01f4253
-  FalseLit 60b6a7c8a69cb5be038d14d7c87ec2f0
-  G bc15b8cb3c123ffc51deff4e64f8a11a
-  GE 6a6bedf525a1ea83f27e41eea84196a7
-  L 7c6f318060fa4dc1d45bb7da92fd4bdc
-  LE 550c24d8ebc881abc159e891722e9226
-  LExp 8038ac04aa034970a6f48a6b02156a07
-  LVar c5fcbe26d7f3e38d5f9f8d4b1a8ffdb1
-  ListExpr d070c5300eee747c23b50fd3670a8046
-  Mul aba8858b9d1c7d934cfb955bf5571665
-  NExp 65cb92fee6a26e4c71275cb91bac0594
-  NVar 18d99904f71ed8d10a6187a10371d0bf
-  Nil 4c35f252e776d43263e1f182b8c1d954
-  Not 9d0378250fad8acfcdd512092eab6498
-  NumExpr 11be7d829d1ed81418e5c306782c3dec
-  Number e94557910ede10f71ebfef056b3dfe1b
-  Or 6399c430937c8512d14d450d55aa27d7
-  StringLit c4e512adb9c0ee1d88e34f56a2eba76e
-  Sub acf2a15e4d07cdd4619a5ca5ee0c3447
-  TrueLit 002b54a71acb63119602b2778318f282
-  TypeBool b500c1a68549e56bb6946f1069d66c95
-  TypeList 86226616f2a886c086d659b559f7dc69
-  TypeNum 5226a2a21bbaa3fd158bc5c938f64834
+import  -/  Grammer 09bcd3be53d8e5456d336e8011cb1b38
+  exports: 8573809e4ae35293632b6931db7d4032
+  parseAST 65aae7447e030e67db193c3220f6a9da
+import  -/  Interpreter 94ec0f1b96303ae508f3a8278022f12a
+  exports: 23cb7ab98af56ee8dae95c05c887ae4f
+  Env 73f300f14da41fea9ff035e3de67f989
+  eval b91c4d529e6c43120fafa2fcf24809f6
 import  -/  base-4.9.0.0:Data.Either bd9f099b82d4ed2d98c56d7144ac6957
+import  -/  base-4.9.0.0:Data.OldList 0058409f994fb13ae0616e3f1e5b4dae
 import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
 import  -/  base-4.9.0.0:GHC.IO.Handle a1938753d58593f0a419f85b67aa7cd3
 import  -/  base-4.9.0.0:GHC.IO.Handle.FD 13b7a4e1f414dd38346bde554423bf4b
-import  -/  base-4.9.0.0:GHC.Num 48f506a8f4ecf06285d0a0706594dcc0
-import  -/  base-4.9.0.0:GHC.Real 08bf4acb5f2508f89d6fbcd57fe232e9
-import  -/  base-4.9.0.0:GHC.Show 952347a6ab730bcb25c0854d8bc6ca51
+import  -/  base-4.9.0.0:GHC.List 13d2451194c1c6e53b4f4f07947736dd
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  base-4.9.0.0:System.IO ad985d7a3fc986e9b9c610fb344d9106
 import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map 8f3eaf1368a7ea27857993e3febae6a3
 import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base 8d095ad71634b5551ba5dc1307b7f9e5
-import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text 1e73069de2859bae8530c14767b0c6af
-88fe408404bd152207712c24a96ea544
-  $fShowValue :: GHC.Show.Show a => GHC.Show.Show (Repl.Value a)
-  DFunId
-  {- Arity: 1, Strictness: <L,U(A,A,C(C1(U)))>m,
-     Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun: @ a ($dShow :: GHC.Show.Show a).
-                  @ (Repl.Value a)
-                  (Repl.$fShowValue_$cshowsPrec @ a $dShow)
-                  (Repl.$fShowValue_$cshow @ a $dShow)
-                  (Repl.$fShowValue_$cshowList @ a $dShow) -}
-27ee47a69d9362f9f0e8544a459e6197
-  $fShowValue1 ::
-    Repl.Value () -> GHC.Base.String -> [GHC.Types.Char]
-  {- Arity: 2,
-     Unfolding: (\ (x :: Repl.Value ())
-                   (s :: GHC.Base.String)[OneShot] ->
-                 GHC.Base.++ @ GHC.Types.Char (Repl.$fShowValue_$s$cshow x) s) -}
-88fe408404bd152207712c24a96ea544
-  $fShowValue_$cshow ::
-    GHC.Show.Show a => Repl.Value a -> GHC.Base.String
-  {- Arity: 2, Strictness: <L,1*U(A,A,1*C1(C1(U)))><S,1*U>,
-     Unfolding: (\ @ a
-                   ($dShow :: GHC.Show.Show a)
-                   (ds :: Repl.Value a) ->
-                 case ds of wild {
-                   Repl.BoolVal val -> GHC.Show.$fShowBool_$cshow val
-                   Repl.NumVal val -> GHC.Float.$fShowDouble_$cshow val
-                   Repl.CharVal val -> GHC.Show.$fShowChar_$cshow val
-                   Repl.ListVal val -> GHC.Show.$fShow[]_$cshow @ a $dShow val }) -}
-88fe408404bd152207712c24a96ea544
-  $fShowValue_$cshowList ::
-    GHC.Show.Show a => [Repl.Value a] -> GHC.Show.ShowS
-  {- Arity: 3, Strictness: <L,U(A,A,C(C1(U)))><S,1*U><L,U>,
-     Unfolding: (\ @ a
-                   ($dShow :: GHC.Show.Show a)
-                   (ls :: [Repl.Value a])
-                   (s :: GHC.Base.String) ->
-                 GHC.Show.showList__
-                   @ (Repl.Value a)
-                   (\ (x :: Repl.Value a) (s1 :: GHC.Base.String)[OneShot] ->
-                    GHC.Base.++
-                      @ GHC.Types.Char
-                      (Repl.$fShowValue_$cshow @ a $dShow x)
-                      s1)
-                   ls
-                   s) -}
-88fe408404bd152207712c24a96ea544
-  $fShowValue_$cshowsPrec ::
-    GHC.Show.Show a => GHC.Types.Int -> Repl.Value a -> GHC.Show.ShowS
-  {- Arity: 4,
-     Strictness: <L,1*U(A,A,1*C1(C1(U)))><L,A><S,1*U><L,1*U>,
-     Unfolding: InlineRule (4, True, False)
-                (\ @ a
-                   ($dShow :: GHC.Show.Show a)
-                   (ds :: GHC.Types.Int)
-                   (x :: Repl.Value a)
-                   (s :: GHC.Base.String) ->
-                 GHC.Base.augment
-                   @ GHC.Types.Char
-                   (\ @ b
-                      (c :: GHC.Types.Char -> b -> b)[OneShot]
-                      (n :: b)[OneShot] ->
-                    GHC.Base.foldr
-                      @ GHC.Types.Char
-                      @ b
-                      c
-                      n
-                      (Repl.$fShowValue_$cshow @ a $dShow x))
-                   s) -}
-d5b9ddbf9a6c7f676478312444f75ad4
-  $fShowValue_$s$cshow :: Repl.Value () -> GHC.Base.String
-  {- Arity: 1, Strictness: <S,1*U>,
-     Unfolding: (\ (ds :: Repl.Value ()) ->
-                 case ds of wild {
-                   Repl.BoolVal val -> GHC.Show.$fShowBool_$cshow val
-                   Repl.NumVal val -> GHC.Float.$fShowDouble_$cshow val
-                   Repl.CharVal val -> GHC.Show.$fShowChar_$cshow val
-                   Repl.ListVal val
-                   -> GHC.Show.$fShow()_$cshowList
-                        val
-                        (GHC.Types.[] @ GHC.Types.Char) }) -}
-2727c046bb02792ac0143d03d3840c82
-  $fShowValue_$s$cshow1 ::
-    Repl.Value (Repl.Value ()) -> GHC.Base.String
-  {- Arity: 1, Strictness: <S,1*U>,
-     Unfolding: (\ (ds :: Repl.Value (Repl.Value ())) ->
-                 case ds of wild {
-                   Repl.BoolVal val -> GHC.Show.$fShowBool_$cshow val
-                   Repl.NumVal val -> GHC.Float.$fShowDouble_$cshow val
-                   Repl.CharVal val -> GHC.Show.$fShowChar_$cshow val
-                   Repl.ListVal val
-                   -> GHC.Show.showList__
-                        @ (Repl.Value ())
-                        Repl.$fShowValue1
-                        val
-                        (GHC.Types.[] @ GHC.Types.Char) }) -}
-4320deb3402b3aa6436d402506e97a36
-  $sinsert_$sgo10 ::
-    GHC.Base.String
-    -> a1
-    -> Data.Map.Base.Map GHC.Base.String a1
-    -> Data.Map.Base.Map GHC.Base.String a1
-  {- Arity: 3, Strictness: <S,1*U><L,U><S,1*U> -}
-787ccadfb86d73383d7cc44ebbf112c8
-  $slookup1 ::
-    GHC.Base.String
-    -> Data.Map.Base.Map GHC.Base.String a -> GHC.Base.Maybe a
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U> -}
-44c83939585187f332186ab5f2e5c81f
-  $tc'BoolVal :: GHC.Types.TyCon
-  {- HasNoCafRefs, Strictness: m,
-     Unfolding: (GHC.Types.TyCon
-                   1359175830171846238##
-                   11271312219252865292##
-                   Repl.$trModule
-                   Repl.$tc'BoolVal1) -}
-aee48b27fca3c0210c622c8166abf09b
-  $tc'BoolVal1 :: GHC.Types.TrName
-  {- HasNoCafRefs, Strictness: m1,
-     Unfolding: (GHC.Types.TrNameS "'BoolVal"#) -}
-322b27220e2f535089d9b6630a79619f
-  $tc'CharVal :: GHC.Types.TyCon
-  {- HasNoCafRefs, Strictness: m,
-     Unfolding: (GHC.Types.TyCon
-                   9991790314914247115##
-                   6606478414652028164##
-                   Repl.$trModule
-                   Repl.$tc'CharVal1) -}
-41e4a7ad5b103e57e089db964be92697
-  $tc'CharVal1 :: GHC.Types.TrName
-  {- HasNoCafRefs, Strictness: m1,
-     Unfolding: (GHC.Types.TrNameS "'CharVal"#) -}
-d167ccda8797a0a1782221a8c2f2ccaa
-  $tc'ListVal :: GHC.Types.TyCon
-  {- HasNoCafRefs, Strictness: m,
-     Unfolding: (GHC.Types.TyCon
-                   8861307359550225890##
-                   10881407596495389572##
-                   Repl.$trModule
-                   Repl.$tc'ListVal1) -}
-8c6e0e6735ab3cbb1b5a58124a2f10e3
-  $tc'ListVal1 :: GHC.Types.TrName
-  {- HasNoCafRefs, Strictness: m1,
-     Unfolding: (GHC.Types.TrNameS "'ListVal"#) -}
-f33b7332aa0aa5fc3b3f974607da201d
-  $tc'NumVal :: GHC.Types.TyCon
-  {- HasNoCafRefs, Strictness: m,
-     Unfolding: (GHC.Types.TyCon
-                   3745311446740475119##
-                   12579787164943251830##
-                   Repl.$trModule
-                   Repl.$tc'NumVal1) -}
-7e87b43cd31c06aa695edf4f4d2ee1eb
-  $tc'NumVal1 :: GHC.Types.TrName
-  {- HasNoCafRefs, Strictness: m1,
-     Unfolding: (GHC.Types.TrNameS "'NumVal"#) -}
-fdedc7c795402586fb2e699a81004155
-  $tcValue :: GHC.Types.TyCon
-  {- HasNoCafRefs, Strictness: m,
-     Unfolding: (GHC.Types.TyCon
-                   15637430303849479608##
-                   17846326321193011481##
-                   Repl.$trModule
-                   Repl.$tcValue1) -}
-be62087e8ed976fd9e0c5e899ab939b3
-  $tcValue1 :: GHC.Types.TrName
-  {- HasNoCafRefs, Strictness: m1,
-     Unfolding: (GHC.Types.TrNameS "Value"#) -}
-3d60c4100879196642e9f70b3f16456f
+import  -/  vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector c1e986e414fb06d8c78b2ec9a85e2dfc
+9b183847f7ceed3149fb694cd478026b
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module Repl.$trModule2 Repl.$trModule1) -}
-251d0cd102b261672afcf5b266d46458
+658ebb064f5ffe586c3e4b99c7c4b7cd
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Repl"#) -}
-6a277c794cc28ebc57e820c11d509816
+7a2a9330bb6caba0f798718827284060
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
-                   "Compiler-0.1.0.0-A5AqcFYQOeY4hOCoTusz4T"#) -}
-990d153bcc2b918f3c80885fdf01acf9
-  type Env =
-    Data.Map.Base.Map GHC.Base.String (Repl.Value (Repl.Value ()))
-88fe408404bd152207712c24a96ea544
-  data Value a
-    = BoolVal {boolVal :: GHC.Types.Bool}
-    | NumVal {numVal :: GHC.Types.Double}
-    | CharVal {charVal :: GHC.Types.Char}
-    | ListVal {listVal :: [a]}
-7de97d377431fe65f9ee6bc5440418a6
-  boolVal :: Repl.Value a -> GHC.Types.Bool
-  RecSel Left Repl.Value
-  {- Arity: 1, Strictness: <S,1*U>,
-     Unfolding: InlineRule (1, True, False)
-                (\ @ a (ds :: Repl.Value a) ->
-                 case ds of wild {
-                   DEFAULT -> Repl.boolVal1 Repl.BoolVal ds1 -> ds1 }) -}
-e18f2b67c82e2d55934c1b690cc19ca1
-  boolVal1 :: GHC.Types.Bool
-  {- Strictness: x -}
-af3bc1b9da07b4f60e830a1d886cd550
-  charVal :: Repl.Value a -> GHC.Types.Char
-  RecSel Left Repl.Value
-  {- Arity: 1, Strictness: <S,1*U>,
-     Unfolding: InlineRule (1, True, False)
-                (\ @ a (ds :: Repl.Value a) ->
-                 case ds of wild {
-                   DEFAULT -> Repl.charVal1 Repl.CharVal ds1 -> ds1 }) -}
-0505605605930a7f09653de064dc8d33
-  charVal1 :: GHC.Types.Char
-  {- Strictness: x -}
-38479a84589eefee5905f7e73cd9da32
-  eval ::
-    Lexical.Expr
-    -> Repl.Env
-    -> Data.Either.Either GHC.Base.String (Repl.Value (Repl.Value ()))
-  {- Arity: 2, Strictness: <S,1*U><L,U>,
-     Unfolding: (\ (ds :: Lexical.Expr) (env :: Repl.Env) ->
-                 case ds of wild {
-                   Lexical.EVar var
-                   -> case Repl.$slookup1
-                             @ (Repl.Value (Repl.Value ()))
-                             (Lexical.$fEqVar_$cshow var)
-                             env of wild1 {
-                        GHC.Base.Nothing
-                        -> Data.Either.Left
-                             @ [GHC.Types.Char]
-                             @ (Repl.Value (Repl.Value ()))
-                             (GHC.CString.unpackAppendCString#
-                                "The variable "#
-                                (GHC.Base.++
-                                   @ GHC.Types.Char
-                                   (Lexical.$fEqVar_$cshow var)
-                                   Repl.eval1))
-                        GHC.Base.Just val
-                        -> Data.Either.Right
-                             @ [GHC.Types.Char]
-                             @ (Repl.Value (Repl.Value ()))
-                             val }
-                   Lexical.BExp expr -> Repl.getBool expr env
-                   Lexical.NExp expr -> Repl.getNum expr env
-                   Lexical.LExp expr -> Repl.getList expr env }) -}
-29d4d6013bf0577a293b02689ae731cc
-  eval1 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# " is undefined!"#) -}
-c4cfddbf67a3116266641a541ebca62c
-  getBool ::
-    Lexical.BoolExpr
-    -> Repl.Env
-    -> Data.Either.Either GHC.Base.String (Repl.Value (Repl.Value ()))
-  {- Arity: 2, Strictness: <S,1*U><L,U> -}
-2e5b04d1bac578eeb4d8cd3fb8019019
-  getList ::
-    Lexical.ListExpr
-    -> Repl.Env
-    -> Data.Either.Either GHC.Base.String (Repl.Value (Repl.Value ()))
-  {- Arity: 2, Strictness: <S,1*U><L,U> -}
-2dcfa1feb452580c3f8b16747337b0f1
-  getNum ::
-    Lexical.NumExpr
-    -> Repl.Env
-    -> Data.Either.Either GHC.Base.String (Repl.Value (Repl.Value ()))
-  {- Arity: 2, Strictness: <S,1*U><L,U> -}
-377ca34a096ad3b50de97dabcfa2061b
-  listVal :: Repl.Value a -> [a]
-  RecSel Left Repl.Value
-  {- Arity: 1, Strictness: <S,1*U>,
-     Unfolding: InlineRule (1, True, False)
-                (\ @ a (ds :: Repl.Value a) ->
-                 case ds of wild {
-                   DEFAULT -> Repl.listVal1 @ a Repl.ListVal ds1 -> ds1 }) -}
-699561a87d6448f436bf2dd55247a160
-  listVal1 :: [a]
-  {- Strictness: x -}
-232631138e47cfe2dabe1c4b6bc2aad5
-  mainLoop :: Repl.Env -> GHC.Types.IO ()
+                   "Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"#) -}
+10b50fa9d1aeba85c33196e8121a10f5
+  mainLoop :: Interpreter.Env -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <L,U><S,U>,
      Unfolding: InlineRule (0, True, True)
                 Repl.mainLoop1
                   `cast`
-                (<Repl.Env>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-fb2b7daabf2200ae0e0fc980ece666e1
+                (<Interpreter.Env>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+d4cf038da26f073e7764c06cb47f2034
   mainLoop1 ::
-    Repl.Env
+    Interpreter.Env
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 2, Strictness: <L,U><S,U> -}
-31650b4304fc97f146ff6560c85b0450
-  numVal :: Repl.Value a -> GHC.Types.Double
-  RecSel Left Repl.Value
-  {- Arity: 1, Strictness: <S,1*U>,
-     Unfolding: InlineRule (1, True, False)
-                (\ @ a (ds :: Repl.Value a) ->
-                 case ds of wild {
-                   DEFAULT -> Repl.numVal1 Repl.NumVal ds1 -> ds1 }) -}
-e50bc6fc2609d18c800da31ce75a8769
-  numVal1 :: GHC.Types.Double
-  {- Strictness: x -}
-1e25d4aa13ef94d80ef7f02e757af576
+d3add995dd33061a588c2d71775e1308
   repl :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Repl.repl1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-0a15a666ea05f6a12f162f705aeda980
+2293f62bb0076ef95446d10386046955
   repl1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -435,21 +120,12 @@ e50bc6fc2609d18c800da31ce75a8769
                         GHC.Types.True
                         s of ds1 { (#,#) ipv ipv1 ->
                  Repl.mainLoop1
-                   (Data.Map.Base.Tip
-                      @ GHC.Base.String
-                      @ (Repl.Value (Repl.Value ())))
+                   (Data.Map.Base.Tip @ GHC.Base.String @ Interpreter.Value)
                    ipv }) -}
-8cfc50fd3deffb5c433d48b7807b9139
+2c6801a583226d1f46adb1d40ebba05f
   repl2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
-                   "This is a simple REPL. Be my guest!"#) -}
-instance GHC.Show.Show [Repl.Value] = Repl.$fShowValue
-"SPEC $cshow @ ()" [ALWAYS] forall ($dShow :: GHC.Show.Show ())
-  Repl.$fShowValue_$cshow @ () $dShow = Repl.$fShowValue_$s$cshow
-"SPEC $cshow @ (Value ())" [ALWAYS] forall ($dShow :: GHC.Show.Show
-                                                        (Repl.Value ()))
-  Repl.$fShowValue_$cshow @ (Repl.Value ()) $dShow
-  = Repl.$fShowValue_$s$cshow1
+                   "Welcome to a simple S-Expression REPL!"#) -}
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

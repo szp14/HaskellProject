@@ -1,6 +1,6 @@
 module Main where
 
-import Repl
+import Argument
 
 main :: IO ()
-main = repl
+main = defMain

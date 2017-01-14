@@ -1,1 +1,2 @@
-True
+(set! a 1)
+(while (< a 5) (begin (set! a (+ a 1)) a))

@@ -56,6 +56,13 @@
   (major1) == 1 && (major2) <  2 || \
   (major1) == 1 && (major2) == 2 && (minor) <= 2)
 
+/* package vector-0.11.0.0 */
+#define VERSION_vector "0.11.0.0"
+#define MIN_VERSION_vector(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  11 || \
+  (major1) == 0 && (major2) == 11 && (minor) <= 0)
+
 /* tool gcc-4.2.1 */
 #define TOOL_VERSION_gcc "4.2.1"
 #define MIN_TOOL_VERSION_gcc(major1,major2,minor) (\
@@ -105,7 +112,7 @@
   (major1) == 0 && (major2) <  29 || \
   (major1) == 0 && (major2) == 29 && (minor) <= 1)
 
-#define CURRENT_COMPONENT_ID "Compiler-0.1.0.0-A5AqcFYQOeY4hOCoTusz4T"
+#define CURRENT_COMPONENT_ID "Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"
 
-#define CURRENT_PACKAGE_KEY "Compiler-0.1.0.0-A5AqcFYQOeY4hOCoTusz4T"
+#define CURRENT_PACKAGE_KEY "Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"
 

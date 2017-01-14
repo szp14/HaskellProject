@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-13 03:33:05.304331 UTC
+2017-01-14 08:22:29.068191 UTC
 
-interface Compiler-0.1.0.0-A5AqcFYQOeY4hOCoTusz4T:Argument 8001
-  interface hash: 74d7fa876539a510edec58e05719c4ad
-  ABI hash: 1bfe8de0251657610f5b41c545f3d4cf
-  export-list hash: d4cdf9152434214904df78b6c8a6142a
+interface Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Argument 8001
+  interface hash: 9f78d8873f6c22fa3659e73017103a74
+  ABI hash: f9517542aacd6b1d8bc47e5242cbce3f
+  export-list hash: ed64792d1393352f4253a88eaba63cdb
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: a4046e0fdab24403354cf30558c1ea1c
   sig of: Nothing
@@ -22,8 +22,9 @@ exports:
   Argument.parseTreePath
   Argument.Option{Argument.Option funType inPath outPath}
   Argument.Parser
-module dependencies: AST Lexical Repl
-package dependencies: array-0.5.1.1@array-0.5.1.1
+module dependencies: Grammer Interpreter PrettyPrinter Repl
+package dependencies: GenericPretty-1.2.1@GenericPretty-1.2.1-FqlYg3LhEVa3kMV6nPdaDK
+                      array-0.5.1.1@array-0.5.1.1
                       attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43
                       base-4.9.0.0 binary-0.8.3.0@binary-0.8.3.0
                       bytestring-0.10.8.1@bytestring-0.10.8.1
@@ -33,12 +34,14 @@ package dependencies: array-0.5.1.1@array-0.5.1.1
                       integer-gmp-1.0.0.1
                       integer-logarithms-1@integer-logarithms-1-E6LvTbkhTkGIa6wPB3rtJw
                       mtl-2.2.1@mtl-2.2.1-6qsR1PHUy5lL47Hpoa4jCM
+                      pretty-1.1.3.3@pretty-1.1.3.3
                       primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa
                       scientific-0.3.4.10@scientific-0.3.4.10-2Y658Wts4fDGgAkWhKOJwC
                       text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs
                       transformers-0.5.2.0@transformers-0.5.2.0
                       vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3
-orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Text.Internal
+orphans: Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:PrettyPrinter
+         attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Text.Internal
          base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
          binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
          bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
@@ -62,22 +65,26 @@ family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh1
                          containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
                          containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
                          containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
                          primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa:Control.Monad.Primitive
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
                          vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector
-import  -/  AST 044a0df1502dc6fe6b4d1847ca58cba1
-  exports: b40501e951ece93991e58af02844453c
-  parseAST 5acba071d3a2ee73b881a92422bc6527
-import  -/  Lexical ded13c5a7e534dd59e914c12b068fdb9
-  exports: adff915e72040da3ec2441897cc72692
-  Exp d4de8f31a6686b7996e6a377e4c955ed
-import  -/  Repl 2dc3a804116dd05ad4b18b845d7cba78
-  exports: 4a708b5ca389f248337d354cf4408d9a
-  eval 38479a84589eefee5905f7e73cd9da32
-  repl 1e25d4aa13ef94d80ef7f02e757af576
+import  -/  Grammer 09bcd3be53d8e5456d336e8011cb1b38
+  exports: 8573809e4ae35293632b6931db7d4032
+import  -/  Interpreter 94ec0f1b96303ae508f3a8278022f12a
+  exports: 23cb7ab98af56ee8dae95c05c887ae4f
+  interpreter 0f25d898f977cdb4c9047952ebb66963
+import  -/  PrettyPrinter 9030de5a3e53e441b504c21b37511bd0
+  exports: 2586213fda3e403076fbdca4d2948fbb
+  prettyPrinter fa2be77e3c83dc1b70ff820779752155
+import  -/  Repl db4477fad43cc0d3a937226ffa3b4054
+  exports: 7cbebf98c4270ff2930d7eeb1bd7c3a2
+  repl d3add995dd33061a588c2d71775e1308
 import  -/  base-4.9.0.0:Control.Applicative 7728b33d6969dce59e89474349eb1397
 import  -/  base-4.9.0.0:Data.Either bd9f099b82d4ed2d98c56d7144ac6957
+import  -/  base-4.9.0.0:Data.OldList 0058409f994fb13ae0616e3f1e5b4dae
 import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
 import  -/  base-4.9.0.0:GHC.IO.Handle a1938753d58593f0a419f85b67aa7cd3
 import  -/  base-4.9.0.0:GHC.IO.Handle.FD 13b7a4e1f414dd38346bde554423bf4b
@@ -94,7 +101,7 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 import  -/  mtl-2.2.1@mtl-2.2.1-6qsR1PHUy5lL47Hpoa4jCM:Control.Monad.State d851912d62cbc95e043a9cc13c3581de
 import  -/  mtl-2.2.1@mtl-2.2.1-6qsR1PHUy5lL47Hpoa4jCM:Control.Monad.State.Class bb09f604e4f3565edc4a2b432f1b5445
 import  -/  transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.State.Lazy 16a585e7f12cd771300b3cab638df233
-68b850b12be48f82b3ca4b930e79399b
+d80fb82c2b95bdf0ac4d3d459dd23f0a
   $fShowOption :: GHC.Show.Show Argument.Option
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -103,31 +110,31 @@ import  -/  transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.State.
                   Argument.$fShowOption_$cshowsPrec
                   Argument.$fShowOption_$cshow
                   Argument.$fShowOption_$cshowList -}
-68b850b12be48f82b3ca4b930e79399b
+d80fb82c2b95bdf0ac4d3d459dd23f0a
   $fShowOption1 :: Argument.Option -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (\ (w :: Argument.Option) (w1 :: GHC.Base.String) ->
                  case w of ww { Argument.Option ww1 ww2 ww3 ->
                  Argument.$w$cshowsPrec 0# ww1 ww2 ww3 w1 }) -}
-b48839a5ab7899bb11fb7da1caf3405a
+55f544d1b3872f920189521ef6bc6791
   $fShowOption2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "}"#) -}
-1e47cfe6eb385f27da64d15838ad0636
+6c93f5380c6f1ef2f1d8a0914d0279fe
   $fShowOption3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "funType = "#) -}
-7c2665f5448b932c59bb4a01ed81e0b0
+969d464b14e783cf9455db94a0fa62d6
   $fShowOption4 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "outPath = "#) -}
-2921d99fe3b6aa618a48dc7abcf4eba6
+40d6e686fd30319348600500c1214721
   $fShowOption5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# ", "#) -}
-e40eeeadda2fa996c47bc2dec0b310ef
+815cfe45f8406551081be39871116511
   $fShowOption6 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "inPath = "#) -}
-b72ccc63876c03e05e29cf1d71713f95
+d61f36aab0104521a28faf447085fd90
   $fShowOption7 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Option {"#) -}
-68b850b12be48f82b3ca4b930e79399b
+d80fb82c2b95bdf0ac4d3d459dd23f0a
   $fShowOption_$cshow :: Argument.Option -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U(1*U,1*U,1*U(U))>,
      Unfolding: InlineRule (1, True, False)
@@ -136,13 +143,13 @@ b72ccc63876c03e05e29cf1d71713f95
                    GHC.Show.shows22
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-68b850b12be48f82b3ca4b930e79399b
+d80fb82c2b95bdf0ac4d3d459dd23f0a
   $fShowOption_$cshowList :: [Argument.Option] -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (GHC.Show.showList__
                    @ Argument.Option
                    Argument.$fShowOption1) -}
-68b850b12be48f82b3ca4b930e79399b
+d80fb82c2b95bdf0ac4d3d459dd23f0a
   $fShowOption_$cshowsPrec ::
     GHC.Types.Int -> Argument.Option -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U(1*U,1*U,1*U(U))><L,U>,
@@ -154,46 +161,46 @@ b72ccc63876c03e05e29cf1d71713f95
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { Argument.Option ww3 ww4 ww5 ->
                  Argument.$w$cshowsPrec ww1 ww3 ww4 ww5 w2 } }) -}
-a82ccfa43aec413bf360b6f9c1e1a9ac
+1414bee35b6cec3bbaa498e80f1f0922
   $tc'Option :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   2828910022086669339##
-                   12531222399308861537##
+                   6920996451730248499##
+                   8858590699114234307##
                    Argument.$trModule
                    Argument.$tc'Option1) -}
-c2e5208f1d20d4c8163b91acb4ede995
+9f26ebabe77a88106aeee55908d42b5c
   $tc'Option1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Option"#) -}
-ba90fca27789f1d72704b8950bebac2b
+b19c5c41b7740149a0b8d7faef8783d6
   $tcOption :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   3749523507694356264##
-                   249301033599129936##
+                   13890528202543010301##
+                   9470339201156351923##
                    Argument.$trModule
                    Argument.$tcOption1) -}
-c3b13fcda0c6cad63667531962795616
+94f1a5c2900fed7d6ef30983f407064c
   $tcOption1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Option"#) -}
-1db1ed46fc3c7e5e689b7a20ee630835
+2a1fc645cf3567d5ad700b2770c9161a
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module
                    Argument.$trModule2
                    Argument.$trModule1) -}
-967bbf078b176550359496d3fa5de045
+bd62bee80db63d56d0ba4c586db74003
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Argument"#) -}
-c1cb7ad029fc0b06af50ada8271d9f92
+7c817f71c195d6f53909dcea48010e01
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
-                   "Compiler-0.1.0.0-A5AqcFYQOeY4hOCoTusz4T"#) -}
-609e53a40c59f95fa3f80401562d837d
+                   "Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"#) -}
+07ab02b553c4378ddb22bd592b4fa4ea
   $w$cshowsPrec ::
     GHC.Prim.Int#
     -> GHC.Base.String
@@ -267,54 +274,54 @@ c1cb7ad029fc0b06af50ada8271d9f92
                         @ GHC.Types.Char
                         GHC.Show.shows9
                         (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows6 w)) }) -}
-68b850b12be48f82b3ca4b930e79399b
+d80fb82c2b95bdf0ac4d3d459dd23f0a
   data Option
     = Option {inPath :: GHC.Base.String,
               outPath :: GHC.Base.String,
               funType :: GHC.Types.Int}
-ae122b8049772c5bdc4ec31a837a7fd2
+acd41efc30c459402f6bfe82ca617cde
   type Parser a =
     Control.Monad.Trans.State.Lazy.StateT
       [GHC.Base.String] GHC.Types.IO a
-7420102ad8f9f98465801f343297ada3
+27333084f7e5b10c0a88f97849dc6d11
   defMain :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Argument.defMain1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-18d145745751f5bba4377b287b11a749
+0af6bb60ea9b8ed8be5f365109bd698f
   defMain1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <S,U> -}
-c220a7260088fb28c774ba860fbcf744
+fbcb882718792311f8146821403f87eb
   funType :: Argument.Option -> GHC.Types.Int
   RecSel Left Argument.Option
   {- Arity: 1, HasNoCafRefs, Strictness: <S(LLS),1*U(A,A,1*U(U))>m,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Argument.Option) ->
                  case ds of wild { Argument.Option ds1 ds2 ds3 -> ds3 }) -}
-fd91fb894d1867f407283484e791d246
+e371f889b12a64c0b4be6001afc65fa3
   inPath :: Argument.Option -> GHC.Base.String
   RecSel Left Argument.Option
   {- Arity: 1, HasNoCafRefs, Strictness: <S(SLL),1*U(1*U,A,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Argument.Option) ->
                  case ds of wild { Argument.Option ds1 ds2 ds3 -> ds1 }) -}
-ee334dad1272ba0d23bd774ba18d1d36
+47de2764b2e34530d8a36b9522b06717
   outPath :: Argument.Option -> GHC.Base.String
   RecSel Left Argument.Option
   {- Arity: 1, HasNoCafRefs, Strictness: <S(LSL),1*U(A,1*U,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Argument.Option) ->
                  case ds of wild { Argument.Option ds1 ds2 ds3 -> ds2 }) -}
-c5d11e3cd6d802fc32ad5217b481db25
+cc980bd586024a3bec18aeaea2d25041
   parseField :: GHC.Base.String -> Argument.Parser GHC.Base.String
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: (\ (f :: GHC.Base.String) ->
                  let {
                    k :: Control.Monad.Trans.State.Lazy.StateT
                           [GHC.Base.String] GHC.Types.IO GHC.Base.String
-                   = case GHC.Base.eqString f Argument.parseField_f of wild {
+                   = case GHC.Base.eqString f Argument.parseField5 of wild {
                        GHC.Types.False
                        -> Argument.parseField4
                             `cast`
@@ -339,7 +346,7 @@ c5d11e3cd6d802fc32ad5217b481db25
                                          <[GHC.Types.Char]>_N))) }
                  } in
                  let {
-                   lvl7 :: [GHC.Types.Char] = GHC.CString.unpackAppendCString# "-"# f
+                   lvl4 :: [GHC.Types.Char] = GHC.CString.unpackAppendCString# "-"# f
                  } in
                  (\ (s1 :: [GHC.Base.String])
                     (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
@@ -351,7 +358,7 @@ c5d11e3cd6d802fc32ad5217b481db25
                          Argument.parseField1
                          s
                     : arg args'
-                    -> case GHC.Base.eqString arg lvl7 of wild1 {
+                    -> case GHC.Base.eqString arg lvl4 of wild1 {
                          GHC.Types.False
                          -> GHC.Prim.raiseIO#
                               @ GHC.Exception.SomeException
@@ -373,11 +380,11 @@ c5d11e3cd6d802fc32ad5217b481db25
                                      <(GHC.Base.String, [GHC.Base.String])>_R))
                       (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
                                 <[GHC.Base.String]>_N <GHC.Types.IO>_R <GHC.Base.String>_N)))) -}
-1ad2690c44cd1af21bcdefaf6ee81c5d
+96a1f77aca177bcb0b5becb9abb84e75
   parseField1 :: GHC.Exception.SomeException
   {- Unfolding: (GHC.IO.Exception.$fExceptionIOException_$ctoException
                    Argument.parseField2) -}
-45a2018395625e5fd2b89bb4c2dc4c38
+481e0fa92282e77bcd1951b573f7e141
   parseField2 :: GHC.IO.Exception.IOException
   {- Unfolding: (GHC.IO.Exception.IOError
                    (GHC.Base.Nothing @ GHC.IO.Handle.Types.Handle)
@@ -386,7 +393,7 @@ c5d11e3cd6d802fc32ad5217b481db25
                    GHC.Base.$fAlternativeIO3
                    (GHC.Base.Nothing @ Foreign.C.Types.CInt)
                    (GHC.Base.Nothing @ GHC.IO.FilePath)) -}
-c8ed9dccc89c74f987238de838147468
+73331b45a3ff04066de21f8980fe76e0
   parseField3 ::
     [GHC.Base.String]
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -397,7 +404,7 @@ c8ed9dccc89c74f987238de838147468
                 (\ (eta1 :: [GHC.Base.String])
                    (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
                  (# s, (GHC.Types.[] @ GHC.Types.Char, eta1) #)) -}
-d816bf562fddc6fd60b734e19ef51c22
+d524c07759adad25d554224a82000a54
   parseField4 ::
     [GHC.Base.String]
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -414,10 +421,10 @@ d816bf562fddc6fd60b734e19ef51c22
                         GHC.Base.$fAlternativeIO3
                         s
                    : arg args' -> (# s, (arg, args') #) }) -}
-b9d5a4e765c4c9798f80e9646a0f3546
-  parseField_f :: GHC.Base.String
+d68f8494d19c258d4a4cc536580c7f44
+  parseField5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "repl"#) -}
-f6757e51dcd99c49d0c49490eb4db3b4
+2656e724ca3a0df24968403787944aea
   parseFlag :: GHC.Base.String -> Argument.Parser GHC.Base.String
   {- Arity: 3, Strictness: <L,U><S,1*U><S,U>,
      Unfolding: InlineRule (0, True, True)
@@ -430,7 +437,7 @@ f6757e51dcd99c49d0c49490eb4db3b4
                                          <(GHC.Base.String, [GHC.Base.String])>_R))
                           (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
                                     <[GHC.Base.String]>_N <GHC.Types.IO>_R <GHC.Base.String>_N))) -}
-e6e5efac278d7c18b819011bc8d1d0a5
+954e50d0c9db8e7a669dd901285d984d
   parseFlag1 ::
     GHC.Base.String
     -> [GHC.Base.String]
@@ -457,7 +464,7 @@ e6e5efac278d7c18b819011bc8d1d0a5
                              GHC.Base.$fAlternativeIO3
                              eta1
                         GHC.Types.True -> (# eta1, (f, args') #) } }) -}
-9aad9a1b536d8c3e298666a6fd377131
+f35bb34311c013b6a917fe9eb3b550fe
   parseInPath :: Argument.Parser GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><S,U>,
      Unfolding: InlineRule (0, True, True)
@@ -469,7 +476,7 @@ e6e5efac278d7c18b819011bc8d1d0a5
                                     <(GHC.Base.String, [GHC.Base.String])>_R))
                      (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
                                <[GHC.Base.String]>_N <GHC.Types.IO>_R <GHC.Base.String>_N))) -}
-70db662dc4486f4489765dfb17bca469
+f397a48df6d6a4eb2357cd6689f6b766
   parseInPath1 ::
     [GHC.Base.String]
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -502,21 +509,21 @@ e6e5efac278d7c18b819011bc8d1d0a5
                              `cast`
                            (GHC.Types.N:IO[0] <(GHC.Base.String, [GHC.Base.String])>_R)
                              s } }) -}
-d71c3484e5234b0b33dbb53bdf151f30
+52fff67606c10eb6bfbc24b911e152ae
   parseInPath2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackAppendCString#
                    "-"#
                    Argument.parseInPath_f) -}
-2077de29366f4f98452e466eab091068
+a68740707201efea91e2efccf3f770bf
   parseInPath_f :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "i"#) -}
-78aa8f95fbe26c7f11b6a1159bcf6f9d
+f50e26dfdfb6f67c9f63dd1205fd6a50
   parseInPath_k ::
     Control.Monad.Trans.State.Lazy.StateT
       [GHC.Base.String] GHC.Types.IO GHC.Base.String
   {- Unfolding: (case GHC.Base.eqString
                         Argument.parseInPath_f
-                        Argument.parseField_f of wild {
+                        Argument.parseField5 of wild {
                    GHC.Types.False
                    -> Argument.parseField4
                         `cast`
@@ -537,7 +544,7 @@ d71c3484e5234b0b33dbb53bdf151f30
                                      <[GHC.Base.String]>_N
                                      <GHC.Types.IO>_R
                                      <[GHC.Types.Char]>_N))) }) -}
-0e8d741b126a44bb2041e2703932d041
+6b76f00c22a3b0120925d0fb9672a1b6
   parseOption :: Argument.Parser Argument.Option
   {- Arity: 2, Strictness: <S,U><S,U>,
      Unfolding: InlineRule (0, True, True)
@@ -549,14 +556,14 @@ d71c3484e5234b0b33dbb53bdf151f30
                                     <(Argument.Option, [GHC.Base.String])>_R))
                      (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
                                <[GHC.Base.String]>_N <GHC.Types.IO>_R <Argument.Option>_N))) -}
-d25c268e62d46de7ab7cd68febecbee9
+6821a495da5c03299e24e8039dcd2797
   parseOption1 ::
     [GHC.Base.String]
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           (Argument.Option, [GHC.Base.String]) #)
   {- Arity: 2, Strictness: <S,U><S,U> -}
-efc14d72f69abde9744663301c27173f
+f28f8b3392d23aaa6570e28a51801d3b
   parseOutPath :: Argument.Parser GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><S,U>,
      Unfolding: InlineRule (0, True, True)
@@ -568,7 +575,7 @@ efc14d72f69abde9744663301c27173f
                                     <(GHC.Base.String, [GHC.Base.String])>_R))
                      (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
                                <[GHC.Base.String]>_N <GHC.Types.IO>_R <GHC.Base.String>_N))) -}
-c6156e8bb30c8f2db50034253285d82c
+abb8e171c85c507e025edf5010ff6a08
   parseOutPath1 ::
     [GHC.Base.String]
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -601,21 +608,21 @@ c6156e8bb30c8f2db50034253285d82c
                              `cast`
                            (GHC.Types.N:IO[0] <(GHC.Base.String, [GHC.Base.String])>_R)
                              s } }) -}
-87e90e3c5e7ae0833530141aef3932bc
+f2375ec7e8e8cb9bc990cd545635226b
   parseOutPath2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackAppendCString#
                    "-"#
                    Argument.parseOutPath_f) -}
-105473faccd8bfeffe700037ef4f274f
+9eb05970a814e6ac2e117c5627c2dbb7
   parseOutPath_f :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "o"#) -}
-22101e90255a02dfd1deaa67704d23e9
+2a14b376363b23699ca60d8b8033cd36
   parseOutPath_k ::
     Control.Monad.Trans.State.Lazy.StateT
       [GHC.Base.String] GHC.Types.IO GHC.Base.String
   {- Unfolding: (case GHC.Base.eqString
                         Argument.parseOutPath_f
-                        Argument.parseField_f of wild {
+                        Argument.parseField5 of wild {
                    GHC.Types.False
                    -> Argument.parseField4
                         `cast`
@@ -636,7 +643,7 @@ c6156e8bb30c8f2db50034253285d82c
                                      <[GHC.Base.String]>_N
                                      <GHC.Types.IO>_R
                                      <[GHC.Types.Char]>_N))) }) -}
-5c6c40d85e07c1a835f2d8cec529e6c0
+d66ac382293fe70ad88ab926d4a173b1
   parseRepl :: Argument.Parser GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><S,U>,
      Unfolding: InlineRule (0, True, True)
@@ -648,7 +655,7 @@ c6156e8bb30c8f2db50034253285d82c
                                     <(GHC.Base.String, [GHC.Base.String])>_R))
                      (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
                                <[GHC.Base.String]>_N <GHC.Types.IO>_R <GHC.Base.String>_N))) -}
-c23bdfc92c4c81eaf522dad0588d4ece
+831ef78a9beb3aa9b2392754debeca5c
   parseRepl1 ::
     [GHC.Base.String]
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -681,18 +688,18 @@ c23bdfc92c4c81eaf522dad0588d4ece
                              `cast`
                            (GHC.Types.N:IO[0] <(GHC.Base.String, [GHC.Base.String])>_R)
                              s } }) -}
-7dd5de518a1a1549cd7b3a33521cda17
+01d55b7c1659815a0a2835a409448d02
   parseRepl2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackAppendCString#
                    "-"#
-                   Argument.parseField_f) -}
-5b7b5227fca6d91d7e5a4c93e5a87cfa
+                   Argument.parseField5) -}
+c908e028f5c99429b3acb8935c52399e
   parseRepl_k ::
     Control.Monad.Trans.State.Lazy.StateT
       [GHC.Base.String] GHC.Types.IO GHC.Base.String
   {- Unfolding: (case GHC.Base.eqString
-                        Argument.parseField_f
-                        Argument.parseField_f of wild {
+                        Argument.parseField5
+                        Argument.parseField5 of wild {
                    GHC.Types.False
                    -> Argument.parseField4
                         `cast`
@@ -713,7 +720,7 @@ c23bdfc92c4c81eaf522dad0588d4ece
                                      <[GHC.Base.String]>_N
                                      <GHC.Types.IO>_R
                                      <[GHC.Types.Char]>_N))) }) -}
-0d49d9466fa12a99cc3ea30af883a681
+8d0ac6c0bf79c6981db3c40ffe79218a
   parseTreePath :: Argument.Parser GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><S,U>,
      Unfolding: InlineRule (0, True, True)
@@ -725,7 +732,7 @@ c23bdfc92c4c81eaf522dad0588d4ece
                                     <(GHC.Base.String, [GHC.Base.String])>_R))
                      (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
                                <[GHC.Base.String]>_N <GHC.Types.IO>_R <GHC.Base.String>_N))) -}
-848123dd1994e953741d0bb631f5834e
+c41a5591551ad8b67ed7ce406638c429
   parseTreePath1 ::
     [GHC.Base.String]
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -758,21 +765,21 @@ c23bdfc92c4c81eaf522dad0588d4ece
                              `cast`
                            (GHC.Types.N:IO[0] <(GHC.Base.String, [GHC.Base.String])>_R)
                              s } }) -}
-b15ef9773e4d90f7e3f7dd8afe4790c4
+527efba932e253ac61513bfb3275d466
   parseTreePath2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackAppendCString#
                    "-"#
                    Argument.parseTreePath_f) -}
-25b7b1d51b6b3cf6b68958490298b681
+c4d744a539777129dadbe538d2f360a7
   parseTreePath_f :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "t"#) -}
-c4ac0ca5a2a569aca371538d3e37b8a2
+bd0895dcd043b59e4fbdb56996ee8c3d
   parseTreePath_k ::
     Control.Monad.Trans.State.Lazy.StateT
       [GHC.Base.String] GHC.Types.IO GHC.Base.String
   {- Unfolding: (case GHC.Base.eqString
                         Argument.parseTreePath_f
-                        Argument.parseField_f of wild {
+                        Argument.parseField5 of wild {
                    GHC.Types.False
                    -> Argument.parseField4
                         `cast`

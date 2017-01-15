@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-14 09:36:09.740576 UTC
+2017-01-15 08:58:07.346722 UTC
 
 interface main@main:Main 8001
-  interface hash: 2af7525a69974b874478f501e0fb143d
-  ABI hash: bf9a0fb76c2ba4b40bff99be872357cd
-  export-list hash: c2e44211b329566a0b8941045549e75e
+  interface hash: a22ce3d4eb1bf2cca3926e29c7939d18
+  ABI hash: 3e4289177bda37d48c023cfc1a4c3a14
+  export-list hash: 98603052f96a0b4916e670b0c7e6fd03
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: fd365c227f0b715b5e8193fc787c3345
   sig of: Nothing
@@ -14,24 +14,27 @@ interface main@main:Main 8001
 exports:
   Main.main
 module dependencies:
-package dependencies: Compiler-0.1.0.0@Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd
+package dependencies: Compiler-0.1.0.0@Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5
                       array-0.5.1.1@array-0.5.1.1
                       attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43
                       base-4.9.0.0 binary-0.8.3.0@binary-0.8.3.0
                       bytestring-0.10.8.1@bytestring-0.10.8.1
                       containers-0.5.7.1@containers-0.5.7.1
-                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 directory-1.2.6.2@directory-1.2.6.2
+                      filepath-1.4.1.0@filepath-1.4.1.0 ghc-prim-0.5.0.0
                       hashable-1.2.4.0@hashable-1.2.4.0-Ctl752zbguF6QanxurLOm2
-                      integer-gmp-1.0.0.1
+                      haskeline-0.7.2.3@haskeline-0.7.2.3 integer-gmp-1.0.0.1
                       integer-logarithms-1@integer-logarithms-1-E6LvTbkhTkGIa6wPB3rtJw
                       mtl-2.2.1@mtl-2.2.1-6qsR1PHUy5lL47Hpoa4jCM
                       pretty-1.1.3.3@pretty-1.1.3.3
                       primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa
                       scientific-0.3.4.10@scientific-0.3.4.10-2Y658Wts4fDGgAkWhKOJwC
+                      terminfo-0.4.0.2@terminfo-0.4.0.2
                       text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs
-                      transformers-0.5.2.0@transformers-0.5.2.0
+                      time-1.6.0.1@time-1.6.0.1 transformers-0.5.2.0@transformers-0.5.2.0
+                      unix-2.7.2.0@unix-2.7.2.0
                       vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3
-orphans: Compiler-0.1.0.0@Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:PrettyPrinter
+orphans: Compiler-0.1.0.0@Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5:PrettyPrinter
          attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Text.Internal
          base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
          binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
@@ -40,6 +43,9 @@ orphans: Compiler-0.1.0.0@Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:PrettyPrinter
          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Show
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
          transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
          vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector.Fusion.Bundle
 family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Internal.Types
@@ -62,7 +68,7 @@ family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh1
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
                          vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector
-import  -/  Compiler-0.1.0.0@Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Argument 06162cb401ea715e9611b3a146682803
+import  -/  Compiler-0.1.0.0@Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5:Argument 8634586fa7a04e532eb07c15bde79654
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7
@@ -77,12 +83,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-e1a1ad35656fde79b958107844492a64
+bf98cae4b18fba337824b93abc06ca55
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Argument.defMain1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-9daa2de9716ae4dc34d787b39f9e8073
+ad94a88d5b99d0f174fc68f0e24cd10f
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

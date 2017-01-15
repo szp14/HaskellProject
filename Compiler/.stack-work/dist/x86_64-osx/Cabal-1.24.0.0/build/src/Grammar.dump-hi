@@ -1,12 +1,12 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-15 02:21:09.070957 UTC
+2017-01-15 08:49:33.170404 UTC
 
-interface Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Grammar 8001
-  interface hash: 2815916ff93f21c7b8a9e76900df3838
-  ABI hash: 0e49269890a957871754979fc1cf94a7
-  export-list hash: 5a094fe8ecb7bd19ccbd179c56554a95
-  orphan hash: 1931035cf24b4c08fab7ea661ffba1af
+interface Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5:Grammar 8001
+  interface hash: c9747a2bd7d463f4390809866132bded
+  ABI hash: c8061553502f022a04564e232ae9b458
+  export-list hash: 1350f875d0a40aa853f67f4d5395bf88
+  orphan hash: 010b46d38acb406d438a67b88f4f3122
   flag hash: db082111cc32dd58ed548dcc273abe68
   sig of: Nothing
   used TH splices: False
@@ -126,20 +126,20 @@ import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
 import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text 1e73069de2859bae8530c14767b0c6af
 import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Internal bfb0ec5fde448272375be97e2314e47b
 import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Show f1f9b8deb132e3cc6c9369ebd9da68d2
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   $fEqVar :: GHC.Classes.Eq Grammar.Var
   DFunId
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
      Unfolding: DFun:.
                   @ Grammar.Var Grammar.$fEqVar_$c== Grammar.$fEqVar_$c/= -}
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   $fEqVar_$c/= :: Grammar.Var -> Grammar.Var -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>,
      Inline: INLINE (sat-args=2),
      Unfolding: InlineRule (2, False, False)
                 (\ (x :: Grammar.Var) (y :: Grammar.Var) ->
                  GHC.Classes.not (Grammar.$fEqVar_$c== x y)) -}
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   $fEqVar_$c== :: Grammar.Var -> Grammar.Var -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
@@ -147,10 +147,10 @@ import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Show f1f9
                  GHC.Base.eqString
                    (Grammar.$fEqVar_$cshow a)
                    (Grammar.$fEqVar_$cshow b)) -}
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   $fEqVar_$cshow :: Grammar.Var -> GHC.Base.String
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   $fShowVar :: GHC.Show.Show Grammar.Var
   DFunId
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -159,17 +159,17 @@ import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Show f1f9
                   Grammar.$fShowVar_$cshowsPrec
                   Grammar.$fEqVar_$cshow
                   Grammar.$fShowVar_$cshowList -}
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   $fShowVar1 :: Grammar.Var -> GHC.Base.String -> [GHC.Types.Char]
   {- Arity: 2, HasNoCafRefs,
      Unfolding: (\ (x :: Grammar.Var) (s :: GHC.Base.String)[OneShot] ->
                  GHC.Base.++ @ GHC.Types.Char (Grammar.$fEqVar_$cshow x) s) -}
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   $fShowVar_$cshowList :: [Grammar.Var] -> GHC.Show.ShowS
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>,
      Unfolding: (\ (ls :: [Grammar.Var]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ Grammar.Var Grammar.$fShowVar1 ls s) -}
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   $fShowVar_$cshowsPrec ::
     GHC.Types.Int -> Grammar.Var -> GHC.Show.ShowS
   {- Arity: 3, HasNoCafRefs, Strictness: <L,A><S,1*U><L,1*U>,
@@ -184,7 +184,7 @@ import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Show f1f9
                       (n :: b)[OneShot] ->
                     GHC.Base.foldr @ GHC.Types.Char @ b c n (Grammar.$fEqVar_$cshow x))
                    s) -}
-ae64edc3634d1e8faa9b4e34c89f9d8e
+1a3e49ad8996388ae49a73dbe1b4311a
   $sfromList ::
     [GHC.Base.String] -> Data.Set.Base.Set GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
@@ -224,638 +224,638 @@ ae64edc3634d1e8faa9b4e34c89f9d8e
                                      (Data.Set.Base.Tip @ GHC.Base.String)
                                      (Data.Set.Base.Tip @ GHC.Base.String))
                                   wild1 } } } }) -}
-14aa9cb4f88713a70c1801b1edd6904e
+86cff49f1e18064922f4dfe719d30101
   $sfromList_go5 ::
     Data.Set.Base.Set GHC.Base.String
     -> [GHC.Base.String] -> Data.Set.Base.Set GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
-7b2616a71ade3859177c49ca5f992d12
+bc65197f2950fbb8318f076a594e9fde
   $sinsert_$sgo5 ::
     GHC.Base.String
     -> Data.Set.Base.Set GHC.Base.String
     -> Data.Set.Base.Set GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
-372bc00b0bb115fb7c958ba0688d13c8
+c65ab5654b58aa569d30c90626325064
   $smember_go5 ::
     GHC.Base.String
     -> Data.Set.Base.Set GHC.Base.String -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U> -}
-c4c76f66de21b83f244f899282231f67
+b7c5056bb4ce2f3c788b64b45702f889
   $tc'Add :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   13348572053565950879##
-                   12622181461914711221##
+                   214065250756163844##
+                   10104144921173249453##
                    Grammar.$trModule
                    Grammar.$tc'Add1) -}
-c66f31af6c4011b7773ba45c25ebd698
+928e6a57bb2e6521c60bdf96c584eb7f
   $tc'Add1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Add"#) -}
-fcbe751b983ff6669334fabdf5b49007
+b1560bbdcb7d33806bb0e4b2286f46c4
   $tc'And :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   10606734948240507176##
-                   18213525782732700265##
+                   14007911205468431626##
+                   1165655801921499226##
                    Grammar.$trModule
                    Grammar.$tc'And1) -}
-417fc05716bdff4fb9abfb7952f750b9
+6af770a05b2cea3bfb13aae10b6279ec
   $tc'And1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'And"#) -}
-b442f358a434f78641e76594cb722716
+f521305afe39d403c7ea082556944fdb
   $tc'Assign :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   1876554441976398507##
-                   11549702636315062404##
+                   18223463807338011665##
+                   14361314767466951520##
                    Grammar.$trModule
                    Grammar.$tc'Assign1) -}
-34eb54f6ebb322535fe9a3ce51d29bdd
+b835d4a20eaf80da8a8248b366306f5c
   $tc'Assign1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Assign"#) -}
-a5bb4f4e518f53aa7565a85a1d914769
+c131ac590b40a1dee3fc3b15cd133d11
   $tc'BExp :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   15116482727195730160##
-                   12292313748820806289##
+                   5859831694923002954##
+                   2902111498192981410##
                    Grammar.$trModule
                    Grammar.$tc'BExp1) -}
-f6e317f6a5b7b97c827c79a1d1da7837
+2ef49d8fca2a31ff53a09742bddc9df9
   $tc'BExp1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'BExp"#) -}
-f5c6f812cc395d7e2d04fdeccd7913c1
+e875db8912cf74bedca77f8f4f4c7629
   $tc'BVar :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   10589472452080362402##
-                   2643932287856540660##
+                   13022371084318620888##
+                   17410127994195817435##
                    Grammar.$trModule
                    Grammar.$tc'BVar1) -}
-0f8c8d993c80200774be65a20a677bfb
+16e5eb8af24bbeba73f3999c49027ba9
   $tc'BVar1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'BVar"#) -}
-ba90b2ca4cea2ced0ce50d203338ff6b
+58c4931ff8363692b94f58c443c46957
   $tc'Car :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   17820099753564905552##
-                   998684481602413697##
+                   10693768827813243899##
+                   16043026089828390822##
                    Grammar.$trModule
                    Grammar.$tc'Car1) -}
-ac02e5edcf7d6bd4502b215489d21a57
+ad227b95868784b3a938b65cc4327f8d
   $tc'Car1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Car"#) -}
-019b6bb697cc1288cffa57154970c872
+c4fcf3c90d8d632acd1c221d4d7d2ca4
   $tc'Cdr :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   5141659991748288015##
-                   6859915808833103389##
+                   7111843519344212796##
+                   14288200304778035895##
                    Grammar.$trModule
                    Grammar.$tc'Cdr1) -}
-7ab9987d6944bc3a0e63f069cf9213c3
+ace8325166a6254d303c9a038c4d0106
   $tc'Cdr1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Cdr"#) -}
-a6f6a9aa63ca4719e6d92c75f0a0e8bc
+c176e5ff9fe26d3f634b144533bd6591
   $tc'CharLit :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   60582808318639355##
-                   3489092332777291893##
+                   4850266469219230423##
+                   5268760100185594024##
                    Grammar.$trModule
                    Grammar.$tc'CharLit1) -}
-d90ae3eede13edd97cab243bb68e4fae
+f7874a6b8ac7f1372ae2bb1be2f031e7
   $tc'CharLit1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'CharLit"#) -}
-5f1bbc7b04eb794a17ad70a736f51884
+b38a9d80ffacfd9c498329479babaf1d
   $tc'Cons :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   9032904754008250914##
-                   11913551615675992491##
+                   15917125737348010214##
+                   6791466021092811444##
                    Grammar.$trModule
                    Grammar.$tc'Cons1) -}
-0096ff14efc709eacd3d234fa6077111
+a65484d9ae81e2f33bad97fc74bc154c
   $tc'Cons1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Cons"#) -}
-6c4778bd21c58d6c1ddbb9e56be85307
+07899038f94b69a1fa67803eae726f98
   $tc'Cycle :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   14233710201468274503##
-                   8646745212897831126##
+                   17549534796559153691##
+                   14660600200084675435##
                    Grammar.$trModule
                    Grammar.$tc'Cycle1) -}
-3504240e4162c296970837bddb197075
+f5e94b7d7384ce701b3e5547499ade99
   $tc'Cycle1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Cycle"#) -}
-1c959fe22f1adfe77ab27969273158a4
+acb3b9dc0f90907f72ff61100398275e
   $tc'Div :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   17285211182630341329##
-                   17127474186855097126##
+                   12493564947593299135##
+                   14087027380497062677##
                    Grammar.$trModule
                    Grammar.$tc'Div1) -}
-ade8e53090bea64263975200a28354f8
+73b9e43992767abb7ec15aeee0a62664
   $tc'Div1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Div"#) -}
-0f0ae7f8498d3d736868ab9be8fa4557
+83e83cd5c757f34469d9d8cb4bb67d54
   $tc'E :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   2122443475938325412##
-                   3823276134539552942##
+                   15835191826354607591##
+                   14651063942750938567##
                    Grammar.$trModule
                    Grammar.$tc'E1) -}
-8ecb289163107889ecae6684ad50e60a
+9a5226d7fdac92bf9f93a54c44ae80be
   $tc'E1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'E"#) -}
-ebfa38f851519933bd15e3ddf6ab9ee4
+32eecac5a263ccb22207c6c62e42f07e
   $tc'EVar :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   2437301241562242288##
-                   11108873023241515420##
+                   1196958847512527051##
+                   3016207688004105937##
                    Grammar.$trModule
                    Grammar.$tc'EVar1) -}
-7942bdf3eead5e484d97492257efb59f
+6bb7d8e94041e7c9e205837cf1a620dd
   $tc'EVar1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'EVar"#) -}
-5dabcebe4bfa6a9a3a4ccab545093dda
+6fd15b8456c2f113a60f89e6c53d0a9e
   $tc'Exp :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   6333839778609227368##
-                   13270530854090746519##
+                   9391680355386025588##
+                   6232549102692588205##
                    Grammar.$trModule
                    Grammar.$tc'Exp1) -}
-8a8201f4a8cd014aa2f0766f0df5aece
+c144e9793af4599e771c4cd5dfb4ceba
   $tc'Exp1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Exp"#) -}
-fb0edfcb06ff794668689a7ff8a68a26
+f66f19af944929a329dc64f801e39747
   $tc'FalseLit :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   3478377715424838855##
-                   7134562095703435215##
+                   7479013867627584914##
+                   15377783926948174451##
                    Grammar.$trModule
                    Grammar.$tc'FalseLit1) -}
-8edddf7c507271beafe30b4f5a1a791d
+ffc0e504f5f02907eb0a4d69f53ce837
   $tc'FalseLit1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'FalseLit"#) -}
-2d07520dc549d53df29ab68e676cafee
+f2007f2dff0a7d5ee70ff092c34f5bd7
   $tc'G :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   13634670246141582702##
-                   2653764827060851294##
+                   13213019123315129592##
+                   2515283043506341738##
                    Grammar.$trModule
                    Grammar.$tc'G1) -}
-308fabe7938935d195a9999cc0effe12
+e63a35feea223656423983c86025b3f4
   $tc'G1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'G"#) -}
-d819b5e0faf143e61bcabaa88bd2c532
+4957d45de832d361e0623043cbf02b47
   $tc'GE :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   16225654183795727734##
-                   11925037682475549966##
+                   4863108348174049396##
+                   9956986624248659818##
                    Grammar.$trModule
                    Grammar.$tc'GE1) -}
-0fb1f3c61bd51bc69d0532a292e5b24b
+e3c228599e0c641ce77b4771a6801fb9
   $tc'GE1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'GE"#) -}
-68a0a6a1b40f83753b0ecfcad7868a61
+b077740b74371091eb3aee41bcdc3a16
   $tc'If :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   11556451677382381528##
-                   15057536916541753363##
+                   1374544808447422537##
+                   9417558487048556652##
                    Grammar.$trModule
                    Grammar.$tc'If1) -}
-0f0fc0b434de127b72d9f77a647b10f6
+f5e2557216427a8e00f6f8e5026dec27
   $tc'If1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'If"#) -}
-b7ade3ca97b6f0d370e3e5a0f6f6c457
+db5db6ab35112b587305f94eb1f0aaca
   $tc'L :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   18049116900145302924##
-                   5080112981735070046##
+                   4188020003857650514##
+                   4771099280200564612##
                    Grammar.$trModule
                    Grammar.$tc'L1) -}
-735a6df27f79435009aa1315b0023694
+7839af8fc456f3ff1179aa35f11ecb92
   $tc'L1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'L"#) -}
-7fd9457ebc7827813c79ef8195ead098
+b81c4373bfc9510e5ad4de1605a6eb97
   $tc'LE :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   5683080289997440070##
-                   193477226704776990##
+                   14410638561290428436##
+                   10297529438624797214##
                    Grammar.$trModule
                    Grammar.$tc'LE1) -}
-c98ec4ba0ac4f8be76973ffe7060c4e6
+aa4212f3fc88eaadc1a53f3faf5766ec
   $tc'LE1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'LE"#) -}
-72e12153e9c96cd6ba7f5a87cc127cb9
+7f2c00a61c1703216af13d3e30186e22
   $tc'LExp :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   18107787117703194189##
-                   15100753986560221921##
+                   9200591300499420349##
+                   10427061787152448212##
                    Grammar.$trModule
                    Grammar.$tc'LExp1) -}
-393da7b080c6f3803dbbea28281f1562
+f8c96273100b1c1f110789b2d8c863ac
   $tc'LExp1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'LExp"#) -}
-c874a2abfd8343b3b0733fcc0b2ce501
+5ec4bcfc692b215c73e3a972468863d0
   $tc'LVar :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   16303792833060880267##
-                   7757798258622664933##
+                   4429849971460004452##
+                   18381660709287903163##
                    Grammar.$trModule
                    Grammar.$tc'LVar1) -}
-a2b9f57b56fac73015f4716056d778ec
+2bbd00ca4e1212d983bf38daa9eb0057
   $tc'LVar1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'LVar"#) -}
-d7f84dbfae5db3e875a2be8e6615b372
+ec253a573c021d9a74bfbdc9af5b1627
   $tc'Mul :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   2813605409403241727##
-                   1633598860666198266##
+                   8654515071055652944##
+                   8062474264203270728##
                    Grammar.$trModule
                    Grammar.$tc'Mul1) -}
-184e889c8f32fd0fd58b577260395017
+9ad392c850c1fab329e7b180e9a0a4ce
   $tc'Mul1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Mul"#) -}
-5a20d01358ff4259ccb62823c1788dbb
+891e4ab9e8562b2e3c918ef2b996c8c8
   $tc'NExp :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   651015222753965821##
-                   13821181495606816947##
+                   10545075966605078027##
+                   4270404234778747919##
                    Grammar.$trModule
                    Grammar.$tc'NExp1) -}
-79dfdf7f2d3bc2c3ba8e9101046cc15f
+3f592135fde6fa037670bca08f480dbf
   $tc'NExp1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'NExp"#) -}
-1f591eef8fdf5021261772649283bbf5
+ae0b9cc8c98da30622da3762f4920c2e
   $tc'NVar :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   17824259694725376783##
-                   1216919985895233339##
+                   14397786478769753558##
+                   17599113656687261628##
                    Grammar.$trModule
                    Grammar.$tc'NVar1) -}
-62bd9b09113db8a82a50ba2222566f06
+c9f6ed1ea577b5a08f566b4a7d75cb5f
   $tc'NVar1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'NVar"#) -}
-16ab4527b5580bc1ec073c2fca726e41
+a0f0da260ef20c3079cdc70ca53e19f1
   $tc'New_vec :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   11333063277278320291##
-                   11901020523758796289##
+                   5954435801393118655##
+                   16305900671084955953##
                    Grammar.$trModule
                    Grammar.$tc'New_vec1) -}
-748490c02d79fbb25e997e32bbc987b4
+4c8232cd846beba98eeb5c6b605c4aee
   $tc'New_vec1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'New_vec"#) -}
-f1b4803593084b2bb251b3a86817d57d
+ef06fd6df31f1a5e5553a023ad1974d8
   $tc'Nil :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   4846631315372340119##
-                   4184585799251936155##
+                   18209533690387257808##
+                   16234588113490150663##
                    Grammar.$trModule
                    Grammar.$tc'Nil1) -}
-230f2a82f0e182a3bab70e1cb6a09bcb
+86c8055df597ff5bc84bb1b67f22b4dc
   $tc'Nil1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Nil"#) -}
-fa5a0d8c5596a0fc6bfd590b6231ebc4
+cf2db63ce0125d49dd486dde326a22cd
   $tc'Not :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   17822696154572223546##
-                   10945787289220979412##
+                   7864335058084054560##
+                   6891197126552351276##
                    Grammar.$trModule
                    Grammar.$tc'Not1) -}
-3a9f63a5a3e3a6fb42a509cb9862ddb4
+290df8909367ddfb911383e1602b36f9
   $tc'Not1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Not"#) -}
-49327b4e6ebe75576c3d8746fdeeed66
+b18629e4993d18fd3fa337024c342637
   $tc'Number :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   14194381958834816036##
-                   5871004575906974130##
+                   1169474276456688465##
+                   14980947460605518943##
                    Grammar.$trModule
                    Grammar.$tc'Number1) -}
-2afaf2c07159b602dce19d8d38cc236b
+034a95875efbdb5e160c73f3f3bef784
   $tc'Number1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Number"#) -}
-07bac6c80759b30c34efefbaa2e6348b
+a38fda30bf3a09f330afa37d1c41a3bb
   $tc'One :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   1852512944553123676##
-                   2262888663147323708##
+                   16164915696751786802##
+                   6206637430368507583##
                    Grammar.$trModule
                    Grammar.$tc'One1) -}
-69839a64767964a5934e437bc8a92a51
+b0ecee6605fd0050791917d13c984972
   $tc'One1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'One"#) -}
-0fafe4599f54809763e57742f8c0bcc3
+7b012537343a9173d464ae4c01d4bb64
   $tc'Or :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   13308733297531469002##
-                   11604769606733532986##
+                   17982529323076206366##
+                   3413935842143750586##
                    Grammar.$trModule
                    Grammar.$tc'Or1) -}
-acf31df384369eef844401586a5238f8
+148468c4741b900ffe9eb82c2dcca41d
   $tc'Or1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Or"#) -}
-917309977edf08a629dc8e7c665550e3
+19721df0dab2fa7f596465bd58295d6c
   $tc'Set_vec :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   5143490007282710215##
-                   15719194993775959782##
+                   11044671212583184214##
+                   8275571089970320181##
                    Grammar.$trModule
                    Grammar.$tc'Set_vec1) -}
-a369b1645e6b8d6d65f5eada87bef102
+b3d643f7b41b883e91da96b7cfddcb8e
   $tc'Set_vec1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Set_vec"#) -}
-107edf5b42c95e106c9abc620f495ba7
+3eefcb15b4c5f7e1b7ad84c4dd52a88b
   $tc'Skip :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   17947119889661063018##
-                   9935423925541488796##
+                   6412665111577658382##
+                   15427256082582897427##
                    Grammar.$trModule
                    Grammar.$tc'Skip1) -}
-19d4ea819847d7db7f48eaeb7b90aae6
+e8e0156482eaf160abd706f2b8e407db
   $tc'Skip1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Skip"#) -}
-423c7f34a413ce651881179ea4b6ce48
+e133bb61546824ca4231275a9696d4fa
   $tc'Stmt_cycle :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   1660801523604846811##
-                   12283662183473851041##
+                   736495285295804657##
+                   3852127701271815715##
                    Grammar.$trModule
                    Grammar.$tc'Stmt_cycle1) -}
-885c494d27328b9786cac3d46c0e7e6d
+8e07044138a34835d441264ecb575988
   $tc'Stmt_cycle1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Stmt_cycle"#) -}
-ae8cd98a48f39a1c61caafd84aba9058
+8e6288fec1a9b039938b799f7aef29b4
   $tc'StringLit :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   5896662027304800485##
-                   10998981645897565693##
+                   2528347183648966628##
+                   12473223874894579553##
                    Grammar.$trModule
                    Grammar.$tc'StringLit1) -}
-1248755310dafa283ffe1a78ddf8b399
+eb287932d5816834da427f32f2abf8aa
   $tc'StringLit1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'StringLit"#) -}
-3b784cb4674f3d519f3582e325478302
+9ce675256f08e1badc3f3729a16603c1
   $tc'Sub :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   6014973339550952948##
-                   15020742618473852319##
+                   14511446678255293584##
+                   8538634187535064849##
                    Grammar.$trModule
                    Grammar.$tc'Sub1) -}
-542be2b8970e56e5d80dcfbf0402eda1
+3cc56a936a87dad206f470fe35886990
   $tc'Sub1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Sub"#) -}
-b416e45a4e287f4384d0f99529be2957
+6c1563b5eebde844bcc920bc4880aed5
   $tc'TrueLit :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   17686124734495020856##
-                   17991274788026628695##
+                   1720595848314825701##
+                   16549428294320644796##
                    Grammar.$trModule
                    Grammar.$tc'TrueLit1) -}
-5c6dd9ab64c7e3c8aa3e765ff3fc0962
+8e468e8ad8d21b1e57314989903b746d
   $tc'TrueLit1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'TrueLit"#) -}
-b87ef8968e8de9816e911f084c4d21fc
+9a3712946eb7f61a3c6cc3eb01c3931e
   $tc'TypeBool :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   14722813239434327683##
-                   6562083757202397607##
+                   2948729375947975432##
+                   13971059461659866431##
                    Grammar.$trModule
                    Grammar.$tc'TypeBool1) -}
-a6eef9ad49667e234635c1fbc02d141d
+01584d1d5cbf61c0cde54ed0fd589236
   $tc'TypeBool1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'TypeBool"#) -}
-68c67f53fe508bcc75ea59d7225aafab
+c7b36ef0a0ae29b4e42b83716b8b57e3
   $tc'TypeList :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   534968650051619767##
-                   8314864007529409441##
+                   5067441521793566441##
+                   5234529032528203744##
                    Grammar.$trModule
                    Grammar.$tc'TypeList1) -}
-156d655cc226ae8b8645c5bc8a35e931
+8fe13ccaf80cd6a6754e8ebffa531202
   $tc'TypeList1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'TypeList"#) -}
-bc4847027cb365007726f4a31826f106
+45b73edbe3d48fd1ffe151fffcd2486a
   $tc'TypeNum :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   14473701436387879639##
-                   10872924305537761292##
+                   13017809655216519846##
+                   6869530957743131508##
                    Grammar.$trModule
                    Grammar.$tc'TypeNum1) -}
-54cb8935afcd5a242931fa03e968ee8b
+ba2956239274d9e32977c66dd593874f
   $tc'TypeNum1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'TypeNum"#) -}
-2ac6a868a45b34ae09dd616fab31a51e
+b43d89b429bf3e2576f2427073e475ab
   $tc'TypeUnknown :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   9409127741460507217##
-                   1922915934788276758##
+                   14239689616540351495##
+                   9730915922305237736##
                    Grammar.$trModule
                    Grammar.$tc'TypeUnknown1) -}
-3b6b7ca9a8af3d74d857342db8686ecb
+142d09257a0e76fb1af6ee9d9d413ec7
   $tc'TypeUnknown1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'TypeUnknown"#) -}
-3260882290a8663ea829533476415b31
+2f003564170d9703bc37f9b8fe3d77ff
   $tc'TypeVector :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   6309592420800272941##
-                   11757448454750326952##
+                   3884207190197341434##
+                   10501223906036414402##
                    Grammar.$trModule
                    Grammar.$tc'TypeVector1) -}
-0e67b62fcc120dbea06f8e665ef739de
+838696ab74329331f11c4b5dfd75809a
   $tc'TypeVector1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'TypeVector"#) -}
-b9e162b98d041f332294a7a58de87e6a
+ab07f8164949350fb12339ceeb2cbdd6
   $tc'While :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   12530677272100541460##
-                   12855080490092889881##
+                   7429456097111648753##
+                   3239565146172528527##
                    Grammar.$trModule
                    Grammar.$tc'While1) -}
-9589378deaa281970de34c33b923bac8
+50989b6992f04bb3dc3ec3fde734352f
   $tc'While1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'While"#) -}
-afd07e4f4a7ea47d40dd7e98273bd699
+fec60cdd167113bcade614900f0dec9f
   $tcBoolExpr :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   899739472046945936##
-                   7088967416788442469##
+                   10966832351005169270##
+                   5524894811700592504##
                    Grammar.$trModule
                    Grammar.$tcBoolExpr1) -}
-c813648d558c8466c01b9500be667071
+344561d26868ba49e67835030620cefb
   $tcBoolExpr1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "BoolExpr"#) -}
-e7cd2b030bc861061c95caee0279f8e0
+0c09ec642989872f80d2e0de3f930df1
   $tcExpr :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   11248326486685846253##
-                   14600172728249505153##
+                   6463946729872615554##
+                   2893001139450935999##
                    Grammar.$trModule
                    Grammar.$tcExpr1) -}
-4da39999ad7da5bd5fa8fdda89cb959a
+884ef853238fc8cbb8db3621920b9991
   $tcExpr1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Expr"#) -}
-cd44b554f997690f5b5455487f22ed5a
+9d6e1f884487de63b67e82860f63a136
   $tcListExpr :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   3550898536800394058##
-                   2442442667341811904##
+                   7832215010882386861##
+                   10688938499911335997##
                    Grammar.$trModule
                    Grammar.$tcListExpr1) -}
-3cb165156077d7f41611222a078983c9
+105464f6fe822004392958fe4a8ad73a
   $tcListExpr1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "ListExpr"#) -}
-c67260cf911a248a23b5b80033fb426f
+b626b2857e6102d64b1c37be1ca30a26
   $tcNumExpr :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   13263975648744557969##
-                   17067190324698166068##
+                   8218986904002029868##
+                   1975713931144513547##
                    Grammar.$trModule
                    Grammar.$tcNumExpr1) -}
-89824f60e510067302e30edfdaa41b61
+c021cbb503d82b17677cd868251d8f77
   $tcNumExpr1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "NumExpr"#) -}
-919b577005675b646ab20237c7691e7a
+4ac6f7d332b8b5bfab8dfc21477819ee
   $tcStmt :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   12083664342158507340##
-                   12760094906405572793##
+                   3578424572147414202##
+                   10651420418279680534##
                    Grammar.$trModule
                    Grammar.$tcStmt1) -}
-60eefbe3f6d315614ecc157c3500add2
+fa87b445cbda6c4b17084e295c973544
   $tcStmt1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Stmt"#) -}
-4e2f8bcfd813dee65933f1c58d284fe9
+2b517820b7f90f71211e44de33ca3909
   $tcStmt_list :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   16551311309572015777##
-                   7875897999223780599##
+                   3577446429495400707##
+                   12851922043914299505##
                    Grammar.$trModule
                    Grammar.$tcStmt_list1) -}
-66c286f4340901087472b3ec8618b2c2
+7f1e6398d098229cf9c4827317abba08
   $tcStmt_list1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Stmt_list"#) -}
-801985b3bf14b78c69cd72a88f8c4b8d
+15f82f4144350b28b6a4411ff47458e1
   $tcVar :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   13289993840815928430##
-                   2951069506507875255##
+                   7176836533160351281##
+                   12934310003468172416##
                    Grammar.$trModule
                    Grammar.$tcVar1) -}
-cba1a151c51e28f4d9c58efd585ef8a2
+72f8f7913c4538fd61777165dff076ff
   $tcVar1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Var"#) -}
-8ea50b43740df9b310740058df01a74c
+c97dd3642a3e638363b145bdfed51b24
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module
                    Grammar.$trModule2
                    Grammar.$trModule1) -}
-a47095c885d868eb51367c8752385418
+d587e0d518e1e2ba023700092da68b32
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Grammar"#) -}
-68d8f5720298338b442ec7fa678c8cd0
+34bb5c9f6e330d15647e696b26527f53
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
-                   "Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"#) -}
-6f191744a6b434d1aa460eac2d826188
+                   "Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5"#) -}
+3dd9fbe3c75a1f46a07e349f317ef5b4
   $waddParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -877,7 +877,7 @@ a47095c885d868eb51367c8752385418
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-1b3ae727e062fd76f332a131ce54433c
+7bbdd2a647a778420559da64634205d9
   $wandParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -899,7 +899,7 @@ a47095c885d868eb51367c8752385418
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-feba08e08e521846eabde18aeefb4fbb
+6a5c1209a9ed85e299151a73255c049c
   $wassignParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -921,7 +921,7 @@ feba08e08e521846eabde18aeefb4fbb
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-fc4352da1355e98c76c386bc626cc1ca
+59dd1949b7b1f12a4c35115476d76572
   $wbexpParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -983,7 +983,7 @@ fc4352da1355e98c76c386bc626cc1ca
                       nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                       more'
                       (Grammar.BExp a1) })) -}
-b7eb551bf74f8f7355f11934428a45b7
+b379c28d0f0add0f2fb23a2bff749d20
   $wboolExprParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1005,7 +1005,7 @@ b7eb551bf74f8f7355f11934428a45b7
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,U>,
      Inline: [0] -}
-404310dcedfd4f348f545b506bf4a8c0
+1dd7a8d897f116c1ff3210333bddbf5d
   $wboolVarParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1076,7 +1076,7 @@ b7eb551bf74f8f7355f11934428a45b7
                            nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                            more'
                            (Grammar.BVar (Grammar.TypeBool var)) } })) -}
-afe486a2fa3dec666a6d104766dc1cfe
+45b4cb73b1d3cf84dc008a7b17cd82e9
   $wcarParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1098,7 +1098,7 @@ afe486a2fa3dec666a6d104766dc1cfe
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-b1e09bf5f1e7ca2a6779afa143980063
+0c6c46585a33b2ce884cfbadf22224f8
   $wcdrParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1120,7 +1120,7 @@ b1e09bf5f1e7ca2a6779afa143980063
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-50e0634a1bf17be04f0de97b558c585d
+7397c898f33d4c228d56cb8b0bf15fd5
   $wcharParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1142,7 +1142,7 @@ b1e09bf5f1e7ca2a6779afa143980063
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-23da2e882f0a77a08210c48774015c83
+f5ffa9593aae617c00581705a5cca827
   $wconParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1164,7 +1164,7 @@ b1e09bf5f1e7ca2a6779afa143980063
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-b188824b369f4d42c6d31d1299e7a7a2
+001fc2613842c8ec3e79734839109306
   $wdivParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1186,7 +1186,7 @@ b188824b369f4d42c6d31d1299e7a7a2
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-025bd04765fa32c627b9bcfcbd557e74
+3e89751662b145ddd68a2786d5865475
   $wequalParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1208,7 +1208,7 @@ b188824b369f4d42c6d31d1299e7a7a2
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-bcf956183e311a0c561308e6b677b3a3
+c1bf6225343a245352f07a4b516fc04b
   $wexprParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1230,7 +1230,7 @@ bcf956183e311a0c561308e6b677b3a3
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-0bad2912b82faba9311c1ef09957f3a2
+a66cbf0b39bfdc498a58e261a728792e
   $wexprVarParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1292,7 +1292,7 @@ bcf956183e311a0c561308e6b677b3a3
                       nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                       more'
                       (Grammar.EVar a1) })) -}
-9deb93e2428eaeade92017358ca7efc5
+5033ee011f624efc9edb7ccaef7964db
   $wfalseParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1314,7 +1314,7 @@ bcf956183e311a0c561308e6b677b3a3
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,C(C1(C1(C1(C1(U)))))><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-27c11e9fb9faad2e04029c5b2a21d5e7
+e960eeb170696a4d3ed2903d971aa98b
   $wfloatParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1393,7 +1393,7 @@ bcf956183e311a0c561308e6b677b3a3
                            `cast`
                          (Data.Attoparsec.Internal.Types.N:Pos[0]) of nt1 { GHC.Types.I# ipv1 ->
                     Data.Attoparsec.Text.$wdouble @ r t' ipv1 more' w1 lvl26 })) -}
-de920f773c16e48957edbd2a6ea27a97
+5e1622afac06e4e6455c36b1882f5ab2
   $wgeParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1415,7 +1415,7 @@ de920f773c16e48957edbd2a6ea27a97
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-ac80755c9c3dd66cac5d093c1f3e0403
+e24022108228ab0887071f2098a92add
   $wgo1 ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1433,7 +1433,7 @@ ac80755c9c3dd66cac5d093c1f3e0403
   {- Arity: 8,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-965c71a192b9c07b0e431d0abbedd49d
+b03b29386297e236b00c92f2c27fd4e0
   $wgo2 ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1451,14 +1451,14 @@ ac80755c9c3dd66cac5d093c1f3e0403
   {- Arity: 8,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-c6822d58fd8c80e685ec1aa3a592e10e
+22b41338d5353781204bcf1ba04252dc
   $wgo5 ::
     GHC.Prim.Int#
     -> Data.Set.Base.Set GHC.Base.String
     -> [GHC.Base.String]
     -> Data.Set.Base.Set GHC.Base.String
   {- Arity: 3, Strictness: <L,U><S,1*U><S,1*U>, Inline: [0] -}
-34a321a20f33aee7f94ba0b572d6f51f
+8debd1d971a7d9bb10dddd7b176ebaa6
   $wgreatParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1480,7 +1480,7 @@ c6822d58fd8c80e685ec1aa3a592e10e
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-688d9dafe3bd8f7c2269f08dafa25dfe
+7eab632d7d3e4d276f272d65fdc84075
   $wifParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1502,7 +1502,7 @@ c6822d58fd8c80e685ec1aa3a592e10e
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-319aa77e09b8f2814c9f21a6c794533e
+8876247c03f3d4cc59854da1091eb408
   $wleParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1524,7 +1524,7 @@ c6822d58fd8c80e685ec1aa3a592e10e
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-bd3b8cb95d47dc33f3c7e0592e34cc82
+cdf574ca829d745b735fe8fae1635212
   $wlessParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1546,7 +1546,7 @@ bd3b8cb95d47dc33f3c7e0592e34cc82
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-d123b9f7f037bdb6afef0a2b08cea823
+b902cdb72e724223824249b23632168d
   $wlexeme ::
     Data.Attoparsec.Text.Internal.Parser a
     -> forall r.
@@ -1615,7 +1615,7 @@ d123b9f7f037bdb6afef0a2b08cea823
                       more'
                       w2
                       w3 })) -}
-ded7b1d1eb700c2c94288c4932ec5ded
+8f859ea225d364fed828a148b9827f2d
   $wlexpParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1677,7 +1677,7 @@ ded7b1d1eb700c2c94288c4932ec5ded
                       nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                       more'
                       (Grammar.LExp a1) })) -}
-b19f462ff43634bcafba07e18c5ee2e0
+7e178f4b409edb2201117c8cd448a47e
   $wlistExprParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1699,7 +1699,7 @@ b19f462ff43634bcafba07e18c5ee2e0
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-01015f356d6a6782fb1b5f9328092995
+8d2e43ff8dea5decc47f30d15a2747f9
   $wlistVarParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1770,7 +1770,7 @@ b19f462ff43634bcafba07e18c5ee2e0
                            nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                            more'
                            (Grammar.LVar (Grammar.TypeList var)) } })) -}
-7bf1baea16cac09deb1a55de3e12779e
+426badbdf9cbe6dc3c2457505b1d2073
   $wmulParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1792,7 +1792,7 @@ b19f462ff43634bcafba07e18c5ee2e0
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-12d56f0661b0b740b8af4623cb7f93f9
+ebcadffcf3ec234824de5e87b5052f01
   $wnew_vecParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1814,7 +1814,7 @@ b19f462ff43634bcafba07e18c5ee2e0
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-080ade33c2a77ed0ac0d86b5df851f68
+6dab7fc4369b6b49928934f3ad5589d7
   $wnexpParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1876,7 +1876,7 @@ b19f462ff43634bcafba07e18c5ee2e0
                       nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                       more'
                       (Grammar.NExp a1) })) -}
-0750cd6b837729c483b6eefab862725c
+33e829114b34761e7e01215a710902e7
   $wnotParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1898,7 +1898,7 @@ b19f462ff43634bcafba07e18c5ee2e0
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-ab4a3c3d8e15f3a7742ed9a55f8a9266
+1fcbfa607fbef03cf5c887b8c7aa5aca
   $wnullParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1920,7 +1920,7 @@ ab4a3c3d8e15f3a7742ed9a55f8a9266
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-771bc9318a2aef58ff333ed3f5f5d1de
+ad73439fc149ebe11f02cd6644ff28e0
   $wnumExprParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -1942,7 +1942,7 @@ ab4a3c3d8e15f3a7742ed9a55f8a9266
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-8f6fdda003cb31af69dc2b0ef8933d78
+0d503fa725857eff820194fb4472cfea
   $wnumVarParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2013,7 +2013,7 @@ ab4a3c3d8e15f3a7742ed9a55f8a9266
                            nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                            more'
                            (Grammar.NVar (Grammar.TypeNum var)) } })) -}
-45ac1f58af59271e2f572e60f49c4fa3
+38430e604d9778a3f98380cd03afcdac
   $worParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2035,7 +2035,7 @@ ab4a3c3d8e15f3a7742ed9a55f8a9266
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-548eeca0ce5e6ad90399ea4d04d43b1c
+243ddc52102da3940afd792a0f88202b
   $wouter ::
     Data.Text.Array.MArray GHC.Prim.RealWorld
     -> GHC.Types.Int
@@ -2046,7 +2046,7 @@ ab4a3c3d8e15f3a7742ed9a55f8a9266
           Data.Text.Internal.Text #)
   {- Arity: 5, Strictness: <L,U(U)><L,U(U)><S,1*U><S,U><S,U>,
      Inline: [0] -}
-6ae447367091a6884aa007d412e17d3d
+7c798be621f8dc12cc3a6f863352f86f
   $wset_vecParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2068,7 +2068,7 @@ ab4a3c3d8e15f3a7742ed9a55f8a9266
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-a2763c1711794186c7063cfffc8adae6
+741b6a199f4ca8cc0e9bfea5a1dd0484
   $wskipParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2090,7 +2090,7 @@ a2763c1711794186c7063cfffc8adae6
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-4d4b8ebf5a6040668b58da46e6fa09a1
+ef86ca30e85d3a9cfcd0babb7d0d7aa1
   $wstmtExprParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2152,7 +2152,7 @@ a2763c1711794186c7063cfffc8adae6
                       nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                       more'
                       (Grammar.Exp a1) })) -}
-d0b7f79fc8306bbd229284ad508b7405
+be07f5eae474fb5fad53ec3de90716d8
   $wstmtListParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2214,7 +2214,7 @@ d0b7f79fc8306bbd229284ad508b7405
                       nt1 `cast` (Sym (Data.Attoparsec.Internal.Types.N:Pos[0]))
                       more'
                       (Grammar.Stmt_cycle a1) })) -}
-ecb476d3b03e6933bee4601d1085cc5c
+66be856bea3ca1fe704683d45ef49e6c
   $wstmtParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2236,7 +2236,7 @@ ecb476d3b03e6933bee4601d1085cc5c
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-9d823c47e559b3bab7fddbfd97c5e6f4
+cb0207130c6e9fd29f106d77116167b4
   $wstmt_listParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2258,7 +2258,7 @@ ecb476d3b03e6933bee4601d1085cc5c
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-598bc08f9c2a9a4ff8fd4250a510e712
+2f8fe828309e2b5e8746b95d40171322
   $wstringParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2280,7 +2280,7 @@ ecb476d3b03e6933bee4601d1085cc5c
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-e21d49f941009a42d1ccae7fb0e6e72d
+0e8f4d6fc6c6012c0afd4ee667cc7477
   $wsubParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2302,7 +2302,7 @@ e21d49f941009a42d1ccae7fb0e6e72d
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-41a8806c62f040c3bdfd2acab158d774
+0caf1b3c063419f3968f2427b4e9a9c0
   $wtrueParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2324,7 +2324,7 @@ e21d49f941009a42d1ccae7fb0e6e72d
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,C(C1(C1(C1(C1(U)))))><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-e27600c252ff19706b3b36afe1cb6d29
+b47ab0d56186ca0c5dc5ca96389388f9
   $wvarParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2346,7 +2346,7 @@ e27600c252ff19706b3b36afe1cb6d29
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-6308e49734e76a7b8cdf1b07e8df3046
+e2fc6ed39435a5e00bbe8d188f8d9822
   $wvectorParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2368,7 +2368,7 @@ e27600c252ff19706b3b36afe1cb6d29
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-4b61113024843d8366e184b15f8b1436
+b456d4ff4d3145079dd4adc3ca5e80b6
   $wwhileParser ::
     GHC.Prim.ByteArray#
     -> GHC.Prim.Int#
@@ -2390,7 +2390,7 @@ e27600c252ff19706b3b36afe1cb6d29
   {- Arity: 9,
      Strictness: <S,U><S,U><S,U><L,U><L,U><S,U><L,U><L,U><L,C(C1(C1(C1(U))))>,
      Inline: [0] -}
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   data BoolExpr
     = BVar Grammar.Var
     | FalseLit
@@ -2398,13 +2398,13 @@ e27600c252ff19706b3b36afe1cb6d29
     | Not Grammar.BoolExpr
     | And Grammar.BoolExpr Grammar.BoolExpr
     | Or Grammar.BoolExpr Grammar.BoolExpr
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   data Expr
     = EVar Grammar.Var
     | BExp Grammar.BoolExpr
     | NExp Grammar.NumExpr
     | LExp Grammar.ListExpr
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   data ListExpr
     = LVar Grammar.Var
     | Nil
@@ -2413,7 +2413,7 @@ e27600c252ff19706b3b36afe1cb6d29
     | Cdr Grammar.ListExpr
     | CharLit GHC.Types.Char
     | StringLit GHC.Base.String
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   data NumExpr
     = NVar Grammar.Var
     | Number GHC.Types.Double
@@ -2426,7 +2426,7 @@ e27600c252ff19706b3b36afe1cb6d29
     | LE Grammar.NumExpr Grammar.NumExpr
     | G Grammar.NumExpr Grammar.NumExpr
     | GE Grammar.NumExpr Grammar.NumExpr
-498941a077b90556297a5f3954be9f70
+9318de9adc155175705f6cef46b99c35
   data Stmt
     = Exp Grammar.Expr
     | Stmt_cycle Grammar.Stmt_list
@@ -2436,17 +2436,17 @@ e27600c252ff19706b3b36afe1cb6d29
     | While Grammar.Expr Grammar.Stmt
     | New_vec Grammar.Var Grammar.Expr
     | Set_vec Grammar.Var Grammar.Expr Grammar.Expr
-498941a077b90556297a5f3954be9f70
+9318de9adc155175705f6cef46b99c35
   data Stmt_list
     = One Grammar.Stmt | Cycle Grammar.Stmt Grammar.Stmt_list
-916f14c0d0e4787bb81877d92017786a
+0ab60214c669ea5b34bb5276af01520f
   data Var
     = TypeBool Data.Text.Internal.Text
     | TypeNum Data.Text.Internal.Text
     | TypeList Data.Text.Internal.Text
     | TypeVector Data.Text.Internal.Text Grammar.Expr
     | TypeUnknown Data.Text.Internal.Text
-b75872347c2038b9808b5eeb93bd4e54
+6afd447ab3a20ecf36027b5cb8c30971
   addParser :: Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2455,7 +2455,7 @@ b75872347c2038b9808b5eeb93bd4e54
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-505b8dc3028fe03b65cc3c86d0f83146
+5776b667f146d5bb0d4da9736e97dc1d
   addParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2493,7 +2493,7 @@ b75872347c2038b9808b5eeb93bd4e54
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$waddParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-493c8bbe95b9e044997f968811503235
+08817c837e7bdd05d7928f0be1314c32
   andParser :: Data.Attoparsec.Text.Internal.Parser Grammar.BoolExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2502,7 +2502,7 @@ b75872347c2038b9808b5eeb93bd4e54
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.BoolExpr>_R)) -}
-8bb42b2a8a378441d4f9afc518067121
+28e0fe38651a6761172c20c1460db48d
   andParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2540,7 +2540,7 @@ b75872347c2038b9808b5eeb93bd4e54
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wandParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-1b7617a054ab8712caeb222dac55bf89
+8e31e27d3b91f9dd3f8d91ecc2e0eb19
   assignParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2549,7 +2549,7 @@ b75872347c2038b9808b5eeb93bd4e54
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Stmt>_R)) -}
-d1954d86d40970383fbe70f624084315
+e1e81b33f83740b3c3440e289f4a829e
   assignParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2587,7 +2587,7 @@ d1954d86d40970383fbe70f624084315
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wassignParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-b9db4ad2a375caed08154be32e9e294a
+8deb43edb38395e4220067460201fb38
   bexpParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Expr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2596,7 +2596,7 @@ b9db4ad2a375caed08154be32e9e294a
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Expr>_R)) -}
-d3daf158a7ecd3ef5bcd71d8444ba706
+bfb330a55c7fa53100da998711a37c42
   bexpParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2634,7 +2634,7 @@ d3daf158a7ecd3ef5bcd71d8444ba706
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wbexpParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-c26a0a3d67a81b3949b91f9208d3e5bf
+2f708fcc3b2f459050166370ebb80852
   boolExprParser ::
     Data.Attoparsec.Text.Internal.Parser Grammar.BoolExpr
   {- Arity: 5,
@@ -2644,7 +2644,7 @@ c26a0a3d67a81b3949b91f9208d3e5bf
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.BoolExpr>_R)) -}
-bb878d70660186f916f8f733b42fd7dc
+6883decbd8a8b9ac267cb3fb4610600c
   boolExprParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2692,7 +2692,7 @@ bb878d70660186f916f8f733b42fd7dc
                    w2
                    w3
                    w4 } }) -}
-fd0a363ceb5cad233800ee1fff7de1cb
+8fb7f3ad863426a47feb13908ef82520
   boolVarParser ::
     Data.Attoparsec.Text.Internal.Parser Grammar.BoolExpr
   {- Arity: 5,
@@ -2702,7 +2702,7 @@ fd0a363ceb5cad233800ee1fff7de1cb
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.BoolExpr>_R)) -}
-6afe392394275ea372659300550d7879
+ee0b68dbd6860ee72da685ed61076e43
   boolVarParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2750,11 +2750,11 @@ fd0a363ceb5cad233800ee1fff7de1cb
                    w2
                    w3
                    w4 } }) -}
-c9cf169dc371074fb70ebe05c0846766
+54296eb375c1614f04e39819554a72c4
   boolVarParser_msg3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    "Failed reading: Pattern match failure in do expression at src/Grammar.hs:60:5-21"#) -}
-ed8a59d5b80fafacd88fdbe8690f73f9
+f5b2c09e45bd03fa6e9f20cb28a929e6
   carParser :: Data.Attoparsec.Text.Internal.Parser Grammar.ListExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2763,7 +2763,7 @@ ed8a59d5b80fafacd88fdbe8690f73f9
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.ListExpr>_R)) -}
-d0055fbeea276db01533f8b23c486cd7
+03639eec8c07db399cc128ff55e9b88d
   carParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2801,7 +2801,7 @@ d0055fbeea276db01533f8b23c486cd7
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wcarParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-f0684d8dc3286a1022dd97cf95afae1f
+c77a9454ce80aa693c4b80e3913489db
   cdrParser :: Data.Attoparsec.Text.Internal.Parser Grammar.ListExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2810,7 +2810,7 @@ f0684d8dc3286a1022dd97cf95afae1f
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.ListExpr>_R)) -}
-cab318d4cb803c6242577024d7987e92
+cf455909bc5dd61481ea79310e243915
   cdrParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2848,7 +2848,7 @@ cab318d4cb803c6242577024d7987e92
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wcdrParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-9a86b2f83f18ce3a11065429c8ca6d25
+ffaf0cd88bd5b786e88682940c60ac29
   charParser :: Data.Attoparsec.Text.Internal.Parser Grammar.ListExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2857,7 +2857,7 @@ cab318d4cb803c6242577024d7987e92
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.ListExpr>_R)) -}
-5d1a231fcbd880e4cc291e7e32d852fe
+9b9b9296d1d8c7b4a3eb7944cbd1c05d
   charParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2895,7 +2895,7 @@ cab318d4cb803c6242577024d7987e92
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wcharParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-54a68f918cbbfcc1afb34fcf7e57da6e
+44ed7280ce6dca85fd01a237d07ab5be
   conParser :: Data.Attoparsec.Text.Internal.Parser Grammar.ListExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2904,7 +2904,7 @@ cab318d4cb803c6242577024d7987e92
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.ListExpr>_R)) -}
-f8a18c5258d1df3feae45ed8150996cf
+385feb2a00462922ec72d36c4adb271d
   conParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2942,7 +2942,7 @@ f8a18c5258d1df3feae45ed8150996cf
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wconParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-c7534492b370715b21111de5a4cde1a9
+2def14fe7cba0d44978e90e70832424d
   divParser :: Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2951,7 +2951,7 @@ c7534492b370715b21111de5a4cde1a9
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-33d432ebcb6e9a778059c0a241a5f7e6
+3af34e9a47864626a056e74eb290e31d
   divParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -2989,7 +2989,7 @@ c7534492b370715b21111de5a4cde1a9
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wdivParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-5125ecfcc9ab58a745080e9572a4d1a4
+3e0341d314c394f7b7fdfc88e1512f23
   equalParser :: Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -2998,7 +2998,7 @@ c7534492b370715b21111de5a4cde1a9
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-00755762d0856611069b7a27527045db
+90334af70f6be73350ea7196bdf2f576
   equalParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3036,7 +3036,7 @@ c7534492b370715b21111de5a4cde1a9
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wequalParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-e0655a5d2b9eb0ecc6762dd8199bca28
+7be24f5515cea325c227ed5f86abaa60
   exprParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Expr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3045,7 +3045,7 @@ e0655a5d2b9eb0ecc6762dd8199bca28
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Expr>_R)) -}
-317aea04e64d47b326e75318aa59b97f
+d995c97c886cd8f0e1b06046cd2e626d
   exprParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3083,7 +3083,7 @@ e0655a5d2b9eb0ecc6762dd8199bca28
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wexprParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-1f440644adfb3c1a92ccac1d42e67cbf
+8da8953938aa4949aa452fceb3a2b1c6
   exprVarParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Expr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3092,7 +3092,7 @@ e0655a5d2b9eb0ecc6762dd8199bca28
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Expr>_R)) -}
-48389296e3c43dd1491d3c752200729f
+54e6f36581ec70da8eb67ff35cd95ab2
   exprVarParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3140,7 +3140,7 @@ e0655a5d2b9eb0ecc6762dd8199bca28
                    w2
                    w3
                    w4 } }) -}
-cf0302d364116f4a594af6e30ee6a155
+07d4156c1e67b1a680cad99b7301d22e
   falseParser ::
     Data.Attoparsec.Text.Internal.Parser Grammar.BoolExpr
   {- Arity: 5,
@@ -3149,7 +3149,7 @@ cf0302d364116f4a594af6e30ee6a155
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.BoolExpr>_R)) -}
-69dc2b7e00f10b8838f9299a82bf90ae
+042ac021fa076166007f4cf61e0caa9d
   falseParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3214,7 +3214,7 @@ cf0302d364116f4a594af6e30ee6a155
                       more'
                       w3
                       w4 } }) } }) -}
-62847d981b67e36458c99f973e06429e
+2f383e69d0711cdfae78f831379144cf
   floatParser :: Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,C(C1(C1(C1(C1(U)))))><L,C(C1(C1(C1(U))))>,
@@ -3223,7 +3223,7 @@ cf0302d364116f4a594af6e30ee6a155
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-59e2ac0289f88594bf9bf8d12138bc53
+7ce28b0050e7f1141deb0c7913d2dbb3
   floatParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3261,7 +3261,7 @@ cf0302d364116f4a594af6e30ee6a155
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wfloatParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-315e16d13eaafd3ded8e13f96fe3a1a7
+47a17dea3b30d760fc53fbc218ce9020
   geParser :: Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3270,7 +3270,7 @@ cf0302d364116f4a594af6e30ee6a155
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-d91310784548a540595365f715375109
+e18cbe8cbb214091bed51442b812a817
   geParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3308,7 +3308,7 @@ d91310784548a540595365f715375109
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wgeParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-860fcf036c7245d3054e743a162d6f9e
+4cb05271e67d7d78aedcae11f6ff0529
   greatParser :: Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3317,7 +3317,7 @@ d91310784548a540595365f715375109
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-f75e87fc20a6b31c7651f1e02a9c5e18
+258b93cfb7718ce5b1532d2a71e1f957
   greatParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3355,7 +3355,7 @@ f75e87fc20a6b31c7651f1e02a9c5e18
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wgreatParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-6008540200a021f4e6d952df7db2a41a
+a45b4bec0fb295fb8cec53c0fbbee011
   ifParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3364,7 +3364,7 @@ f75e87fc20a6b31c7651f1e02a9c5e18
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Stmt>_R)) -}
-6ea8aed57031dea52b1109fba1404df8
+df43acd97bb00c9fd911b7238118f9f1
   ifParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3402,127 +3402,127 @@ f75e87fc20a6b31c7651f1e02a9c5e18
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wifParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-0f747544c7ac465892c60c4ca6390466
+3038dd4dc47c8d8e2b16ec886f737f3c
   keywords :: Data.Set.Base.Set GHC.Base.String
   {- Unfolding: (Grammar.$sfromList Grammar.keywords1) -}
-49566f8cf48393a910d682b28cf5e164
+fdbd0978a7b0240c9e3e5203963c5e55
   keywords1 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords26
                    Grammar.keywords2) -}
-ded36233397c085bb669d5cbef857a91
+66c3ba26ca361dc3530bf834e90b7df2
   keywords10 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords17
                    Grammar.keywords11) -}
-7b46f76b1a7b686051082ac3eac56f9a
+00a56adbf09b959bb4b7cbec344752da
   keywords11 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords16
                    Grammar.keywords12) -}
-bcae10e425758ff08c5e112a984603d6
+cf2eac95012a4489c10c0ef59e6993bb
   keywords12 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords15
                    Grammar.keywords13) -}
-081fc6fae96a7e3b07a105e77562cc16
+9095cd12632373ff963568fc12bcb3c2
   keywords13 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords14
                    (GHC.Types.[] @ GHC.Base.String)) -}
-c70b2a83ebbfb666c3757dd39d03914e
+d6dbf170c636ff009f64cee438fe600a
   keywords14 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "make"#) -}
-1398cd74adfc737a0debe7952673a5c1
+e1b9380aeff4f4cda0cfd38899f90b4d
   keywords15 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "vector"#) -}
-5061ceec794e5dafce7078d6f445b50f
+4dfa525af62cc8e1819a1178c0ca434f
   keywords16 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "begin"#) -}
-2b09f3bb07887ed946d8c3683ec22d2d
+8a730508dbcf5a3eca45b699390ac121
   keywords17 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "skip"#) -}
-d1d779465ea70446ce4c7d3bc7cd8458
+7e987bef8baa1281104ec2d1db816fe1
   keywords18 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "while"#) -}
-744d7b99a4bc83eb23c856a7c9957af6
+ece382b46e846d9c168ab868013c7815
   keywords19 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "if"#) -}
-b52fb38edef85438ea2d924f24b04be6
+53dfb32ddcd70992d132469453897768
   keywords2 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords25
                    Grammar.keywords3) -}
-109d7ce92b1858b8bc76dbcca45d4754
+99b8ff8e3ece3843862d844394f72192
   keywords20 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "set!"#) -}
-9293b0eb751f41ebeecf1a94c9e6b4ab
+f9a97b213fa125d3daa842d1fe05c1a2
   keywords21 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "cdr"#) -}
-e2151a3a2ae8ff73c1b6ddd3ed89d96c
+3fff7b39b09fed41f56abcd8e5935a96
   keywords22 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "car"#) -}
-99c15c48a738160c727e9ce3efbbdc3b
+89f902eac6ed14f5a4ff46ba648cea94
   keywords23 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "cons"#) -}
-885f4a762d6e0c86bbc8398e46e3016c
+f18f38b0174201d95dc09d594a009e1c
   keywords24 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "nil"#) -}
-96319bfbc34837f4c044b3abdb4beb19
+e3d7a63dff9aa2fcc8dd9568c1a0a08c
   keywords25 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "False"#) -}
-d1adb515418224cc681ff7af86fa2f17
+164177f545dd5d00a7898b1689ffeef6
   keywords26 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "True"#) -}
-fe034098308c3985df114edbea5e3f68
+3c6eb30df75c0442c31c256aa041a4a2
   keywords3 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords24
                    Grammar.keywords4) -}
-7e8eace87c2a981d3f1be42b809edfa4
+5203c950939a2d6f59ca4aa9b08a4f28
   keywords4 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords23
                    Grammar.keywords5) -}
-005d6e6988a398dcfe50759c6d227282
+64f14d3a16cb2a6025bed070c30c2e95
   keywords5 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords22
                    Grammar.keywords6) -}
-bbb84faa708e2669a588de2df6d65f62
+05e6fb0947367c18938ca880966aecef
   keywords6 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords21
                    Grammar.keywords7) -}
-9d57ae6f5bab374f01073da87345a17b
+82d69530d0eb7f9bf8017ea90a07c34b
   keywords7 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords20
                    Grammar.keywords8) -}
-e78004b3802ce0f22fa739412ba33d30
+b43aecfa27b70d37ce8b7181feb7fea8
   keywords8 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords19
                    Grammar.keywords9) -}
-1a662939c4d9950d301dcbe1741bc014
+8d37ed6b7b89f22d38280a5c044b31c2
   keywords9 :: [GHC.Base.String]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Base.String
                    Grammar.keywords18
                    Grammar.keywords10) -}
-d063314bd2d0105813b226015d3a5206
+e9a73b47d74305e6b448c644e71bb086
   leParser :: Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3531,7 +3531,7 @@ d063314bd2d0105813b226015d3a5206
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-aca2c2600a2be36c0d43c3df8bcfc040
+4dd49f00db4a5b853a0650f8d9ee1fb7
   leParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3569,7 +3569,7 @@ aca2c2600a2be36c0d43c3df8bcfc040
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wleParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-d9ca953225b7396b013220998c9134c6
+a2cd4258119296e281efafd4bba4e72a
   lessParser :: Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3578,7 +3578,7 @@ d9ca953225b7396b013220998c9134c6
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-2d547264f28dcdec2cde8a016445c2b4
+982ae8b02e76fb5a07ef0416ea563317
   lessParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3616,7 +3616,7 @@ d9ca953225b7396b013220998c9134c6
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wlessParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-257958a2ee9207ee9452db6b7b53fe95
+e5a0b582a38ad67352d005a23224a5f1
   lexeme ::
     Data.Attoparsec.Text.Internal.Parser a
     -> Data.Attoparsec.Text.Internal.Parser a
@@ -3629,7 +3629,7 @@ d9ca953225b7396b013220998c9134c6
                  <Data.Attoparsec.Text.Internal.Parser a>_R
                  ->_R Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                                <Data.Text.Internal.Text>_N <a>_R)) -}
-8c7933db9cf1dee8163a979e32046f93
+93c2dbc70cf95f71ca51a229701581b6
   lexeme1 ::
     Data.Attoparsec.Text.Internal.Parser a
     -> forall r.
@@ -3673,7 +3673,7 @@ d9ca953225b7396b013220998c9134c6
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wlexeme @ a w @ r ww1 ww2 ww3 ww4 ww5 ww7 w3 w4 w5 } }) -}
-cc62832ab441cefca41ac5c8f0730d5e
+70daef80d48fd3233803cfdb8b67c2b1
   lexpParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Expr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3682,7 +3682,7 @@ cc62832ab441cefca41ac5c8f0730d5e
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Expr>_R)) -}
-81e60ee8cfffd434effce9628b811a16
+8b8a33f2a472cc09892fde415f6878a9
   lexpParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3720,7 +3720,7 @@ cc62832ab441cefca41ac5c8f0730d5e
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wlexpParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-62caa6a89f921a2ba1466db6bc47e69b
+2ce90d2f417a2adac7a2e1c267112238
   listExprParser ::
     Data.Attoparsec.Text.Internal.Parser Grammar.ListExpr
   {- Arity: 5,
@@ -3730,7 +3730,7 @@ cc62832ab441cefca41ac5c8f0730d5e
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.ListExpr>_R)) -}
-7f39ce1cbbc5311ebebf583fdc2625ab
+d5c42cc5d2e36cedfefbf36e8bd19413
   listExprParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3778,11 +3778,11 @@ cc62832ab441cefca41ac5c8f0730d5e
                    w2
                    w3
                    w4 } }) -}
-87f607b2762939d3159d23e622e83e4b
+19ca0d757e00a7c1757e711d91fdbbcb
   listToStmt_list ::
     [Grammar.Stmt] -> Grammar.Stmt_list -> Grammar.Stmt_list
   {- Arity: 2, Strictness: <S,1*U><L,U> -}
-8161388c79895d0a1bef5155d92afac6
+a41be1804f41426becccd7c2c9bb2b96
   listVarParser ::
     Data.Attoparsec.Text.Internal.Parser Grammar.ListExpr
   {- Arity: 5,
@@ -3792,7 +3792,7 @@ cc62832ab441cefca41ac5c8f0730d5e
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.ListExpr>_R)) -}
-1396cece911e9bb2ca89a906861ecadd
+02dda63cfe235010ce97de3c1829de49
   listVarParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3840,11 +3840,11 @@ cc62832ab441cefca41ac5c8f0730d5e
                    w2
                    w3
                    w4 } }) -}
-90c91c95386399e4bfee2123cf24a9e1
+622224fd2f04440634749b2ef9d06a33
   listVarParser_msg3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    "Failed reading: Pattern match failure in do expression at src/Grammar.hs:217:5-21"#) -}
-ccfa6da10842abe456b3734fecef313f
+6dfa6a7b11ad7ee08fd99407e25b5c86
   mulParser :: Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3853,7 +3853,7 @@ ccfa6da10842abe456b3734fecef313f
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-e772ff62771eeb70f2ae6ad953ecae5f
+71b319f50384655470dc130cf91f8790
   mulParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3891,7 +3891,7 @@ e772ff62771eeb70f2ae6ad953ecae5f
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wmulParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-9b17209ff065a5125d4f1ee319f1c77c
+e28c847b753c620be0984dc9a4f1ad7c
   new_vecParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3900,7 +3900,7 @@ e772ff62771eeb70f2ae6ad953ecae5f
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Stmt>_R)) -}
-e536dca4f5d591a16b1d9783f2542ff0
+938ca5b8eb3b864d1508e7926b60a113
   new_vecParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3948,7 +3948,7 @@ e536dca4f5d591a16b1d9783f2542ff0
                    w2
                    w3
                    w4 } }) -}
-c763ed2e7c2461c1e475e382213df798
+166717b2f4ebb10bc3a1263dfa85aac1
   nexpParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Expr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -3957,7 +3957,7 @@ c763ed2e7c2461c1e475e382213df798
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Expr>_R)) -}
-749cd79b22ee558be74a4c6e19dec2f9
+db52f32992a0c7fdbe84ada68b71df28
   nexpParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -3995,7 +3995,7 @@ c763ed2e7c2461c1e475e382213df798
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wnexpParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-dc5fda58661530a8a1949b7f22d25bdc
+265deeac14c441daf1aeb48c5f4c1d8e
   notParser :: Data.Attoparsec.Text.Internal.Parser Grammar.BoolExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4004,7 +4004,7 @@ dc5fda58661530a8a1949b7f22d25bdc
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.BoolExpr>_R)) -}
-ea2eb6788b24c498dbfca3e62a3f8997
+38781bac1d41a620ffc8f6133e36af74
   notParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4042,7 +4042,7 @@ ea2eb6788b24c498dbfca3e62a3f8997
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wnotParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-effe85bd18b2680de07da035bb232cfb
+089dcc9b48673e62698bb7be7680c02e
   nullParser :: Data.Attoparsec.Text.Internal.Parser Grammar.ListExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4051,7 +4051,7 @@ effe85bd18b2680de07da035bb232cfb
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.ListExpr>_R)) -}
-4a2f3a5149a52ed60c754407a0fc985c
+39ff74a331c419b3bb7862db1d40f86a
   nullParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4089,7 +4089,7 @@ effe85bd18b2680de07da035bb232cfb
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wnullParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-ff01b4be275b52159b672a3dbd1b166d
+439fa00dcc5c05d432b2ad1d7a2377c9
   numExprParser ::
     Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
@@ -4099,7 +4099,7 @@ ff01b4be275b52159b672a3dbd1b166d
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-a7f946efe4a4b12ffeffccf3e6ecf0ad
+986c9a67435d14b6754fe1bc14042867
   numExprParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4147,7 +4147,7 @@ a7f946efe4a4b12ffeffccf3e6ecf0ad
                    w2
                    w3
                    w4 } }) -}
-094d0be0e54ec0e9860c87ff85e1c32e
+0394ccd788f4274339d6d56cb58e1841
   numVarParser ::
     Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
@@ -4157,7 +4157,7 @@ a7f946efe4a4b12ffeffccf3e6ecf0ad
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-3292abbd841b68e7eb11902caa5d58ab
+c4d2901e9b51683329181b311cb89682
   numVarParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4195,11 +4195,11 @@ a7f946efe4a4b12ffeffccf3e6ecf0ad
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wnumVarParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-5394beacb31a2c79035a7cb36e1df317
+f78cc963901331e153d862f66088830d
   numVarParser_msg3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    "Failed reading: Pattern match failure in do expression at src/Grammar.hs:113:5-21"#) -}
-6496c699dcfbf0357531f6d115c23a29
+f285fd673829baa4a0bc53843fa7ce19
   orParser :: Data.Attoparsec.Text.Internal.Parser Grammar.BoolExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4208,7 +4208,7 @@ a7f946efe4a4b12ffeffccf3e6ecf0ad
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.BoolExpr>_R)) -}
-1c36a80d67b70a9d4c4fb6c03ea37a17
+ff47fbb8f024e55e8b80458c4a4e8a4e
   orParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4246,7 +4246,7 @@ a7f946efe4a4b12ffeffccf3e6ecf0ad
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$worParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-72a0f204bbaffec576aa075481b3eeef
+b3170b25484e5ad439cbf4b8577ce7ec
   parse ::
     GHC.Base.String -> Data.Either.Either GHC.Base.String Grammar.Stmt
   {- Arity: 1, Strictness: <S,U>,
@@ -4301,13 +4301,13 @@ a7f946efe4a4b12ffeffccf3e6ecf0ad
                    Data.Attoparsec.Internal.Types.Partial ipv2 -> Grammar.parse1
                    Data.Attoparsec.Internal.Types.Done ds a1
                    -> Data.Either.Right @ GHC.Base.String @ Grammar.Stmt a1 } } }) -}
-0d7ceff3d491acc9d55a0701e21867bd
+92449f7b33f8153fd523b1bf32f26e8a
   parse1 :: Data.Either.Either GHC.Base.String Grammar.Stmt
   {- Strictness: x -}
-3a6ba44ecc66d92a0f1e04370afa6c1e
+7711f77e42a17c954782c08de316e746
   parse2 :: GHC.Types.Int
   {- HasNoCafRefs, Unfolding: (GHC.Types.I# 4#) -}
-367b1a28a3329c013e68b83c409dbd3b
+fe0223686189302942ec401d9b51bb97
   set_vecParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4316,7 +4316,7 @@ a7f946efe4a4b12ffeffccf3e6ecf0ad
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Stmt>_R)) -}
-fe051c1e746ed4158ad46a08e24c021f
+49b082a906cacd3188280a9386f24ec4
   set_vecParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4364,7 +4364,7 @@ fe051c1e746ed4158ad46a08e24c021f
                    w2
                    w3
                    w4 } }) -}
-d236d5596c5a95cf7a2172b2db3c835b
+09a3b321b83faa4ff8a4e804b462d61b
   skipParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4373,7 +4373,7 @@ d236d5596c5a95cf7a2172b2db3c835b
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Stmt>_R)) -}
-210fe1265c45a0f5aadc96c1d3084e94
+38d89bd1423aba3aa78b6baa9271fcb0
   skipParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4411,7 +4411,7 @@ d236d5596c5a95cf7a2172b2db3c835b
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wskipParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-a9923fd87e7ced81d0b0f77945a3236d
+a5ff066862a49505dd8199889a585ff2
   stmtExprParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4420,7 +4420,7 @@ a9923fd87e7ced81d0b0f77945a3236d
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Stmt>_R)) -}
-927507f9cf86dba428981de248ff4444
+307739efb8bbb3eb9e4bbf3b8d8cb79a
   stmtExprParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4468,7 +4468,7 @@ a9923fd87e7ced81d0b0f77945a3236d
                    w2
                    w3
                    w4 } }) -}
-8a454225857208a3d69031f1cba3efd9
+23ddad5640efd60742cbb65392bab81b
   stmtListParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4477,7 +4477,7 @@ a9923fd87e7ced81d0b0f77945a3236d
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Stmt>_R)) -}
-2948a357131ec6b9ac59dee81cdf8e96
+3b5f27ca4387a93a91617ee0bc0bcf17
   stmtListParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4525,7 +4525,7 @@ a9923fd87e7ced81d0b0f77945a3236d
                    w2
                    w3
                    w4 } }) -}
-56f315da5b13327b9252c37e17dc4535
+f6fcd448db731051ce992911dc43e55f
   stmtParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4534,7 +4534,7 @@ a9923fd87e7ced81d0b0f77945a3236d
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Stmt>_R)) -}
-44870f3629519a36838f478f33749d9e
+0d2aa9779dd85802aedde6a22fefb98e
   stmtParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4572,7 +4572,7 @@ a9923fd87e7ced81d0b0f77945a3236d
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wstmtParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-09d17566054528896dc7deba2e85b49e
+ed600c2c5d8bc42289751cc4a753d6cd
   stmt_listParser ::
     Data.Attoparsec.Text.Internal.Parser Grammar.Stmt_list
   {- Arity: 5,
@@ -4582,7 +4582,7 @@ a9923fd87e7ced81d0b0f77945a3236d
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Stmt_list>_R)) -}
-10b5233cc8cc36114230033621f46350
+ee7f1a7534fde625da050d1ec434ca18
   stmt_listParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4630,7 +4630,7 @@ a9923fd87e7ced81d0b0f77945a3236d
                    w2
                    w3
                    w4 } }) -}
-ff462d637a3772945c48119969a7f9df
+4a559046fdcfea2f54652b3c5d8a68bd
   stringParser ::
     Data.Attoparsec.Text.Internal.Parser Grammar.ListExpr
   {- Arity: 5,
@@ -4640,7 +4640,7 @@ ff462d637a3772945c48119969a7f9df
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.ListExpr>_R)) -}
-8b0475bc0465b4ae51d8c47333d63ab8
+40783ae1e81d8fdb2771747ea3b1bdc1
   stringParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4678,7 +4678,7 @@ ff462d637a3772945c48119969a7f9df
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wstringParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-b7f005d38a8af84766f2e651ca2a8414
+914e42c1a550dd3c2ea37f0383299ff6
   subParser :: Data.Attoparsec.Text.Internal.Parser Grammar.NumExpr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4687,7 +4687,7 @@ b7f005d38a8af84766f2e651ca2a8414
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.NumExpr>_R)) -}
-e7940ac9761f86aa9c1577e487a05db6
+6ebe53aa1aadd3e75edc8400b1555965
   subParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4725,7 +4725,7 @@ e7940ac9761f86aa9c1577e487a05db6
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wsubParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-244b59ca11fac6a63e29aa55ffc02c41
+7b0112f3a8715a3ae7bcf6e4bfd617fb
   trueParser :: Data.Attoparsec.Text.Internal.Parser Grammar.BoolExpr
   {- Arity: 5,
      Unfolding: InlineRule (0, True, True)
@@ -4733,7 +4733,7 @@ e7940ac9761f86aa9c1577e487a05db6
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.BoolExpr>_R)) -}
-080aef6eebb6f4bba811c39d282f24c1
+7aad95f6f251d5694eb4a8219c7c5dc8
   trueParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4798,7 +4798,7 @@ e7940ac9761f86aa9c1577e487a05db6
                       more'
                       w3
                       w4 } }) } }) -}
-664a230213e9878562e40e0fbc7eb199
+8989c7938584d944ee086a0c0d13c9a7
   varParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Var
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4807,7 +4807,7 @@ e7940ac9761f86aa9c1577e487a05db6
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Var>_R)) -}
-50e999a6fb4abb589e48122115751f7f
+184e06fd19e6f1eccefcffaf89f0e96b
   varParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4845,7 +4845,7 @@ e7940ac9761f86aa9c1577e487a05db6
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wvarParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-c08104a9ed8ac1be50f225af4d4a0951
+667d4584eff53f859c66d0e5ac1b65ee
   vectorParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Expr
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4854,7 +4854,7 @@ c08104a9ed8ac1be50f225af4d4a0951
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Expr>_R)) -}
-4b235acdd7bcce8bfa53c447352c6613
+4ec520d452c5654ae23e3aec4aafac86
   vectorParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos
@@ -4892,7 +4892,7 @@ c08104a9ed8ac1be50f225af4d4a0951
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammar.$wvectorParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-bbd0095f78b66077b41e10f8fa541fbf
+10a55493eb885bacfa3967a121f538fe
   whileParser :: Data.Attoparsec.Text.Internal.Parser Grammar.Stmt
   {- Arity: 5,
      Strictness: <S(SSSLL),1*U(U,U,U,U,U)><S(S),1*U(U)><L,U><L,U><L,C(C1(C1(C1(U))))>,
@@ -4901,7 +4901,7 @@ bbd0095f78b66077b41e10f8fa541fbf
                   `cast`
                 (Sym (Data.Attoparsec.Internal.Types.N:Parser[0]
                           <Data.Text.Internal.Text>_N <Grammar.Stmt>_R)) -}
-1a3a193830ed70f2eec0f7ce5ca16a0e
+d660e8226a6cfdeb0fa919671b3b468b
   whileParser1 ::
     Data.Attoparsec.Internal.Types.State Data.Text.Internal.Text
     -> Data.Attoparsec.Internal.Types.Pos

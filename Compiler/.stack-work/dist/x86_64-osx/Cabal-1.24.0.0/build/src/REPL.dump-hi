@@ -1,12 +1,12 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-14 08:48:26.680139 UTC
+2017-01-15 09:17:56.315354 UTC
 
-interface Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Repl 8001
-  interface hash: c70e195240470e7c53eaf87bc3d199c6
-  ABI hash: db4477fad43cc0d3a937226ffa3b4054
-  export-list hash: 7cbebf98c4270ff2930d7eeb1bd7c3a2
-  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+interface Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5:Repl 8001
+  interface hash: bff4f47cd5a430d8ce35acaa08fe88e0
+  ABI hash: c06ed7e748dc71bbb7c4594028a3b06d
+  export-list hash: b5798998e8222480db09e9be790e12a4
+  orphan hash: 0db54ed9c4681d7cf124aa4b9f9d5528
   flag hash: a4046e0fdab24403354cf30558c1ea1c
   sig of: Nothing
   used TH splices: False
@@ -14,22 +14,27 @@ interface Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Repl 8001
 exports:
   Repl.mainLoop
   Repl.repl
-module dependencies: Grammar Interpreter
+module dependencies: Grammar Interpreter PrettyPrinter
 package dependencies: array-0.5.1.1@array-0.5.1.1
                       attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43
                       base-4.9.0.0 binary-0.8.3.0@binary-0.8.3.0
                       bytestring-0.10.8.1@bytestring-0.10.8.1
                       containers-0.5.7.1@containers-0.5.7.1
-                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 directory-1.2.6.2@directory-1.2.6.2
+                      filepath-1.4.1.0@filepath-1.4.1.0 ghc-prim-0.5.0.0
                       hashable-1.2.4.0@hashable-1.2.4.0-Ctl752zbguF6QanxurLOm2
-                      integer-gmp-1.0.0.1
+                      haskeline-0.7.2.3@haskeline-0.7.2.3 integer-gmp-1.0.0.1
                       integer-logarithms-1@integer-logarithms-1-E6LvTbkhTkGIa6wPB3rtJw
+                      pretty-1.1.3.3@pretty-1.1.3.3
                       primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa
                       scientific-0.3.4.10@scientific-0.3.4.10-2Y658Wts4fDGgAkWhKOJwC
+                      terminfo-0.4.0.2@terminfo-0.4.0.2
                       text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs
-                      transformers-0.5.2.0@transformers-0.5.2.0
+                      time-1.6.0.1@time-1.6.0.1 transformers-0.5.2.0@transformers-0.5.2.0
+                      unix-2.7.2.0@unix-2.7.2.0
                       vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3
-orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Text.Internal
+orphans: Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5:PrettyPrinter
+         attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Text.Internal
          base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
          binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
          bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
@@ -37,6 +42,9 @@ orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Att
          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Show
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
          transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
          vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector.Fusion.Bundle
 family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43:Data.Attoparsec.Internal.Types
@@ -53,62 +61,72 @@ family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh1
                          containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
                          containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
                          containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
                          primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa:Control.Monad.Primitive
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
                          vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector
-import  -/  Grammar 0e49269890a957871754979fc1cf94a7
-  exports: 5a094fe8ecb7bd19ccbd179c56554a95
-  parse 72a0f204bbaffec576aa075481b3eeef
-import  -/  Interpreter 2017a2b0cf73cf6a36a89828d70c41dd
-  exports: 23cb7ab98af56ee8dae95c05c887ae4f
-  Env 73f300f14da41fea9ff035e3de67f989
-  eval 2480d5d3e79cb2c9cf1fdb4816965ff7
+import  -/  Grammar c8061553502f022a04564e232ae9b458
+  exports: 1350f875d0a40aa853f67f4d5395bf88
+  parse b3170b25484e5ad439cbf4b8577ce7ec
+import  -/  Interpreter 1d2546acb9d902b0a9307f3b0507bb74
+  exports: 7f6578cba9942dbda76ab84dd604c8dd
+  Env 6c35f9a0234afb75f9694ed1ea33b62b
+  eval 5e0730a8b78b30cf9c9a9f71df355b69
+import  -/  PrettyPrinter 30a556fbaa847c88a37bb0cf18c65fc8
+  exports: 0bcdb367f4debcb6a100b9db829d6460
+  prettyPrinter f4c6687b3f86ccff27aeb538e3f784a6
 import  -/  base-4.9.0.0:Data.Either bd9f099b82d4ed2d98c56d7144ac6957
 import  -/  base-4.9.0.0:Data.OldList 0058409f994fb13ae0616e3f1e5b4dae
 import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
-import  -/  base-4.9.0.0:GHC.IO.Handle a1938753d58593f0a419f85b67aa7cd3
-import  -/  base-4.9.0.0:GHC.IO.Handle.FD 13b7a4e1f414dd38346bde554423bf4b
 import  -/  base-4.9.0.0:GHC.List 13d2451194c1c6e53b4f4f07947736dd
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  base-4.9.0.0:System.IO ad985d7a3fc986e9b9c610fb344d9106
 import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map 8f3eaf1368a7ea27857993e3febae6a3
 import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base 8d095ad71634b5551ba5dc1307b7f9e5
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+import  -/  haskeline-0.7.2.3@haskeline-0.7.2.3:System.Console.Haskeline ea1914075398a44934939cf7a31216a8
+import  -/  haskeline-0.7.2.3@haskeline-0.7.2.3:System.Console.Haskeline.InputT 761ead877df6aaa26f9c88db8508c757
 import  -/  text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text 1e73069de2859bae8530c14767b0c6af
 import  -/  vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector c1e986e414fb06d8c78b2ec9a85e2dfc
-9b183847f7ceed3149fb694cd478026b
+da9e1d360d02c02ca1e815b332810744
+  $sdefaultSettings ::
+    System.Console.Haskeline.InputT.Settings GHC.Types.IO
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, False)
+                (System.Console.Haskeline.InputT.Settings
+                   @ GHC.Types.IO
+                   (System.Console.Haskeline.Completion.completeFilename
+                      @ GHC.Types.IO
+                      Control.Monad.IO.Class.$fMonadIOIO)
+                   (GHC.Base.Nothing @ GHC.IO.FilePath)
+                   GHC.Types.True) -}
+0983b62978066169c0b757110d4ee306
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module Repl.$trModule2 Repl.$trModule1) -}
-658ebb064f5ffe586c3e4b99c7c4b7cd
+691f575908a02dfc5c89aa5cf43f3ca0
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Repl"#) -}
-7a2a9330bb6caba0f798718827284060
+7470c46aac7dae8641b1ff682db55713
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
-                   "Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"#) -}
-10b50fa9d1aeba85c33196e8121a10f5
-  mainLoop :: Interpreter.Env -> GHC.Types.IO ()
-  {- Arity: 2, Strictness: <L,U><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                Repl.mainLoop1
-                  `cast`
-                (<Interpreter.Env>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-d4cf038da26f073e7764c06cb47f2034
-  mainLoop1 ::
-    Interpreter.Env
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2, Strictness: <L,U><S,U> -}
-d3add995dd33061a588c2d71775e1308
+                   "Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5"#) -}
+0b93f05a5baff31d3ec5a4f795dfe720
+  mainLoop ::
+    GHC.Base.String
+    -> Interpreter.Env
+    -> System.Console.Haskeline.InputT.InputT GHC.Types.IO ()
+  {- Arity: 2, Strictness: <L,U><L,U> -}
+2deb1ba25f99634be3e40a1ef348841e
   repl :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Repl.repl1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-2293f62bb0076ef95446d10386046955
+819c58f14195aba99f92224236040ad2
   repl1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -116,16 +134,34 @@ d3add995dd33061a588c2d71775e1308
      Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
                  case GHC.IO.Handle.Text.hPutStr2
                         GHC.IO.Handle.FD.stdout
-                        Repl.repl2
+                        Repl.repl3
                         GHC.Types.True
                         s of ds1 { (#,#) ipv ipv1 ->
-                 Repl.mainLoop1
-                   (Data.Map.Base.Tip @ GHC.Base.String @ Interpreter.Value)
+                 (System.Console.Haskeline.InputT.$wrunInputTBehavior
+                    @ GHC.Types.IO
+                    @ ()
+                    System.Console.Haskeline.MonadException.$fMonadExceptionIO
+                    System.Console.Haskeline.Backend.defaultRunTerm1
+                      `cast`
+                    (Sym (GHC.Types.N:IO[0] <System.Console.Haskeline.Term.RunTerm>_R))
+                    Repl.$sdefaultSettings
+                    Repl.repl2)
+                   `cast`
+                 (GHC.Types.N:IO[0] <()>_R)
                    ipv }) -}
-2c6801a583226d1f46adb1d40ebba05f
-  repl2 :: [GHC.Types.Char]
+55fae9a4f7d633a1b8a796a1eeebfac7
+  repl2 :: System.Console.Haskeline.InputT.InputT GHC.Types.IO ()
+  {- Unfolding: (Repl.mainLoop
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   (Data.Map.Base.Tip @ GHC.Base.String @ Interpreter.Value)) -}
+416a9a17913a372a9d0152e917df67d7
+  repl3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    "Welcome to a simple S-Expression REPL!"#) -}
+"SPEC/Repl defaultSettings @ IO" [ALWAYS] forall ($dMonadIO :: Control.Monad.IO.Class.MonadIO
+                                                                 GHC.Types.IO)
+  System.Console.Haskeline.defaultSettings @ GHC.Types.IO $dMonadIO
+  = Repl.$sdefaultSettings
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

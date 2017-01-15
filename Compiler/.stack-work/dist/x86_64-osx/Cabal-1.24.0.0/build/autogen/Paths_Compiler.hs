@@ -30,7 +30,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/Users/szp/Desktop/szp/haskellPro/HaskellProject/Compiler/.stack-work/install/x86_64-osx/nightly-2017-01-10/8.0.1/bin"
-libdir     = "/Users/szp/Desktop/szp/haskellPro/HaskellProject/Compiler/.stack-work/install/x86_64-osx/nightly-2017-01-10/8.0.1/lib/x86_64-osx-ghc-8.0.1/Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"
+libdir     = "/Users/szp/Desktop/szp/haskellPro/HaskellProject/Compiler/.stack-work/install/x86_64-osx/nightly-2017-01-10/8.0.1/lib/x86_64-osx-ghc-8.0.1/Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5"
 datadir    = "/Users/szp/Desktop/szp/haskellPro/HaskellProject/Compiler/.stack-work/install/x86_64-osx/nightly-2017-01-10/8.0.1/share/x86_64-osx-ghc-8.0.1/Compiler-0.1.0.0"
 libexecdir = "/Users/szp/Desktop/szp/haskellPro/HaskellProject/Compiler/.stack-work/install/x86_64-osx/nightly-2017-01-10/8.0.1/libexec"
 sysconfdir = "/Users/szp/Desktop/szp/haskellPro/HaskellProject/Compiler/.stack-work/install/x86_64-osx/nightly-2017-01-10/8.0.1/etc"

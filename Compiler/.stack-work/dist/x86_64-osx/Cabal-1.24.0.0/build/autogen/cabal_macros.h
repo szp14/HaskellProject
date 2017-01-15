@@ -35,6 +35,13 @@
   (major1) == 0 && (major2) <  5 || \
   (major1) == 0 && (major2) == 5 && (minor) <= 7)
 
+/* package haskeline-0.7.2.3 */
+#define VERSION_haskeline "0.7.2.3"
+#define MIN_VERSION_haskeline(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  7 || \
+  (major1) == 0 && (major2) == 7 && (minor) <= 2)
+
 /* package mtl-2.2.1 */
 #define VERSION_mtl "2.2.1"
 #define MIN_VERSION_mtl(major1,major2,minor) (\
@@ -112,7 +119,7 @@
   (major1) == 0 && (major2) <  29 || \
   (major1) == 0 && (major2) == 29 && (minor) <= 1)
 
-#define CURRENT_COMPONENT_ID "Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"
+#define CURRENT_COMPONENT_ID "Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5"
 
-#define CURRENT_PACKAGE_KEY "Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd"
+#define CURRENT_PACKAGE_KEY "Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5"
 

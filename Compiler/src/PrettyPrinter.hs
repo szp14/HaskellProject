@@ -31,11 +31,11 @@ printBool (BVar v) n = nest n (T.text "var" <+> T.text (show v))
 printBool (FalseLit) n = nest n (T.text "False")
 printBool (TrueLit) n = nest n (T.text "True")
 printBool (Not v) n = nest n (T.text "not")
-            $+$ printBool v (n + 3)
+            $+$ printExpr v (n + 3)
 printBool (And l r) n = nest n (T.text "and")
-            $+$ printBool l (n + 3) $+$ printBool r (n + 3)
+            $+$ printExpr l (n + 3) $+$ printExpr r (n + 3)
 printBool (Or l r) n = nest n (T.text "or")
-            $+$ printBool l (n + 3) $+$ printBool r (n + 3)
+            $+$ printExpr l (n + 3) $+$ printExpr r (n + 3)
 
             
 -- NumExpr

@@ -1,6 +1,6 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-15 08:49:33.170404 UTC
+2017-01-15 11:29:50.386339 UTC
 
 interface Compiler-0.1.0.0-5UkU68CXfZM1FpQsH03UZ5:Grammar 8001
   interface hash: c9747a2bd7d463f4390809866132bded
@@ -2395,9 +2395,9 @@ b456d4ff4d3145079dd4adc3ca5e80b6
     = BVar Grammar.Var
     | FalseLit
     | TrueLit
-    | Not Grammar.BoolExpr
-    | And Grammar.BoolExpr Grammar.BoolExpr
-    | Or Grammar.BoolExpr Grammar.BoolExpr
+    | Not Grammar.Expr
+    | And Grammar.Expr Grammar.Expr
+    | Or Grammar.Expr Grammar.Expr
 0ab60214c669ea5b34bb5276af01520f
   data Expr
     = EVar Grammar.Var

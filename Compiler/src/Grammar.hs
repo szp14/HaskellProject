@@ -47,9 +47,9 @@ varParser = do
 data BoolExpr = BVar Var
     | FalseLit
     | TrueLit
-    | Not BoolExpr
-    | And BoolExpr BoolExpr
-    | Or BoolExpr BoolExpr
+    | Not Expr
+    | And Expr Expr
+    | Or Expr Expr
     
 
 boolExprParser :: Parser BoolExpr
@@ -70,7 +70,7 @@ notParser :: Parser BoolExpr
 notParser = do
     lexeme $ char '('
     lexeme $ string "not"
-    expr <- boolExprParser
+    expr <- exprParser
     lexeme $ char ')'
     return (Not expr)
 
@@ -78,8 +78,8 @@ andParser :: Parser BoolExpr
 andParser = do
     lexeme $ char '('
     lexeme $ string "and"
-    expr0 <- boolExprParser
-    expr1 <- boolExprParser
+    expr0 <- exprParser
+    expr1 <- exprParser
     lexeme $ char ')'
     return (And expr0 expr1)
 
@@ -87,8 +87,8 @@ orParser :: Parser BoolExpr
 orParser = do
     lexeme $ char '('
     lexeme $ string "or"
-    expr0 <- boolExprParser
-    expr1 <- boolExprParser
+    expr0 <- exprParser
+    expr1 <- exprParser
     lexeme $ char ')'
     return (Or expr0 expr1)
 

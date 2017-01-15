@@ -28,15 +28,15 @@ getBool :: BoolExpr -> Env -> Either String Value
 getBool FalseLit env = Right (BoolVal False)
 getBool TrueLit env = Right (BoolVal True)
 getBool (Not p) env = do
-    BoolVal val <- getBool p env
+    BoolVal val <- getExpr p env
     return (BoolVal (not val))
 getBool (And p q) env = do 
-    BoolVal val1 <- getBool p env
-    BoolVal val2 <- getBool q env
+    BoolVal val1 <- getExpr p env
+    BoolVal val2 <- getExpr q env
     return (BoolVal (val1 && val2))
 getBool (Or p q) env = do
-    BoolVal val1 <- getBool p env
-    BoolVal val2 <- getBool q env
+    BoolVal val1 <- getExpr p env
+    BoolVal val2 <- getExpr q env
     return (BoolVal (val1 || val2))
 getBool (BVar v@(TypeBool var)) env = do
     case M.lookup (show v) env of 

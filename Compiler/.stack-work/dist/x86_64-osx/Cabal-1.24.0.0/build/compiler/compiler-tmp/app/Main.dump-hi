@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-14 08:22:29.807642 UTC
+2017-01-14 09:36:09.740576 UTC
 
 interface main@main:Main 8001
-  interface hash: 5d3f8ea3ef862be2d825dbe97b5d6887
-  ABI hash: 1d34302d5d2e702d1440675182aabbee
-  export-list hash: 49339ea6808cfe14a8419842d7cd7c1e
+  interface hash: 2af7525a69974b874478f501e0fb143d
+  ABI hash: bf9a0fb76c2ba4b40bff99be872357cd
+  export-list hash: c2e44211b329566a0b8941045549e75e
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: fd365c227f0b715b5e8193fc787c3345
   sig of: Nothing
@@ -15,7 +15,6 @@ exports:
   Main.main
 module dependencies:
 package dependencies: Compiler-0.1.0.0@Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd
-                      GenericPretty-1.2.1@GenericPretty-1.2.1-FqlYg3LhEVa3kMV6nPdaDK
                       array-0.5.1.1@array-0.5.1.1
                       attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43
                       base-4.9.0.0 binary-0.8.3.0@binary-0.8.3.0
@@ -63,7 +62,7 @@ family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh1
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
                          vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector
-import  -/  Compiler-0.1.0.0@Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Argument f9517542aacd6b1d8bc47e5242cbce3f
+import  -/  Compiler-0.1.0.0@Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Argument 06162cb401ea715e9611b3a146682803
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7

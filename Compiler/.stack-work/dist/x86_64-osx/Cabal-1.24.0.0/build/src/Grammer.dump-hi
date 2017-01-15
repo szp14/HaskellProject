@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-14 08:04:49.202825 UTC
+2017-01-14 08:44:48.837739 UTC
 
 interface Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Grammer 8001
-  interface hash: 194548fe1f206ee5a3b850ba3242de1b
-  ABI hash: 09bcd3be53d8e5456d336e8011cb1b38
-  export-list hash: 8573809e4ae35293632b6931db7d4032
+  interface hash: fd66e1a36de9f99cb11c0677f2ab127a
+  ABI hash: 224ba7bbf7dc21f069867f9bce73f05a
+  export-list hash: ec4c581225b9d14062aa7f71c92ee667
   orphan hash: fff0789383466b34a6c55604788ab226
   flag hash: db082111cc32dd58ed548dcc273abe68
   sig of: Nothing
@@ -47,7 +47,7 @@ exports:
   Grammer.numExprParser
   Grammer.numVarParser
   Grammer.orParser
-  Grammer.parseAST
+  Grammer.parse
   Grammer.set_vecParser
   Grammer.skipParser
   Grammer.stmtExprParser
@@ -4246,8 +4246,8 @@ cd2f02fb6ea569b7d8434ad8d566b8e4
                         `cast`
                       (Data.Attoparsec.Internal.Types.N:Pos[0]) of ww6 { GHC.Types.I# ww7 ->
                  Grammer.$worParser @ r ww1 ww2 ww3 ww4 ww5 ww7 w2 w3 w4 } }) -}
-65aae7447e030e67db193c3220f6a9da
-  parseAST ::
+ee20534be49b4a7dad09cc1a8a713b41
+  parse ::
     GHC.Base.String -> Data.Either.Either GHC.Base.String Grammer.Stmt
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: (\ (str :: GHC.Base.String) ->
@@ -4261,7 +4261,7 @@ cd2f02fb6ea569b7d8434ad8d566b8e4
                                 s20 of ds1 { (#,#) ipv ipv1 ->
                          Grammer.$wouter
                            (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
-                           Grammer.parseAST2
+                           Grammer.parse2
                            str
                            0#
                            ipv }) of ds1 { (#,#) ipv ipv1 ->
@@ -4298,14 +4298,14 @@ cd2f02fb6ea569b7d8434ad8d566b8e4
                         @ [GHC.Types.Char]
                         @ Grammer.Stmt
                         (GHC.CString.unpackAppendCString# "Syntax Error: "# str) }
-                   Data.Attoparsec.Internal.Types.Partial ipv2 -> Grammer.parseAST1
+                   Data.Attoparsec.Internal.Types.Partial ipv2 -> Grammer.parse1
                    Data.Attoparsec.Internal.Types.Done ds a1
                    -> Data.Either.Right @ GHC.Base.String @ Grammer.Stmt a1 } } }) -}
-8991c9d58fd62302abc21066122fa0c4
-  parseAST1 :: Data.Either.Either GHC.Base.String Grammer.Stmt
+2ba238a8727184391a5ecedbafe814c3
+  parse1 :: Data.Either.Either GHC.Base.String Grammer.Stmt
   {- Strictness: x -}
-d30adeb2aff985d005d30c8ccbbc87e4
-  parseAST2 :: GHC.Types.Int
+2b133009ae622bcb5eecb69462549cf0
+  parse2 :: GHC.Types.Int
   {- HasNoCafRefs, Unfolding: (GHC.Types.I# 4#) -}
 854ad17eb172409cbb37cb037bb513c6
   set_vecParser :: Data.Attoparsec.Text.Internal.Parser Grammer.Stmt

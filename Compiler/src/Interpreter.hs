@@ -4,7 +4,7 @@ module Interpreter where
 
 import qualified Data.Map as M
 import System.IO
-import Grammer
+import Grammar
 import Data.Text
 import qualified Data.Vector as V
 
@@ -20,7 +20,7 @@ instance Show Value where
     show (NumVal val) = show val
     show (CharVal val) = show val
     show (ListVal val) = show val
-    show (VectorVal val idx) = show (val V.! idx)
+    show (VectorVal val idx) = show val
 
 type Env = M.Map String Value
 
@@ -120,18 +120,20 @@ getList (LVar v@(TypeList var)) env = do
 getExpr :: Expr -> Env -> Either String Value
 getExpr (EVar var) env = do
     case M.lookup (show var) env of
-        Just (VectorVal vec len) -> do
-            let TypeVector _ expr = var
-            (NumVal idxVal) <- getExpr expr env
-            let index = floor idxVal
-            case compare index len of
-                LT -> case compare index 0 of
-                    LT -> do
-                        Left ("The index is out of range!")
+        Just val@(VectorVal vec len) -> case var of
+            TypeVector _ expr -> do
+                (NumVal idxVal) <- getExpr expr env
+                let index = floor idxVal
+                case compare index len of
+                    LT -> case compare index 0 of
+                        LT -> do
+                            Left ("The index is out of range!")
+                        _ -> do
+                            return (vec V.! index)
                     _ -> do
-                        return (vec V.! index)
-                _ -> do
-                    Left ("The index is out of range!")
+                        Left ("The index is out of range!")
+            TypeUnknown _ -> do
+                return val
         Just val -> do
             return val
         Nothing -> do
@@ -200,7 +202,7 @@ eval stmt ans@(strList, env) = case stmt of
 interpreter :: [String] -> Env -> Either String [String]
 interpreter [] env = Right []
 interpreter (s : ss) env = do
-    stmt <- parseAST s
+    stmt <- Grammar.parse s
     (headList', newEnv) <- eval stmt ([], env)
     let headList = Prelude.reverse headList'
     tailList <- interpreter ss newEnv

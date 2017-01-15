@@ -1,0 +1,23 @@
+assign
+   a
+   num
+      1.0
+while
+   num
+      >
+         var
+            a
+         5.0
+   stmt_cycle
+      cycle
+         assign
+            a
+            num
+               +
+                  var
+                     a
+                  1.0
+         one
+            exp
+               var
+                  a

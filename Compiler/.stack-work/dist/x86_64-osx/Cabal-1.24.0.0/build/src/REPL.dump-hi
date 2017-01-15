@@ -1,9 +1,9 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-14 08:04:52.389849 UTC
+2017-01-14 08:48:26.680139 UTC
 
 interface Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Repl 8001
-  interface hash: f7a1615f600d57b2294619214970573b
+  interface hash: c70e195240470e7c53eaf87bc3d199c6
   ABI hash: db4477fad43cc0d3a937226ffa3b4054
   export-list hash: 7cbebf98c4270ff2930d7eeb1bd7c3a2
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
@@ -14,7 +14,7 @@ interface Compiler-0.1.0.0-57coiQcmnJXARK4xYqZ5Rd:Repl 8001
 exports:
   Repl.mainLoop
   Repl.repl
-module dependencies: Grammer Interpreter
+module dependencies: Grammar Interpreter
 package dependencies: array-0.5.1.1@array-0.5.1.1
                       attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh17ENWi43
                       base-4.9.0.0 binary-0.8.3.0@binary-0.8.3.0
@@ -57,13 +57,13 @@ family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-4RIYnAHyOmg6Dh1
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text
                          text-1.2.2.1@text-1.2.2.1-9Yh8rJoh8fO2JMLWffT3Qs:Data.Text.Lazy
                          vector-0.11.0.0@vector-0.11.0.0-6uB77qGCxR6GPLxI2sqsX3:Data.Vector
-import  -/  Grammer 09bcd3be53d8e5456d336e8011cb1b38
-  exports: 8573809e4ae35293632b6931db7d4032
-  parseAST 65aae7447e030e67db193c3220f6a9da
-import  -/  Interpreter 94ec0f1b96303ae508f3a8278022f12a
+import  -/  Grammar 0e49269890a957871754979fc1cf94a7
+  exports: 5a094fe8ecb7bd19ccbd179c56554a95
+  parse 72a0f204bbaffec576aa075481b3eeef
+import  -/  Interpreter 2017a2b0cf73cf6a36a89828d70c41dd
   exports: 23cb7ab98af56ee8dae95c05c887ae4f
   Env 73f300f14da41fea9ff035e3de67f989
-  eval b91c4d529e6c43120fafa2fcf24809f6
+  eval 2480d5d3e79cb2c9cf1fdb4816965ff7
 import  -/  base-4.9.0.0:Data.Either bd9f099b82d4ed2d98c56d7144ac6957
 import  -/  base-4.9.0.0:Data.OldList 0058409f994fb13ae0616e3f1e5b4dae
 import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816

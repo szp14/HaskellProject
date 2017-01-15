@@ -4,9 +4,9 @@
 module PrettyPrinter where
 
 import Text.PrettyPrint as T
-import Text.PrettyPrint.GenericPretty
+-- import Text.PrettyPrint.GenericPretty
 
-import Grammer
+import Grammar
 
 import qualified Data.Set as Set
 import Control.Applicative
@@ -27,8 +27,7 @@ instance Show BoolExpr where
 
 printBool :: BoolExpr -> Int -> Doc
 
-printBool (BVar v) n = nest n (T.text "var")
-            $+$ nest (n + 3) (T.text (show v))
+printBool (BVar v) n = nest n (T.text "var" <+> T.text (show v))
 printBool (FalseLit) n = nest n (T.text "False")
 printBool (TrueLit) n = nest n (T.text "True")
 printBool (Not v) n = nest n (T.text "not")
@@ -45,8 +44,7 @@ instance Show NumExpr where
     
 printNum :: NumExpr -> Int -> Doc
 
-printNum (NVar v) n = nest n (T.text "var")
-            $+$ nest (n + 3) (T.text (show v))
+printNum (NVar v) n = nest n (T.text "var" <+> T.text (show v))
 printNum (Number v) n = nest n (T.double v)
 printNum (Add l r) n = nest n (T.text "+")
             $+$ printNum l (n + 3) $+$ printNum r (n + 3)
@@ -58,13 +56,13 @@ printNum (Div l r) n = nest n (T.text "/")
             $+$ printNum l (n + 3) $+$ printNum r (n + 3)
 printNum (E l r)  n = nest n (T.text "=")
             $+$ printNum l (n + 3) $+$ printNum r (n + 3)
-printNum (L l r)  n = nest n (T.text ">")
+printNum (L l r)  n = nest n (T.text "<")
             $+$ printNum l (n + 3) $+$ printNum r (n + 3)
-printNum (LE l r) n = nest n (T.text "<")
+printNum (LE l r) n = nest n (T.text "<=")
             $+$ printNum l (n + 3) $+$ printNum r (n + 3)
-printNum (G l r)  n = nest n (T.text ">=")
+printNum (G l r)  n = nest n (T.text ">")
             $+$ printNum l (n + 3) $+$ printNum r (n + 3)
-printNum (GE l r) n = nest n (T.text "<=")
+printNum (GE l r) n = nest n (T.text ">=")
             $+$ printNum l (n + 3) $+$ printNum r (n + 3)
          
          
@@ -74,8 +72,7 @@ instance Show ListExpr where
     
 printList :: ListExpr -> Int -> Doc
 
-printList (LVar v) n = nest n (T.text "var")
-            $+$ nest (n + 3) (T.text (show v))
+printList (LVar v) n = nest n (T.text "var" <+> T.text (show v))
 printList (Nil) n = nest n (T.text "Nil")
 printList (Cons l r) n = nest n (T.text "cons")
             $+$ printList l (n + 3) $+$ printList r (n + 3)
@@ -83,10 +80,8 @@ printList (Car v) n = nest n (T.text "car")
             $+$ printList v (n + 3)
 printList (Cdr v) n = nest n (T.text "cdr")
             $+$ printList v (n + 3)
-printList (CharLit v) n = nest n (T.text "char")
-            $+$ nest (n + 3) (T.char v)
-printList (StringLit v) n = nest n (T.text "string")
-            $+$ nest (n + 3) (T.text v)
+printList (CharLit v) n = nest n (T.text "char" <+> T.char v)
+printList (StringLit v) n = nest n (T.text "string" <+> T.text v)
             
             
 -- Expr 
@@ -95,8 +90,7 @@ instance Show Expr where
 
 printExpr :: Expr -> Int -> Doc
 
-printExpr (EVar v) n = nest n (T.text "var")
-            $+$ nest (n + 3) (T.text (show v))
+printExpr (EVar v) n = nest n (T.text "var" <+> T.text (show v))
 printExpr (BExp v) n = nest n (T.text "bool")
             $+$ printBool v (n + 3)
 printExpr (NExp v) n = nest n (T.text "num")
@@ -142,6 +136,6 @@ printSL (Cycle l r) n = nest n (T.text "cycle")
 prettyPrinter :: [String] -> Either String [String]
 prettyPrinter [] = Right []
 prettyPrinter (s : ss) = do
-    let headList = debuger (parseAST s)
+    let headList = debuger (Grammar.parse s)
     tailList <- prettyPrinter ss
     return (headList : tailList)

@@ -7,7 +7,7 @@ import System.Environment
 import System.IO
 import Repl
 import Interpreter
-import Grammer
+import Grammar
 import PrettyPrinter
 
 data Option = Option {

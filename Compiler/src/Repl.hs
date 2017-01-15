@@ -2,7 +2,7 @@ module Repl where
 
 import qualified Data.Map as M
 import System.IO
-import Grammer
+import Grammar
 import Interpreter
 import Data.Text
 import qualified Data.Vector as V
@@ -12,7 +12,7 @@ mainLoop env = do
     putStr "repl> "
     hFlush stdout
     l <- getLine
-    case parseAST l of
+    case Grammar.parse l of
         Right stmt -> case eval stmt ([], env) of
             Right (strList, newEnv) -> do
                 putStr (Prelude.unlines (Prelude.reverse strList))
